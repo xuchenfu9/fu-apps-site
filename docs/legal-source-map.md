@@ -9,7 +9,7 @@ The site renders app-specific legal documents from `src/data/legal/` rather than
 | PerfectList | `/Volumes/外置硬盘/Developer/Mylist/docs/privacy-policy.html` | `/Volumes/外置硬盘/Developer/Mylist/docs/support.html` | `/Volumes/外置硬盘/Developer/Mylist/docs/terms-of-use.html` | `fxcpxs@163.com` |
 | MeowTalk Diary | `/Volumes/外置硬盘/Developer/noteofpets/docs/privacy/index.html` | `/Volumes/外置硬盘/Developer/noteofpets/docs/support/index.html` | `/Volumes/外置硬盘/Developer/noteofpets/docs/terms/index.html` | `fxcpxs@163.com` |
 | My Bookmarks | `/Volumes/外置硬盘/Developer/WebManger/docs/bookmarkprivacy.html` | `/Volumes/外置硬盘/Developer/WebManger/docs/bookmartsupport.html` | `/Volumes/外置硬盘/Developer/WebManger/WebManager/Views/TermsOfServiceView.swift` | `fxcpxs@163.com` |
-| ID Photo | `/Volumes/外置硬盘/Developer/OneDollarID/docs/photo-privacy-policy.html` | `/Volumes/外置硬盘/Developer/OneDollarID/docs/photo-technical-support.html` | No existing standalone terms document; the site uses the shared StoreKit and Apple-device license template. | `panxiaosen@163.com` |
+| ID Photo | `/Volumes/外置硬盘/Developer/OneDollarID/docs/photo-privacy-policy.html` | `/Volumes/外置硬盘/Developer/OneDollarID/docs/photo-technical-support.html` | No existing standalone terms document; the site uses the shared StoreKit and Apple-device license template. | `fxcpxs@163.com` |
 | Party Games | `/Volumes/外置硬盘/Developer/fastwin-1/ReactionDuel/AppStoreAssets/partygames-privacy-policy.html` | `/Volumes/外置硬盘/Developer/fastwin-1/ReactionDuel/AppStoreAssets/partygames-support.html` | `/Volumes/外置硬盘/Developer/fastwin-1/ReactionDuel/AppStoreAssets/partygames-terms-of-service.html` | `fxcpxs@163.com` |
 
 ## Update procedure

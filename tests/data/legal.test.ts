@@ -14,4 +14,17 @@ describe("legal document completeness", () => {
       }
     }
   });
+
+  it("uses the approved support address in every published legal document", () => {
+    for (const app of apps) {
+      for (const locale of locales) {
+        const documents = legalDocumentsBySlug[app.slug][locale];
+        for (const document of Object.values(documents)) {
+          const text = document.sections.flatMap((section) => section.paragraphs).join(" ");
+          expect(text).toContain("fxcpxs@163.com");
+          expect(text).not.toMatch(/panxiaosen@/i);
+        }
+      }
+    }
+  });
 });

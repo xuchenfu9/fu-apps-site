@@ -213,7 +213,7 @@ const partyGames: AppRecord = {
   listings: { US: { storefront: "US", state: "live", currentName: "Party Games", url: "https://apps.apple.com/us/app/id6759240304" } }
 };
 const idPhoto: AppRecord = {
-  slug: "jiajia-id-photo", appStoreId: "6758612379", contactEmail: "panxiaosen@163.com", icon: "/icon.png", screenshots: ["/screen.png"], copy: fixtureCopy,
+  slug: "jiajia-id-photo", appStoreId: "6758612379", contactEmail: "fxcpxs@163.com", icon: "/icon.png", screenshots: ["/screen.png"], copy: fixtureCopy,
   listings: {
     CN: { storefront: "CN", state: "planned", currentName: "佳佳证件照", nextReleaseName: "证照准拍", url: "https://apps.apple.com/cn/app/id6758612379" },
     HK: { storefront: "HK", state: "planned", nextReleaseName: "證照好拍", url: "https://apps.apple.com/hk/app/id6758612379" },
@@ -383,7 +383,7 @@ listings: {
 }
 ```
 
-Use `fxcpxs@163.com` for PerfectList, MeowTalk Diary, My Bookmarks, and Party Games; use `panxiaosen@163.com` for the ID-photo record. Add five complete localized `copy` objects per app; source features from the project marketing/app-store material, not from code comments. Extend `tests/lib/storefront.test.ts` with `expect(appsBySlug["jiajia-id-photo"].listings.CA?.nextReleaseName).toBe("MapleLens ID")` so production data, not only a fixture, verifies the regional name.
+Use `fxcpxs@163.com` for every public product record. Add five complete localized `copy` objects per app; source features from the project marketing/app-store material, not from code comments. Extend `tests/lib/storefront.test.ts` with `expect(appsBySlug["jiajia-id-photo"].listings.CA?.nextReleaseName).toBe("MapleLens ID")` so production data, not only a fixture, verifies the regional name.
 
 - [ ] **Step 2: Verify the Storefront tests pass.**
 
@@ -489,7 +489,7 @@ Each product section must list the exact paths from the design spec, the contact
 | PerfectList | fxcpxs@163.com | Mylist/docs/terms-of-use.html |
 | MeowTalk Diary | fxcpxs@163.com | noteofpets/docs/terms/index.html and docs/assets/content.js |
 | 我的书签 | fxcpxs@163.com | Newly authored from product facts |
-| 佳佳证件照 | panxiaosen@163.com | Newly authored from product facts |
+| 佳佳证件照 | fxcpxs@163.com | Newly authored from product facts |
 | 派对游戏 | fxcpxs@163.com | fastwin-1/ReactionDuel/AppStoreAssets/terms-of-service.html |
 ```
 

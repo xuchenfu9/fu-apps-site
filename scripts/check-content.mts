@@ -1,6 +1,6 @@
 import { existsSync } from "node:fs";
 import { resolve } from "node:path";
-import { apps } from "../src/data/apps";
+import { apps, publicContactEmail } from "../src/data/apps";
 import { legalDocumentsBySlug } from "../src/data/legal";
 import { locales } from "../src/lib/locales";
 import { storefronts, type AppRecord } from "../src/lib/types";
@@ -13,7 +13,7 @@ function validateApp(root: string, app: AppRecord): string[] {
   const errors: string[] = [];
   const prefix = `[${app.slug}]`;
 
-  if (!app.contactEmail.includes("@")) errors.push(`${prefix} has no valid support email.`);
+  if (app.contactEmail !== publicContactEmail) errors.push(`${prefix} must use the approved public support email.`);
   if (!publicAssetExists(root, app.icon)) errors.push(`${prefix} icon is missing: ${app.icon}`);
   if (app.screenshots.length === 0) errors.push(`${prefix} needs at least one screenshot.`);
   for (const screenshot of app.screenshots) {
@@ -22,7 +22,7 @@ function validateApp(root: string, app: AppRecord): string[] {
 
   for (const locale of locales) {
     const copy = app.copy[locale];
-    if (!copy?.eyebrow || !copy.summary || copy.features.length === 0) {
+    if (!copy?.eyebrow || !copy.summary || copy.features.length < 5 || copy.features.some((feature) => !feature.title.trim() || !feature.description.trim())) {
       errors.push(`${prefix} is missing catalog copy for ${locale}.`);
     }
 

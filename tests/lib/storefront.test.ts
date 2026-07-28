@@ -31,7 +31,7 @@ const partyGames: AppRecord = {
 const idPhoto: AppRecord = {
   slug: "jiajia-id-photo",
   appStoreId: "6758612379",
-  contactEmail: "panxiaosen@163.com",
+  contactEmail: "fxcpxs@163.com",
   icon: "/icon.png",
   screenshots: ["/screen.png"],
   copy: fixtureCopy,
