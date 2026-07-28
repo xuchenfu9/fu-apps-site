@@ -1,0 +1,29 @@
+{
+  "name": "fu-apps-site",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "check": "astro check",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "validate": "tsx scripts/check-content.mts",
+    "build": "npm run validate && npm run check && astro build",
+    "preview": "astro preview",
+    "refresh:storefronts": "tsx scripts/refresh-storefronts.mts"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.10",
+    "@astrojs/sitemap": "3.7.3",
+    "@playwright/test": "1.62.0",
+    "astro": "7.1.4",
+    "tsx": "4.23.1",
+    "typescript": "6.0.3",
+    "vitest": "4.1.10"
+  }
+}

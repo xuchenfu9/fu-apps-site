@@ -6,7 +6,7 @@
 
 **Architecture:** Astro generates one static HTML page per locale, product, and document route. TypeScript catalog data supplies independent locale copy and Storefront listings, while a small browser script persists the visitor's selected App Store region and updates contextual product names and CTAs. Legal prose lives in per-product, per-locale TypeScript modules so policy content has a reviewable, explicit source rather than runtime translation.
 
-**Tech Stack:** Astro 7.1.4, TypeScript 7.0.2, Vitest 4.1.10, Playwright 1.62.0, Astro sitemap 3.7.3, GitHub Pages Actions.
+**Tech Stack:** Astro 7.1.4, TypeScript 6.0.3, Vitest 4.1.10, Playwright 1.62.0, Astro sitemap 3.7.3, GitHub Pages Actions.
 
 ---
 
@@ -92,7 +92,7 @@
     "@playwright/test": "1.62.0",
     "astro": "7.1.4",
     "tsx": "4.23.1",
-    "typescript": "7.0.2",
+    "typescript": "6.0.3",
     "vitest": "4.1.10"
   }
 }
