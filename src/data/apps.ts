@@ -45,58 +45,58 @@ const perfectlist: AppRecord = {
   ],
   copy: copy({
     "zh-Hans": {
-      eyebrow: "任务、习惯与提醒",
-      summary: "把待办、习惯、生日与工作日提醒安排进同一条清晰日程，知道现在该做什么，也看得见坚持过的每一天。",
+      eyebrow: "系统级闹钟、任务与习惯",
+      summary: "让系统级闹钟理解节假日、工作日与排班节奏，再把农历生日、任务、习惯和日历收进同一份日程。",
       features: [
-        { title: "今天先做什么", description: "用优先级、分类和时间整理任务，把零散事项收成一份可执行的今日清单。" },
-        { title: "让习惯自然延续", description: "按每日、每周、每月或每年建立习惯，在完成记录里回看持续积累的节奏。" },
-        { title: "记住重要的日子", description: "把生日、重复安排和工作日闹钟放进提醒体系；生日管理也覆盖农历日期。" },
-        { title: "给专注留一段时间", description: "在任务之间启动番茄钟，用短而明确的专注时段推进真正重要的事。" },
-        { title: "跟随你的日常设备", description: "在 iPhone、iPad、Mac、Apple Watch 与小组件中快速查看计划，并可按设备设置使用 iCloud 同步。" }
+        { title: "系统级闹钟，懂你的排班", description: "在支持的 iOS 18+ 系统版本且获授权时使用 AlarmKit；闹钟支持每天、每周、每月、每年、工作日与节假日，还能适配单休、大小周和自定义周循环。" },
+        { title: "农历生日，不再手算", description: "为农历或公历生日建立提醒，也能管理重复日期，让重要的人和日子提前出现在日程里。" },
+        { title: "任务进入系统日历", description: "用优先级、分类和时间整理任务，并可把有日期的任务同步到系统日历，安排与待办保持一致。" },
+        { title: "习惯与番茄钟一起推进", description: "按每日、每周、每月或每年建立习惯，在任务之间启动番茄钟，用清晰的专注时段完成计划。" },
+        { title: "常用设备上随时查看", description: "在 iPhone、iPad、Mac、Apple Watch 与小组件中查看日程，并可按设备设置使用 iCloud 同步。" }
       ]
     },
     "zh-Hant": {
-      eyebrow: "任務、習慣與提醒",
-      summary: "把待辦、習慣、生日與工作日提醒安排進同一條清晰日程，知道現在該做什麼，也看得見每天的累積。",
+      eyebrow: "系統級鬧鐘、任務與習慣",
+      summary: "讓系統級鬧鐘理解節假日、工作日與排班節奏，再把農曆生日、任務、習慣和日曆收進同一份日程。",
       features: [
-        { title: "今天先做什麼", description: "用優先順序、分類和時間整理任務，把零散事項收成一份可執行的今日清單。" },
-        { title: "讓習慣自然延續", description: "依每日、每週、每月或每年建立習慣，從完成記錄回看持續累積的節奏。" },
-        { title: "記住重要日子", description: "把生日、重複安排和工作日鬧鐘放進提醒系統；生日管理也支援農曆日期。" },
-        { title: "留一段專注時間", description: "在任務之間啟動番茄鐘，用短而明確的專注時段推進真正重要的事。" },
-        { title: "跟著日常裝置使用", description: "在 iPhone、iPad、Mac、Apple Watch 與小工具中快速查看計畫，並可依裝置設定使用 iCloud 同步。" }
+        { title: "系統級鬧鐘，懂你的排班", description: "在支援的 iOS 18+ 系統版本且獲得授權時使用 AlarmKit；鬧鐘支援每天、每週、每月、每年、工作日與節假日，也能配合單休、大小週和自訂週循環。" },
+        { title: "農曆生日，不再手算", description: "為農曆或國曆生日建立提醒，也能管理重複日期，讓重要的人和日子提早出現在日程裡。" },
+        { title: "任務進入系統日曆", description: "用優先順序、分類和時間整理任務，並可把有日期的任務同步到系統日曆，安排與待辦保持一致。" },
+        { title: "習慣與番茄鐘一起推進", description: "依每日、每週、每月或每年建立習慣，在任務之間啟動番茄鐘，以清楚的專注時段完成計畫。" },
+        { title: "常用裝置隨時查看", description: "在 iPhone、iPad、Mac、Apple Watch 與小工具中查看日程，並可依裝置設定使用 iCloud 同步。" }
       ]
     },
     en: {
-      eyebrow: "Tasks, habits, and reminders",
-      summary: "Bring tasks, habits, birthdays, and weekday reminders into one clear rhythm, so you know what is next and can see what you have kept up with.",
+      eyebrow: "System alarms, tasks, and habits",
+      summary: "Let system-level alarms follow holidays, workdays, and your work rhythm, then keep lunar birthdays, tasks, habits, and calendar plans in one schedule.",
       features: [
-        { title: "A practical view of today", description: "Use priorities, categories, and times to turn loose thoughts into a list that is ready to act on." },
-        { title: "Habits that fit real life", description: "Set up daily, weekly, monthly, or yearly routines and revisit the record of your steady progress." },
-        { title: "Dates worth remembering", description: "Keep birthdays, repeating plans, and weekday alarms together, including support for lunar-calendar birthdays." },
-        { title: "Make room to focus", description: "Start a Pomodoro session between tasks and give an important piece of work a defined stretch of attention." },
-        { title: "Close on the devices you use", description: "Check plans from iPhone, iPad, Mac, Apple Watch, and widgets, with iCloud synchronization available through your device settings." }
+        { title: "A system-level alarm for your schedule", description: "On supported, authorized iOS 18+ devices, use AlarmKit for daily, weekly, monthly, yearly, workday, and holiday alarms, including single-day weekends, alternating work weeks, and custom weekly cycles." },
+        { title: "Lunar birthdays without mental math", description: "Create reminders for lunar or Gregorian birthdays and recurring dates, so important people and days appear before they are due." },
+        { title: "Tasks that reach your calendar", description: "Organize tasks with priorities, categories, and times, then synchronize dated tasks with the system calendar to keep plans aligned." },
+        { title: "Habits and Pomodoro in one flow", description: "Build daily, weekly, monthly, or yearly habits, then start a Pomodoro session between tasks for a defined period of focus." },
+        { title: "Ready on your Apple devices", description: "Check the schedule from iPhone, iPad, Mac, Apple Watch, and widgets, with iCloud synchronization available through your device settings." }
       ]
     },
     ja: {
-      eyebrow: "タスク、習慣、リマインダー",
-      summary: "やること、習慣、誕生日、平日の通知を一つの見やすい流れにまとめ、次にすることと続けてきたことの両方を確認できます。",
+      eyebrow: "システムアラーム、タスク、習慣",
+      summary: "祝日、平日、勤務サイクルに合わせたシステムレベルのアラームと、旧暦の誕生日、タスク、習慣、カレンダーを一つの予定にまとめます。",
       features: [
-        { title: "今日を行動できる形に", description: "優先度、カテゴリ、時刻でタスクを整理し、散らばった用事を実行しやすい今日のリストにまとめます。" },
-        { title: "続けやすい習慣づくり", description: "毎日、毎週、毎月、毎年の習慣を設定し、積み重ねた記録を振り返れます。" },
-        { title: "大切な日を忘れない", description: "誕生日、繰り返し予定、平日のアラームをまとめて管理。誕生日は旧暦の日付にも対応します。" },
-        { title: "集中のための時間", description: "タスクの合間にポモドーロタイマーを始め、重要なことに短く明確な集中時間を作れます。" },
-        { title: "いつもの Apple デバイスで", description: "iPhone、iPad、Mac、Apple Watch、ウィジェットで予定をすばやく確認し、端末設定に応じて iCloud 同期も利用できます。" }
+        { title: "勤務に合わせるシステムレベルのアラーム", description: "対応し、許可された iOS 18+ では AlarmKit を使用。毎日、毎週、毎月、毎年、平日、祝日のアラームに加え、週休1日、隔週勤務、カスタムの週サイクルにも対応します。" },
+        { title: "旧暦の誕生日も迷わない", description: "旧暦または新暦の誕生日と繰り返し日を通知に設定し、大切な人と日を前もって予定に表示します。" },
+        { title: "タスクをシステムカレンダーへ", description: "優先度、カテゴリ、時刻でタスクを整理し、日付のあるタスクをシステムカレンダーに同期して予定をそろえます。" },
+        { title: "習慣とポモドーロを一つの流れに", description: "毎日、毎週、毎月、毎年の習慣を作り、タスクの合間にポモドーロを始めて集中時間を確保できます。" },
+        { title: "いつもの Apple デバイスで", description: "iPhone、iPad、Mac、Apple Watch、ウィジェットで予定を確認し、端末設定に応じて iCloud 同期も利用できます。" }
       ]
     },
     ko: {
-      eyebrow: "할 일, 습관, 알림",
-      summary: "할 일, 습관, 생일, 평일 알림을 하나의 분명한 흐름으로 정리해 다음 할 일과 꾸준히 이어 온 기록을 함께 확인하세요.",
+      eyebrow: "시스템 알람, 할 일, 습관",
+      summary: "공휴일, 평일, 근무 리듬에 맞는 시스템 수준 알람과 음력 생일, 할 일, 습관, 캘린더 계획을 하나의 일정으로 관리하세요.",
       features: [
-        { title: "오늘을 실행 가능한 목록으로", description: "우선순위, 카테고리, 시간으로 할 일을 정리하여 흩어진 생각을 바로 실행할 수 있는 오늘의 목록으로 만듭니다." },
-        { title: "일상에 맞는 습관", description: "매일, 매주, 매월, 매년 반복할 습관을 만들고 꾸준히 쌓인 기록을 돌아봅니다." },
-        { title: "기억하고 싶은 날짜", description: "생일, 반복 일정, 평일 알람을 한곳에서 관리하며 음력 생일도 지원합니다." },
-        { title: "집중할 시간을 남기기", description: "할 일 사이에서 포모도로 타이머를 시작해 중요한 일에 명확한 집중 시간을 만듭니다." },
-        { title: "자주 쓰는 기기에서", description: "iPhone, iPad, Mac, Apple Watch, 위젯에서 계획을 빠르게 확인하고 기기 설정에 따라 iCloud 동기화를 이용합니다." }
+        { title: "근무 일정에 맞는 시스템 수준 알람", description: "지원되고 권한이 허용된 iOS 18+ 기기에서 AlarmKit을 사용합니다. 매일, 매주, 매월, 매년, 평일, 공휴일 알람과 주 1회 휴무, 격주 근무, 사용자 지정 주간 반복을 지원합니다." },
+        { title: "음력 생일도 계산 없이", description: "음력 또는 양력 생일과 반복 날짜에 알림을 설정해 중요한 사람과 날짜를 미리 일정에서 확인합니다." },
+        { title: "캘린더까지 이어지는 할 일", description: "우선순위, 카테고리, 시간으로 할 일을 정리하고 날짜가 있는 할 일을 시스템 캘린더와 동기화해 계획을 맞춥니다." },
+        { title: "습관과 포모도로를 한 흐름으로", description: "매일, 매주, 매월, 매년 습관을 만들고 할 일 사이에서 포모도로를 시작해 분명한 집중 시간을 확보합니다." },
+        { title: "익숙한 Apple 기기에서", description: "iPhone, iPad, Mac, Apple Watch, 위젯에서 일정을 확인하고 기기 설정에 따라 iCloud 동기화를 이용합니다." }
       ]
     }
   }),
