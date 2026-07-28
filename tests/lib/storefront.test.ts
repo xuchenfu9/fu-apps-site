@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { appsBySlug } from "../../src/data/apps";
 import { getListingDisplayName, resolveListing, resolveRequestedStorefront } from "../../src/lib/storefront";
 import type { AppRecord } from "../../src/lib/types";
 
@@ -88,5 +89,6 @@ describe("Storefront resolution", () => {
     expect(getListingDisplayName(resolveListing(idPhoto, "US").listing)).toBe("US PassSnap");
     expect(getListingDisplayName(resolveListing(idPhoto, "TW").listing)).toBe("證照好拍");
     expect(resolveListing(idPhoto, "JP").resolvedStorefront).toBe("US");
+    expect(appsBySlug["jiajia-id-photo"].listings.CA?.nextReleaseName).toBe("MapleLens ID");
   });
 });
