@@ -1,0 +1,35 @@
+---
+import AppCard from "../../components/AppCard.astro";
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import { apps } from "../../data/apps";
+import { locales } from "../../lib/locales";
+import type { Locale } from "../../lib/types";
+import { ui } from "../../lib/ui";
+
+export function getStaticPaths() {
+  return locales.map((locale) => ({ params: { locale }, props: { locale } }));
+}
+
+const { locale } = Astro.props as { locale: Locale };
+const labels = ui[locale];
+---
+
+<SiteLayout locale={locale} title="FU apps" description={labels.galleryBody}>
+  <section class="gallery-hero page-shell">
+    <p class="section-label">{labels.galleryEyebrow}</p>
+    <h1>FU apps</h1>
+    <p class="gallery-hero__title">{labels.galleryTitle}</p>
+    <p class="gallery-hero__body">{labels.galleryBody}</p>
+    <a class="text-link gallery-hero__jump" href="#apps">{labels.allApps}<span aria-hidden="true"> ↓</span></a>
+  </section>
+
+  <section class="app-gallery page-shell" id="apps" aria-labelledby="apps-heading">
+    <header class="section-heading">
+      <p class="section-label">{labels.galleryEyebrow}</p>
+      <h2 id="apps-heading">{labels.allApps}</h2>
+    </header>
+    <div class="app-gallery__grid">
+      {apps.map((app, index) => <AppCard app={app} locale={locale} position={index + 1} />)}
+    </div>
+  </section>
+</SiteLayout>

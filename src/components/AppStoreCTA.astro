@@ -1,0 +1,36 @@
+---
+import { localeDefaultStorefront } from "../lib/locales";
+import { storefrontDataAttributes } from "../lib/storefront-dom";
+import { getListingDisplayName, resolveListing } from "../lib/storefront";
+import type { AppRecord, Locale } from "../lib/types";
+import { storefrontLabels, ui } from "../lib/ui";
+
+interface Props {
+  app: AppRecord;
+  locale: Locale;
+  compact?: boolean;
+}
+
+const { app, locale, compact = false } = Astro.props;
+const requestedStorefront = localeDefaultStorefront[locale];
+const resolved = resolveListing(app, requestedStorefront);
+const initialMessage = resolved.listing.state === "planned"
+  ? ui[locale].releasePlanned(storefrontLabels[locale][resolved.resolvedStorefront])
+  : ui[locale].availableIn(storefrontLabels[locale][resolved.resolvedStorefront]);
+const attributes = storefrontDataAttributes(app, locale);
+---
+
+<div class:list={["app-store-cta", { "app-store-cta--compact": compact }]}>
+  <a
+    {...attributes}
+    data-storefront-cta
+    href={resolved.listing.url}
+    target="_blank"
+    rel="noreferrer"
+    aria-label={`${ui[locale].openAppStore}: ${getListingDisplayName(resolved.listing)}`}
+  >
+    <span>{ui[locale].openAppStore}</span>
+    <span aria-hidden="true">↗</span>
+  </a>
+  <p {...attributes} data-storefront-note data-state={resolved.listing.state}>{initialMessage}</p>
+</div>

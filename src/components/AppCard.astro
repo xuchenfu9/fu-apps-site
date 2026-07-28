@@ -1,0 +1,36 @@
+---
+import AppStoreCTA from "./AppStoreCTA.astro";
+import { localeDefaultStorefront, localePath } from "../lib/locales";
+import { storefrontDataAttributes } from "../lib/storefront-dom";
+import { getListingDisplayName, resolveListing } from "../lib/storefront";
+import { publicPath } from "../lib/site";
+import type { AppRecord, Locale } from "../lib/types";
+import { ui } from "../lib/ui";
+
+interface Props {
+  app: AppRecord;
+  locale: Locale;
+  position: number;
+}
+
+const { app, locale, position } = Astro.props;
+const appCopy = app.copy[locale];
+const listing = resolveListing(app, localeDefaultStorefront[locale]).listing;
+const attributes = storefrontDataAttributes(app, locale);
+const appPath = publicPath(localePath(locale, `apps/${app.slug}`));
+---
+
+<article class="app-card" style={`--card-position: ${position}`}>
+  <a class="app-card__cover" href={appPath} aria-label={`${ui[locale].viewApp}: ${getListingDisplayName(listing)}`}>
+    <img src={publicPath(app.icon)} width="1024" height="1024" alt="" loading="lazy" />
+  </a>
+  <div class="app-card__body">
+    <p>{appCopy.eyebrow}</p>
+    <h2><span {...attributes} data-storefront-name>{getListingDisplayName(listing)}</span></h2>
+    <p class="app-card__summary">{appCopy.summary}</p>
+    <div class="app-card__actions">
+      <a class="text-link" href={appPath}>{ui[locale].viewApp}<span aria-hidden="true"> →</span></a>
+      <AppStoreCTA app={app} locale={locale} compact />
+    </div>
+  </div>
+</article>

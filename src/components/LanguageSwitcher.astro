@@ -1,0 +1,33 @@
+---
+import { localeLabels, localePath, locales } from "../lib/locales";
+import { publicPath } from "../lib/site";
+import type { Locale } from "../lib/types";
+import { ui } from "../lib/ui";
+
+interface Props {
+  locale: Locale;
+  suffix?: string;
+}
+
+const { locale, suffix = "" } = Astro.props;
+const labels = ui[locale];
+const menuId = `language-menu-${locale}-${suffix.replace(/[^a-zA-Z0-9]/g, "-") || "home"}`;
+---
+
+<div class="language-switcher" data-language-switcher>
+  <button type="button" aria-label={`${labels.language}: ${localeLabels[locale]}`} aria-controls={menuId} aria-expanded="false" data-language-trigger>
+    <span aria-hidden="true">◎</span>
+    <span>{localeLabels[locale]}</span>
+  </button>
+  <div class="language-menu" id={menuId} data-language-menu hidden>
+    {locales.map((candidate) => (
+      <a href={publicPath(localePath(candidate, suffix))} aria-current={candidate === locale ? "page" : undefined}>
+        {localeLabels[candidate]}
+      </a>
+    ))}
+  </div>
+</div>
+
+<script>
+  import "../scripts/language-switcher";
+</script>

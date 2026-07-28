@@ -1,0 +1,16 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+import { publicPath } from "../lib/site";
+import { ui } from "../lib/ui";
+
+const locale = "en" as const;
+---
+
+<SiteLayout locale={locale} title={`FU apps | ${ui[locale].notFoundTitle}`} description={ui[locale].notFoundBody} noindex>
+  <section class="not-found page-shell">
+    <p>FU apps</p>
+    <h1>{ui[locale].notFoundTitle}</h1>
+    <p>{ui[locale].notFoundBody}</p>
+    <a class="button-link" href={publicPath("/en/")}>{ui[locale].returnHome}<span aria-hidden="true"> →</span></a>
+  </section>
+</SiteLayout>

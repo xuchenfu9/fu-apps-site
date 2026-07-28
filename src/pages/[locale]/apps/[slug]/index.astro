@@ -1,0 +1,79 @@
+---
+import AppStoreCTA from "../../../../components/AppStoreCTA.astro";
+import DocumentNav from "../../../../components/DocumentNav.astro";
+import SiteLayout from "../../../../layouts/SiteLayout.astro";
+import { apps } from "../../../../data/apps";
+import { locales, localeDefaultStorefront, localePath } from "../../../../lib/locales";
+import { publicPath } from "../../../../lib/site";
+import { storefrontDataAttributes } from "../../../../lib/storefront-dom";
+import { getListingDisplayName, resolveListing } from "../../../../lib/storefront";
+import type { AppRecord, Locale } from "../../../../lib/types";
+import { ui } from "../../../../lib/ui";
+
+export function getStaticPaths() {
+  return locales.flatMap((locale) => apps.map((app) => ({ params: { locale, slug: app.slug }, props: { locale, app } })));
+}
+
+const { locale, app } = Astro.props as { locale: Locale; app: AppRecord };
+const labels = ui[locale];
+const copy = app.copy[locale];
+const listing = resolveListing(app, localeDefaultStorefront[locale]).listing;
+const attributes = storefrontDataAttributes(app, locale);
+const suffix = `apps/${app.slug}`;
+---
+
+<SiteLayout locale={locale} title={`FU apps | ${getListingDisplayName(listing)}`} description={copy.summary} suffix={suffix} contactEmail={app.contactEmail}>
+  <section class="product-hero page-shell">
+    <a class="back-link" href={publicPath(localePath(locale))}><span aria-hidden="true">←</span> {labels.allApps}</a>
+    <div class="product-hero__grid">
+      <div class="product-intro">
+        <img class="product-intro__icon" src={publicPath(app.icon)} width="1024" height="1024" alt="" />
+        <p class="section-label">{copy.eyebrow}</p>
+        <h1><span {...attributes} data-storefront-name>{getListingDisplayName(listing)}</span></h1>
+        <p class="product-intro__summary">{copy.summary}</p>
+        <AppStoreCTA app={app} locale={locale} />
+      </div>
+      <div class="product-hero__screen">
+        <img src={publicPath(app.screenshots[0]!)} alt="" loading="eager" />
+      </div>
+    </div>
+  </section>
+
+  <section class="feature-section page-shell" aria-labelledby="features-heading">
+    <header class="section-heading">
+      <p class="section-label">{copy.eyebrow}</p>
+      <h2 id="features-heading">{labels.features}</h2>
+    </header>
+    <ol class="feature-list">
+      {copy.features.map((feature, index) => (
+        <li>
+          <span>{String(index + 1).padStart(2, "0")}</span>
+          <div>
+            <h3>{feature.title}</h3>
+            <p>{feature.description}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section class="screens-section page-shell" aria-labelledby="screens-heading">
+    <header class="section-heading">
+      <p class="section-label">FU apps</p>
+      <h2 id="screens-heading">{labels.screenshots}</h2>
+    </header>
+    <div class="screens-grid">
+      {app.screenshots.map((screenshot) => <img src={publicPath(screenshot)} alt="" loading="lazy" />)}
+    </div>
+  </section>
+
+  <section class="document-band">
+    <div class="page-shell document-band__inner">
+      <div>
+        <p class="section-label">FU apps</p>
+        <h2>{labels.documents}</h2>
+      </div>
+      <DocumentNav locale={locale} slug={app.slug} />
+    </div>
+  </section>
+</SiteLayout>

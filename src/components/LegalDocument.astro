@@ -1,0 +1,28 @@
+---
+import type { LegalDocument as LegalDocumentData } from "../data/legal";
+
+interface Props {
+  document: LegalDocumentData;
+}
+
+const { document } = Astro.props;
+---
+
+<article class="legal-document">
+  <header>
+    <p>FU apps</p>
+    <h1>{document.title}</h1>
+    <time datetime={document.updatedAt}>{document.updatedAt}</time>
+  </header>
+  {document.sections.map((section) => (
+    <section>
+      <h2>{section.title}</h2>
+      {section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+      {section.bullets && (
+        <ul>
+          {section.bullets.map((bullet) => <li>{bullet}</li>)}
+        </ul>
+      )}
+    </section>
+  ))}
+</article>

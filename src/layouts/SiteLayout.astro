@@ -1,0 +1,61 @@
+---
+import "../styles/global.css";
+import LanguageSwitcher from "../components/LanguageSwitcher.astro";
+import StorefrontSelector from "../components/StorefrontSelector.astro";
+import { localePath } from "../lib/locales";
+import { publicPath } from "../lib/site";
+import type { Locale } from "../lib/types";
+import { ui } from "../lib/ui";
+
+interface Props {
+  locale: Locale;
+  title: string;
+  description: string;
+  suffix?: string;
+  contactEmail?: string;
+  noindex?: boolean;
+}
+
+const { locale, title, description, suffix = "", contactEmail = "fxcpxs@163.com", noindex = false } = Astro.props;
+const labels = ui[locale];
+const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).toString();
+---
+
+<!doctype html>
+<html lang={locale} data-locale={locale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <link rel="canonical" href={canonical} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="wordmark" href={publicPath(localePath(locale))} aria-label="FU apps">FU <span>apps</span></a>
+        <nav class="site-nav" aria-label={labels.allApps}>
+          <a href={publicPath(localePath(locale))}>{labels.allApps}</a>
+        </nav>
+        <div class="site-tools">
+          <StorefrontSelector locale={locale} />
+          <LanguageSwitcher locale={locale} suffix={suffix} />
+        </div>
+      </div>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div>
+        <a class="wordmark" href={publicPath(localePath(locale))}>FU <span>apps</span></a>
+        <p>{labels.footer}</p>
+      </div>
+      <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
+    </footer>
+    <script>
+      import "../scripts/storefront-preference";
+    </script>
+  </body>
+</html>

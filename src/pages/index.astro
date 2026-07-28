@@ -1,0 +1,32 @@
+---
+import { publicPath } from "../lib/site";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FU apps</title>
+  </head>
+  <body>
+    <p><a href={publicPath("/en/")}>FU apps</a></p>
+    <script is:inline define:vars={{ base: import.meta.env.BASE_URL }}>
+      const supportedLocales = ["zh-Hans", "zh-Hant", "en", "ja", "ko"];
+      const browserLanguages = navigator.languages ?? [navigator.language];
+      const language = browserLanguages
+        .map((value) => value.toLowerCase())
+        .find((value) => value.startsWith("zh-hans") || value.startsWith("zh-cn") || value.startsWith("zh-hant") || value.startsWith("zh-tw") || value.startsWith("zh-hk") || value.startsWith("ja") || value.startsWith("ko") || value.startsWith("en"));
+      const locale = language?.startsWith("zh-hans") || language?.startsWith("zh-cn")
+        ? "zh-Hans"
+        : language?.startsWith("zh-hant") || language?.startsWith("zh-tw") || language?.startsWith("zh-hk")
+          ? "zh-Hant"
+          : language?.startsWith("ja")
+            ? "ja"
+            : language?.startsWith("ko")
+              ? "ko"
+              : "en";
+      if (supportedLocales.includes(locale)) window.location.replace(`${base}${locale}/`);
+    </script>
+  </body>
+</html>

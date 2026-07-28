@@ -1,0 +1,18 @@
+---
+import { localeDefaultStorefront } from "../lib/locales";
+import { storefronts, type Locale } from "../lib/types";
+import { storefrontLabels, ui } from "../lib/ui";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+---
+
+<label class="storefront-selector">
+  <span>{ui[locale].storefront}</span>
+  <select data-storefront-selector aria-label={ui[locale].storefront} value={localeDefaultStorefront[locale]}>
+    {storefronts.map((storefront) => <option value={storefront}>{storefrontLabels[locale][storefront]}</option>)}
+  </select>
+</label>

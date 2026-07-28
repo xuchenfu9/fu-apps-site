@@ -1,0 +1,34 @@
+---
+import DocumentNav from "../../../../components/DocumentNav.astro";
+import LegalDocument from "../../../../components/LegalDocument.astro";
+import SiteLayout from "../../../../layouts/SiteLayout.astro";
+import { apps } from "../../../../data/apps";
+import { legalDocumentsBySlug, type LegalKind } from "../../../../data/legal";
+import { locales, localeDefaultStorefront, localePath } from "../../../../lib/locales";
+import { publicPath } from "../../../../lib/site";
+import { storefrontDataAttributes } from "../../../../lib/storefront-dom";
+import { getListingDisplayName, resolveListing } from "../../../../lib/storefront";
+import type { AppRecord, Locale } from "../../../../lib/types";
+
+export function getStaticPaths() {
+  const legalKinds = ["privacy", "support", "terms"] as const satisfies readonly LegalKind[];
+  return locales.flatMap((locale) => apps.flatMap((app) => legalKinds.map((document) => ({
+    params: { locale, slug: app.slug, document },
+    props: { locale, app, document }
+  }))));
+}
+
+const { locale, app, document: documentKind } = Astro.props as { locale: Locale; app: AppRecord; document: LegalKind };
+const legalDocument = legalDocumentsBySlug[app.slug]![locale][documentKind];
+const listing = resolveListing(app, localeDefaultStorefront[locale]).listing;
+const attributes = storefrontDataAttributes(app, locale);
+const suffix = `apps/${app.slug}/${documentKind}`;
+---
+
+<SiteLayout locale={locale} title={`FU apps | ${legalDocument.title}`} description={legalDocument.sections[0]?.paragraphs[0] ?? legalDocument.title} suffix={suffix} contactEmail={app.contactEmail}>
+  <section class="legal-page page-shell">
+    <a class="back-link" href={publicPath(localePath(locale, `apps/${app.slug}`))}><span aria-hidden="true">←</span> <span {...attributes} data-storefront-name>{getListingDisplayName(listing)}</span></a>
+    <DocumentNav locale={locale} slug={app.slug} current={documentKind} />
+    <LegalDocument document={legalDocument} />
+  </section>
+</SiteLayout>
