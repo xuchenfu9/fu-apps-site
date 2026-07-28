@@ -23,7 +23,7 @@
 
 App Store 名称是商店地区属性，而不是单一的站点翻译字段。维护数据保存查询到的正式名称与 URL；在更新时通过 Apple iTunes Lookup 接口复核。页面不在访问时请求 Apple。
 
-佳佳证件照下一版本的 Storefront 品牌已确定：CN 为“证照准拍”，HK/TW 为“證照好拍”，CA 为“MapleLens ID”，US 为“US PassSnap”。这些条目以 `planned` 状态进入目录；版本实际在对应商店可查询后，刷新命令把它们切换为 `live`，并以 Apple Lookup 返回的名称和 URL 为准。JP/KR 没有发布计划，不为佳佳证件照声明未来上架。
+佳佳证件照下一版本的 Storefront 品牌已确定：CN 由当前“佳佳证件照”改为“证照准拍”，HK/TW 为“證照好拍”，CA 为“MapleLens ID”，US 为“US PassSnap”。目录同时保存当前 Apple Lookup 的 CN 名称和下一版本名称；在 Apple 返回新名称前，站点对下一版本名称标明“随下一版本更新”，并继续说明当前商店的实际名称。HK/TW/CA/US 条目以 `planned` 状态进入目录；版本实际在对应商店可查询后，刷新命令把它们切换为 `live`，并以 Apple Lookup 返回的名称和 URL 为准。JP/KR 没有发布计划，不为佳佳证件照声明未来上架。
 
 ## 体验与视觉
 
