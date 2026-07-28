@@ -8,6 +8,22 @@ test("shows the FU apps gallery and Storefront-aware App Store links", async ({ 
   await expect(page.locator('[data-storefront-cta]').first()).toHaveAttribute("href", /apps\.apple\.com/);
 });
 
+test("opens an app detail page from a card surface while preserving the App Store CTA", async ({ page }) => {
+  await page.goto("zh-Hans/");
+  await page.locator("astro-dev-toolbar").evaluateAll((toolbars) => toolbars.forEach((toolbar) => toolbar.remove()));
+
+  const card = page.locator('.app-card:has(a[href="/fu-apps-site/zh-Hans/apps/perfectlist/"])');
+  await expect(card.locator("[data-storefront-cta]")).toHaveAttribute("href", /apps\.apple\.com\/.*\/app\/id6759079848/);
+
+  const summary = card.locator(".app-card__summary");
+  await summary.scrollIntoViewIfNeeded();
+  const box = await summary.boundingBox();
+  if (!box) throw new Error("PerfectList card summary is not visible.");
+  await page.mouse.click(box.x + 8, box.y + 8);
+
+  await expect(page).toHaveURL(/\/fu-apps-site\/zh-Hans\/apps\/perfectlist\/$/);
+});
+
 test("keeps a legal document path when changing language", async ({ page }) => {
   await page.goto("en/apps/perfectlist/privacy/");
 

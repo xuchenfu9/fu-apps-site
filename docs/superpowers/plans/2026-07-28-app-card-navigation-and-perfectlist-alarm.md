@@ -49,7 +49,7 @@ test("opens an app detail page from a card surface while preserving the App Stor
 Run:
 
 ```sh
-npm test:e2e -- --grep "opens an app detail page from a card surface"
+npm run test:e2e -- --grep "opens an app detail page from a card surface"
 ```
 
 Expected: FAIL because an empty card point is not currently an anchor.
@@ -116,7 +116,7 @@ Do not edit `AppStoreCTA.astro` and do not add a script. The CTA note remains po
 Run:
 
 ```sh
-npm test:e2e -- --grep "opens an app detail page from a card surface"
+npm run test:e2e -- --grep "opens an app detail page from a card surface"
 npm run test:e2e
 git add src/components/AppCard.astro src/styles/global.css tests/e2e/site.spec.ts
 git commit -m "feat: make app cards open product details"

@@ -21,16 +21,17 @@ const appPath = publicPath(localePath(locale, `apps/${app.slug}`));
 ---
 
 <article class="app-card" style={`--card-position: ${position}`}>
-  <a class="app-card__cover" href={appPath} aria-label={`${ui[locale].viewApp}: ${getListingDisplayName(listing)}`}>
+  <a class="app-card__surface-link" href={appPath} aria-label={`${ui[locale].viewApp}: ${getListingDisplayName(listing)}`}></a>
+  <div class="app-card__cover" aria-hidden="true">
     <img src={publicPath(app.icon)} width="1024" height="1024" alt="" loading="lazy" />
-  </a>
+  </div>
   <div class="app-card__body">
     <p>{appCopy.eyebrow}</p>
     <h2><span {...attributes} data-storefront-name>{getListingDisplayName(listing)}</span></h2>
     <p class="app-card__summary">{appCopy.summary}</p>
     <div class="app-card__actions">
-      <a class="text-link" href={appPath}>{ui[locale].viewApp}<span aria-hidden="true"> →</span></a>
-      <AppStoreCTA app={app} locale={locale} compact />
+      <span class="text-link">{ui[locale].viewApp}<span aria-hidden="true"> →</span></span>
+      <div class="app-card__store"><AppStoreCTA app={app} locale={locale} compact /></div>
     </div>
   </div>
 </article>
