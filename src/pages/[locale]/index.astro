@@ -3,6 +3,7 @@ import AppCard from "../../components/AppCard.astro";
 import SiteLayout from "../../layouts/SiteLayout.astro";
 import { apps } from "../../data/apps";
 import { locales } from "../../lib/locales";
+import { appSupportsLocale } from "../../lib/apps";
 import type { Locale } from "../../lib/types";
 import { ui } from "../../lib/ui";
 
@@ -12,6 +13,7 @@ export function getStaticPaths() {
 
 const { locale } = Astro.props as { locale: Locale };
 const labels = ui[locale];
+const visibleApps = apps.filter((app) => appSupportsLocale(app, locale));
 ---
 
 <SiteLayout locale={locale} title="FU apps" description={labels.galleryBody}>
@@ -29,7 +31,7 @@ const labels = ui[locale];
       <h2 id="apps-heading">{labels.allApps}</h2>
     </header>
     <div class="app-gallery__grid">
-      {apps.map((app, index) => <AppCard app={app} locale={locale} position={index + 1} />)}
+      {visibleApps.map((app, index) => <AppCard app={app} locale={locale} position={index + 1} />)}
     </div>
   </section>
 </SiteLayout>

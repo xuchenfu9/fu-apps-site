@@ -4,18 +4,18 @@ Every published app must provide a complete, independently reachable App Store s
 
 ## Required content
 
-1. Add a complete `AppRecord` in `src/data/apps.ts` with a unique slug, App Store ID, icon, at least one screenshot, the approved public support email (`fxcpxs@163.com`), and localized product copy for `zh-Hans`, `zh-Hant`, `en`, `ja`, and `ko`.
+1. Add a complete `AppRecord` in `src/data/apps.ts` with a unique slug, an App Store ID when available, icon, at least one screenshot, the approved public support email (`fxcpxs@163.com`), and localized product copy for every locale in `supportedLocales` (or all five site locales when `supportedLocales` is omitted).
 2. Record the actual App Store name and URL for each released Storefront. Do not translate or invent the Store name. Use `state: "planned"` with `nextReleaseName` for an announced but not-yet-live Storefront.
 3. Add a legal profile at `src/data/legal/<slug>.ts`, register it in `src/data/legal/index.ts`, and preserve the app's real privacy behavior, permission set, Apple services, purchase model, and the approved public support email.
-4. Verify that privacy policy, user support, and terms of service render in all five site languages. Each of those pages automatically receives its own route-preserving language button from `SiteLayout`.
+4. Verify that privacy policy, user support, and terms of service render in every supported locale. Each of those pages automatically receives its own route-preserving language button from `SiteLayout`.
 5. Add the original app document locations and the approved public contact address to `docs/legal-source-map.md`. Do not overwrite source documentation; update the reviewed site copy separately.
 6. Copy only approved icon and screenshot assets into `public/assets/apps/<slug>/`. Keep source projects unchanged and use stable, descriptive filenames. Retain the approved PNG/JPEG originals and put WebP derivatives in `public/assets/apps/<slug>/web/`.
 7. Write at least five complete, evidence-based feature stories in every supported language. Each story must describe behavior found in the shipped app, its reviewed App Store material, or its approved public documentation; do not present planned features as available.
 
 ## App Store readiness checklist
 
-- A visible App Store link exists on the homepage and product page.
-- The link resolves to the visitor's selected Storefront when available; unavailable Storefronts use the US-first fallback rather than hiding the call to action.
+- A visible App Store link or pre-release status exists on the homepage and product page.
+- When a listing URL exists, the link resolves to the visitor's selected Storefront when available; unavailable Storefronts use the US-first fallback rather than hiding the call to action. Apps that have not received an App Store ID show their pre-release status without an invented link.
 - Privacy policy, user support, and terms each have stable public URLs under `/[locale]/apps/[slug]/`.
 - The contact email displayed on the product page and its legal documents is `fxcpxs@163.com`.
 - Legal copy reflects the shipped app and its current permission declarations. Review it again whenever data handling, SDKs, purchases, or support contact changes.

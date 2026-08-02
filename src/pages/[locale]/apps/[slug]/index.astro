@@ -5,18 +5,19 @@ import SiteLayout from "../../../../layouts/SiteLayout.astro";
 import { apps } from "../../../../data/apps";
 import { locales, localeDefaultStorefront, localePath } from "../../../../lib/locales";
 import { publicPath } from "../../../../lib/site";
+import { appCopy, appSupportsLocale } from "../../../../lib/apps";
 import { storefrontDataAttributes } from "../../../../lib/storefront-dom";
 import { getListingDisplayName, resolveListing } from "../../../../lib/storefront";
 import type { AppRecord, Locale } from "../../../../lib/types";
 import { ui } from "../../../../lib/ui";
 
 export function getStaticPaths() {
-  return locales.flatMap((locale) => apps.map((app) => ({ params: { locale, slug: app.slug }, props: { locale, app } })));
+  return locales.flatMap((locale) => apps.filter((app) => appSupportsLocale(app, locale)).map((app) => ({ params: { locale, slug: app.slug }, props: { locale, app } })));
 }
 
 const { locale, app } = Astro.props as { locale: Locale; app: AppRecord };
 const labels = ui[locale];
-const copy = app.copy[locale];
+const copy = appCopy(app, locale);
 const listing = resolveListing(app, localeDefaultStorefront[locale]).listing;
 const attributes = storefrontDataAttributes(app, locale);
 const suffix = `apps/${app.slug}`;

@@ -1,13 +1,15 @@
 import { describe, expect, it } from "vitest";
-import { apps } from "../../src/data/apps";
+import { apps, appsBySlug } from "../../src/data/apps";
 import { legalDocumentsBySlug } from "../../src/data/legal";
 import { locales } from "../../src/lib/locales";
 
 describe("legal document completeness", () => {
   it("provides privacy, support, and terms in every supported locale", () => {
     for (const app of apps) {
-      for (const locale of locales) {
+      for (const locale of app.supportedLocales ?? locales) {
         const documents = legalDocumentsBySlug[app.slug][locale];
+        expect(documents).toBeDefined();
+        if (!documents) continue;
         expect(documents.privacy.sections.length).toBeGreaterThan(0);
         expect(documents.support.sections.length).toBeGreaterThan(0);
         expect(documents.terms.sections.length).toBeGreaterThan(0);
@@ -17,8 +19,10 @@ describe("legal document completeness", () => {
 
   it("uses the approved support address in every published legal document", () => {
     for (const app of apps) {
-      for (const locale of locales) {
+      for (const locale of app.supportedLocales ?? locales) {
         const documents = legalDocumentsBySlug[app.slug][locale];
+        expect(documents).toBeDefined();
+        if (!documents) continue;
         for (const document of Object.values(documents)) {
           const text = document.sections.flatMap((section) => section.paragraphs).join(" ");
           expect(text).toContain("fxcpxs@163.com");
@@ -26,5 +30,15 @@ describe("legal document completeness", () => {
         }
       }
     }
+  });
+
+  it("provides Chinese-only legal documents for Banzhuren", () => {
+    const documents = legalDocumentsBySlug.banzhuren;
+
+    expect(appsBySlug.banzhuren.supportedLocales).toEqual(["zh-Hans"]);
+    expect(documents["zh-Hans"]?.privacy.sections.length).toBeGreaterThan(0);
+    expect(documents["zh-Hans"]?.support.sections.length).toBeGreaterThan(0);
+    expect(documents["zh-Hans"]?.terms.sections.length).toBeGreaterThan(0);
+    expect(documents.en).toBeUndefined();
   });
 });

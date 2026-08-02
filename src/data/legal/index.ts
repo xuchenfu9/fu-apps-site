@@ -1,3 +1,4 @@
+import { banzhurenLegal } from "./banzhuren";
 import { jiajiaIdPhotoLegal } from "./jiajia-id-photo";
 import { meowtalkDiaryLegal } from "./meowtalk-diary";
 import { myBookmarksLegal } from "./my-bookmarks";
@@ -12,5 +13,6 @@ export const legalDocumentsBySlug: Record<string, AppLegalDocuments> = {
   "meowtalk-diary": meowtalkDiaryLegal,
   "my-bookmarks": myBookmarksLegal,
   "jiajia-id-photo": jiajiaIdPhotoLegal,
-  "party-games": partyGamesLegal
+  "party-games": partyGamesLegal,
+  banzhuren: banzhurenLegal
 };

@@ -24,6 +24,19 @@ test("opens an app detail page from a card surface while preserving the App Stor
   await expect(page).toHaveURL(/\/fu-apps-site\/zh-Hans\/apps\/perfectlist\/$/);
 });
 
+test("shows Banzhuren as a Chinese-only app that is still coming to the App Store", async ({ page }) => {
+  await page.goto("zh-Hans/");
+
+  const card = page.locator('.app-card:has(a[href="/fu-apps-site/zh-Hans/apps/banzhuren/"])');
+  await expect(card).toBeVisible();
+  await expect(card.getByText("班主任小秘书")).toBeVisible();
+  await expect(card.locator("[data-storefront-status]")).toHaveText("上架中");
+  await expect(card.locator("[data-storefront-cta]")).toHaveCount(0);
+
+  const missingLocaleResponse = await page.request.get("en/apps/banzhuren/");
+  expect(missingLocaleResponse.status()).toBe(404);
+});
+
 test("keeps a legal document path when changing language", async ({ page }) => {
   await page.goto("en/apps/perfectlist/privacy/");
 

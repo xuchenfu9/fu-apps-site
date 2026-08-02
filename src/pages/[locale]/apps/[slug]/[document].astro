@@ -6,20 +6,22 @@ import { apps } from "../../../../data/apps";
 import { legalDocumentsBySlug, type LegalKind } from "../../../../data/legal";
 import { locales, localeDefaultStorefront, localePath } from "../../../../lib/locales";
 import { publicPath } from "../../../../lib/site";
+import { appSupportsLocale } from "../../../../lib/apps";
 import { storefrontDataAttributes } from "../../../../lib/storefront-dom";
 import { getListingDisplayName, resolveListing } from "../../../../lib/storefront";
 import type { AppRecord, Locale } from "../../../../lib/types";
 
 export function getStaticPaths() {
   const legalKinds = ["privacy", "support", "terms"] as const satisfies readonly LegalKind[];
-  return locales.flatMap((locale) => apps.flatMap((app) => legalKinds.map((document) => ({
+  return locales.flatMap((locale) => apps.filter((app) => appSupportsLocale(app, locale)).flatMap((app) => legalKinds.map((document) => ({
     params: { locale, slug: app.slug, document },
     props: { locale, app, document }
   }))));
 }
 
 const { locale, app, document: documentKind } = Astro.props as { locale: Locale; app: AppRecord; document: LegalKind };
-const legalDocument = legalDocumentsBySlug[app.slug]![locale][documentKind];
+const legalDocument = legalDocumentsBySlug[app.slug]?.[locale]?.[documentKind];
+if (!legalDocument) throw new Error(`${app.slug} has no ${documentKind} document for ${locale}`);
 const listing = resolveListing(app, localeDefaultStorefront[locale]).listing;
 const attributes = storefrontDataAttributes(app, locale);
 const suffix = `apps/${app.slug}/${documentKind}`;

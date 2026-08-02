@@ -4,6 +4,8 @@ import { storefronts } from "../src/lib/types";
 const countryCodes = { CN: "cn", HK: "hk", TW: "tw", CA: "ca", US: "us", JP: "jp", KR: "kr" } as const;
 
 for (const app of apps) {
+  if (!app.appStoreId) continue;
+
   for (const storefront of storefronts) {
     const listing = app.listings[storefront];
     if (!listing || listing.state !== "live") continue;

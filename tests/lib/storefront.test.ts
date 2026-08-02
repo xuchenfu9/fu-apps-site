@@ -91,4 +91,14 @@ describe("Storefront resolution", () => {
     expect(resolveListing(idPhoto, "JP").resolvedStorefront).toBe("US");
     expect(appsBySlug["jiajia-id-photo"].listings.CA?.nextReleaseName).toBe("MapleLens ID");
   });
+
+  it("supports a planned listing without a store URL", () => {
+    const listing = {
+      storefront: "CN",
+      state: "planned",
+      nextReleaseName: "班主任小秘书"
+    } as const;
+
+    expect(getListingDisplayName(listing)).toBe("班主任小秘书");
+  });
 });

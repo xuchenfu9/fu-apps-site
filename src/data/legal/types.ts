@@ -15,7 +15,7 @@ export interface LegalDocument {
 }
 
 export type LocalizedLegalDocuments = Record<LegalKind, LegalDocument>;
-export type AppLegalDocuments = Record<Locale, LocalizedLegalDocuments>;
+export type AppLegalDocuments = Partial<Record<Locale, LocalizedLegalDocuments>>;
 
 export type PermissionKind = "photos" | "camera" | "microphone" | "calendar" | "location" | "notifications" | "biometric" | "localNetwork";
 

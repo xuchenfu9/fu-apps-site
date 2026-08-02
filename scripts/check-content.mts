@@ -2,7 +2,7 @@ import { existsSync } from "node:fs";
 import { resolve } from "node:path";
 import { apps, publicContactEmail } from "../src/data/apps";
 import { legalDocumentsBySlug } from "../src/data/legal";
-import { locales } from "../src/lib/locales";
+import { appLocales } from "../src/lib/apps";
 import { storefronts, type AppRecord } from "../src/lib/types";
 
 function publicAssetExists(root: string, asset: string): boolean {
@@ -20,7 +20,7 @@ function validateApp(root: string, app: AppRecord): string[] {
     if (!publicAssetExists(root, screenshot)) errors.push(`${prefix} screenshot is missing: ${screenshot}`);
   }
 
-  for (const locale of locales) {
+  for (const locale of appLocales(app)) {
     const copy = app.copy[locale];
     if (!copy?.eyebrow || !copy.summary || copy.features.length < 5 || copy.features.some((feature) => !feature.title.trim() || !feature.description.trim())) {
       errors.push(`${prefix} is missing catalog copy for ${locale}.`);
@@ -39,8 +39,9 @@ function validateApp(root: string, app: AppRecord): string[] {
   for (const storefront of storefronts) {
     const listing = app.listings[storefront];
     if (!listing) continue;
-    if (!listing.url.startsWith("https://apps.apple.com/")) errors.push(`${prefix} has an invalid ${storefront} App Store URL.`);
+    if (listing.url && !listing.url.startsWith("https://apps.apple.com/")) errors.push(`${prefix} has an invalid ${storefront} App Store URL.`);
     if (listing.state === "live" && !listing.currentName) errors.push(`${prefix} live ${storefront} listing needs a current name.`);
+    if (listing.state === "live" && !listing.url) errors.push(`${prefix} live ${storefront} listing needs a URL.`);
     if (listing.state === "planned" && !listing.nextReleaseName && !listing.currentName) errors.push(`${prefix} planned ${storefront} listing needs a display name.`);
   }
 
@@ -51,7 +52,7 @@ export function validateContent(root: string): string[] {
   const errors: string[] = [];
   const slugs = apps.map((app) => app.slug);
 
-  if (apps.length !== 5) errors.push(`Expected five published apps, received ${apps.length}.`);
+  if (apps.length !== 6) errors.push(`Expected six published apps, received ${apps.length}.`);
   if (new Set(slugs).size !== slugs.length) errors.push("App slugs must be unique.");
   if (slugs.includes("shift-wake-clock")) errors.push("Shift Wake Clock must not be published in this catalog.");
 
@@ -65,6 +66,7 @@ if (process.argv[1]?.endsWith("check-content.mts")) {
     console.error(errors.join("\n"));
     process.exitCode = 1;
   } else {
-    console.log(`Validated ${apps.length} apps, ${apps.length * locales.length * 3} legal documents, and all public media assets.`);
+    const legalDocumentCount = apps.reduce((count, app) => count + appLocales(app).length * 3, 0);
+    console.log(`Validated ${apps.length} apps, ${legalDocumentCount} legal documents, and all public media assets.`);
   }
 }

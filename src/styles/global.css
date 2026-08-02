@@ -392,6 +392,7 @@
   }
 
   .app-store-cta > a,
+  .app-store-cta > [data-storefront-status],
   .button-link {
     min-height: 46px;
     padding: 12px 15px;
@@ -416,6 +417,12 @@
     background: var(--moss);
   }
 
+  .app-store-cta > [data-storefront-status] {
+    border-color: var(--line);
+    background: #edf2ed;
+    color: var(--moss);
+  }
+
   .app-store-cta p {
     max-width: 340px;
     color: var(--muted);
@@ -433,6 +440,12 @@
   }
 
   .app-store-cta--compact > a {
+    min-height: 34px;
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .app-store-cta--compact > [data-storefront-status] {
     min-height: 34px;
     padding: 8px 10px;
     font-size: 12px;

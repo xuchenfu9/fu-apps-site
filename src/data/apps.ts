@@ -1,4 +1,4 @@
-import type { AppRecord, Locale, Storefront, StorefrontListing } from "../lib/types";
+import type { AppRecord, Locale, LocalizedAppCopy, Storefront, StorefrontListing } from "../lib/types";
 
 export const publicContactEmail = "fxcpxs@163.com";
 
@@ -29,9 +29,37 @@ function plannedListing(
   return { storefront, state: "planned", currentName, nextReleaseName, url: appStoreURL(storefront, id) };
 }
 
-function copy(values: Record<Locale, AppRecord["copy"][Locale]>): AppRecord["copy"] {
+function plannedWithoutStorefront(storefront: Storefront, nextReleaseName: string): StorefrontListing {
+  return { storefront, state: "planned", nextReleaseName };
+}
+
+function copy(values: Record<Locale, LocalizedAppCopy>): AppRecord["copy"] {
   return values;
 }
+
+const banzhuren: AppRecord = {
+  slug: "banzhuren",
+  supportedLocales: ["zh-Hans"],
+  contactEmail: publicContactEmail,
+  icon: "/assets/apps/banzhuren/web/icon.webp",
+  screenshots: ["/assets/apps/banzhuren/web/screen-01.webp"],
+  copy: {
+    "zh-Hans": {
+      eyebrow: "班主任的日常工作台",
+      summary: "把班级档案、教学安排、学生表现、待办提醒和电脑端编辑收进一处，让每天的班级工作更容易查、更容易跟进。",
+      features: [
+        { title: "班级与学生资料放在一起", description: "建立多个班级和学年档案，集中维护学生基本资料、学号、家长联系方式、宿舍、职务、生日与特长等信息。" },
+        { title: "教学安排与成绩分析更清楚", description: "记录课程表、考试和倒计时，导入成绩后查看科目表现、班级排名和阶段变化，让教学记录和班级日常连起来。" },
+        { title: "操行、请假与班级事件可追溯", description: "围绕学生记录表现分、操行、请假、宿舍和支持计划，也能留下班级事件与工作日志，方便在需要时回看经过。" },
+        { title: "待办、语音和提醒一起推进", description: "为班级工作建立待办，设置重复规则和提醒；需要快速记录时可使用语音待办与语音留痕，再回到列表继续处理。" },
+        { title: "电脑端编辑与表格交换", description: "在同一局域网内用电脑编辑当前班级资料，并通过配对码保护访问；学生与成绩数据支持 CSV 或 Excel 导入导出，减少重复录入。" }
+      ]
+    }
+  },
+  listings: {
+    CN: plannedWithoutStorefront("CN", "班主任小秘书")
+  }
+};
 
 const perfectlist: AppRecord = {
   slug: "perfectlist",
@@ -405,6 +433,6 @@ const partyGames: AppRecord = {
   }
 };
 
-export const apps = [perfectlist, meowtalkDiary, myBookmarks, jiajiaIdPhoto, partyGames] as const satisfies readonly AppRecord[];
+export const apps = [perfectlist, meowtalkDiary, myBookmarks, jiajiaIdPhoto, partyGames, banzhuren] as const satisfies readonly AppRecord[];
 
 export const appsBySlug = Object.fromEntries(apps.map((app) => [app.slug, app])) as Record<string, AppRecord>;

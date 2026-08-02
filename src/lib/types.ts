@@ -9,7 +9,7 @@ export interface StorefrontListing {
   state: ListingState;
   currentName?: string;
   nextReleaseName?: string;
-  url: string;
+  url?: string;
 }
 
 export interface LocalizedFeature {
@@ -25,10 +25,11 @@ export interface LocalizedAppCopy {
 
 export interface AppRecord {
   slug: string;
-  appStoreId: string;
+  appStoreId?: string;
+  supportedLocales?: readonly Locale[];
   contactEmail: string;
   icon: string;
   screenshots: readonly string[];
-  copy: Record<Locale, LocalizedAppCopy>;
+  copy: Partial<Record<Locale, LocalizedAppCopy>>;
   listings: Partial<Record<Storefront, StorefrontListing>>;
 }

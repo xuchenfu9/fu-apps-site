@@ -11,9 +11,12 @@ describe("published site content", () => {
   it("keeps five evidence-based feature stories and one public support address", () => {
     for (const app of apps) {
       expect(app.contactEmail).toBe("fxcpxs@163.com");
-      for (const locale of locales) {
-        expect(app.copy[locale].features).toHaveLength(5);
-        for (const feature of app.copy[locale].features) {
+      for (const locale of app.supportedLocales ?? locales) {
+        const copy = app.copy[locale];
+        expect(copy).toBeDefined();
+        if (!copy) continue;
+        expect(copy.features).toHaveLength(5);
+        for (const feature of copy.features) {
           expect(feature.title.trim()).not.toHaveLength(0);
           expect(feature.description.trim()).not.toHaveLength(0);
         }
@@ -21,8 +24,18 @@ describe("published site content", () => {
     }
   });
 
+  it("keeps Banzhuren Chinese-only and pre-release", () => {
+    const banzhuren = appsBySlug.banzhuren;
+
+    expect(banzhuren.supportedLocales).toEqual(["zh-Hans"]);
+    expect(banzhuren.copy["zh-Hans"]?.features).toHaveLength(5);
+    expect(banzhuren.copy.en).toBeUndefined();
+    expect(banzhuren.listings.CN?.state).toBe("planned");
+    expect(banzhuren.listings.CN?.url).toBeUndefined();
+  });
+
   it("leads PerfectList with its system-level alarm and schedule rules", () => {
-    const firstFeature = appsBySlug.perfectlist.copy["zh-Hans"].features[0];
+    const firstFeature = appsBySlug.perfectlist.copy["zh-Hans"]!.features[0]!;
 
     expect(firstFeature.title).toContain("系统级闹钟");
     expect(firstFeature.description).toContain("节假日");
