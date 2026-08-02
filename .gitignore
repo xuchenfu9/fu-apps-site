@@ -1,6 +1,7 @@
 .superpowers/
 node_modules/
 dist/
+.worktrees/
 .astro/
 test-results/
 playwright-report/

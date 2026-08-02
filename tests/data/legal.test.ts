@@ -41,4 +41,19 @@ describe("legal document completeness", () => {
     expect(documents["zh-Hans"]?.terms.sections.length).toBeGreaterThan(0);
     expect(documents.en).toBeUndefined();
   });
+
+  it("keeps Banzhuren legal copy aligned with its network and permission behavior", () => {
+    const documents = legalDocumentsBySlug.banzhuren["zh-Hans"];
+    const privacyText = documents?.privacy.sections
+      .flatMap((section) => [...section.paragraphs, ...(section.bullets ?? [])])
+      .join(" ") ?? "";
+    const termsText = documents?.terms.sections.flatMap((section) => section.paragraphs).join(" ") ?? "";
+
+    expect(privacyText).toContain("反馈服务");
+    expect(privacyText).toContain("随机安装标识符");
+    expect(privacyText).toContain("HTTP，传输不加密");
+    expect(privacyText).toContain("申请删除反馈");
+    expect(privacyText).toContain("主动选择照片");
+    expect(termsText).toContain("未加密 HTTP");
+  });
 });
