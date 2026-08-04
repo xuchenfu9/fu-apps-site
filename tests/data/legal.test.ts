@@ -54,6 +54,11 @@ describe("legal document completeness", () => {
     expect(privacyText).toContain("HTTP，传输不加密");
     expect(privacyText).toContain("申请删除反馈");
     expect(privacyText).toContain("主动选择照片");
+    expect(privacyText).toContain("90 天免费试用");
+    expect(privacyText).toContain("Apple StoreKit");
     expect(termsText).toContain("未加密 HTTP");
+    expect(termsText).toContain("试用结束后");
+    expect(termsText).toContain("一次性非消耗型");
+    expect(termsText).toContain("不会自动续费");
   });
 });
