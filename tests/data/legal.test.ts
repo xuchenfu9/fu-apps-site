@@ -55,9 +55,15 @@ describe("legal document completeness", () => {
     expect(privacyText).toContain("申请删除反馈");
     expect(privacyText).toContain("主动选择照片");
     expect(privacyText).toContain("90 天免费试用");
+    expect(privacyText).toContain("首次启动时开始计算");
+    expect(privacyText).toContain("Keychain");
+    expect(privacyText).toContain("删除并重新安装后");
     expect(privacyText).toContain("Apple StoreKit");
     expect(termsText).toContain("未加密 HTTP");
     expect(termsText).toContain("试用结束后");
+    expect(termsText).toContain("首次启动应用时开始计算");
+    expect(termsText).toContain("本机 Keychain");
+    expect(termsText).toContain("删除并重新安装后仍沿用原试用日期");
     expect(termsText).toContain("一次性非消耗型");
     expect(termsText).toContain("不会自动续费");
   });
