@@ -11,7 +11,7 @@ export const appstorylineLegal: AppLegalDocuments = {
     privacy: document("隐私政策", [
       { title: "运营者与范围", paragraphs: ["AppStoryline（中文名：上架图生成器）由付书艺 / Shuyi Fu 独立开发和运营。本政策适用于你在受支持的 Apple 设备上使用本应用。", "应用面向 App Store 截图和宣传图排版，不要求创建账户。"] },
       { title: "应用处理的信息", paragraphs: ["应用只处理你主动选择、导入或创建的模板、文字、颜色、截图、照片、项目文件和导出文件，用于编辑、保存和导出上架图片。", "这些内容默认保存在设备本地的应用存储中。应用不会把图片或项目自动上传到开发者服务器。"] },
-      { title: "离线处理与删除", paragraphs: ["当前版本不使用云同步、广告、分析、崩溃追踪或跨应用跟踪。你可以在应用内删除项目，或在系统中删除应用及其本地数据；已导出的文件和系统照片副本需要在相应位置单独管理。"] },
+      { title: "离线处理与删除", paragraphs: ["当前版本不使用云同步、广告、分析、崩溃追踪或跨应用跟踪。如需删除应用创建的项目数据，请在系统中删除应用及其本地数据；已导出的文件和系统照片副本需要在相应位置单独管理。"] },
       { title: "权限与联系我们", paragraphs: ["当你主动从照片图库选择内容或将导出图片保存到图库时，系统可能请求照片权限。文件导入使用你主动选择的文件。应用不会读取未选择的照片。", "隐私问题和删除请求请发送至 fxcpxs@163.com。"] }
     ]),
     support: document("用户支持", [
@@ -37,7 +37,7 @@ export const appstorylineLegal: AppLegalDocuments = {
     privacy: document("隱私政策", [
       { title: "營運者與範圍", paragraphs: ["AppStoryline（中文名：上架圖生成器）由付書藝 / Shuyi Fu 獨立開發和營運。本政策適用於你在支援的 Apple 裝置上使用本 App。", "App 用於 App Store 截圖和宣傳圖排版，不要求建立帳戶。"] },
       { title: "App 處理的資訊", paragraphs: ["App 只處理你主動選擇、匯入或建立的範本、文字、顏色、截圖、照片、專案檔案和輸出檔案，用於編輯、保存和輸出上架圖片。", "這些內容預設保存在裝置本機的 App 儲存空間中。App 不會把圖片或專案自動上傳到開發者伺服器。"] },
-      { title: "離線處理與刪除", paragraphs: ["目前版本不使用雲端同步、廣告、分析、當機追蹤或跨 App 追蹤。你可以在 App 內刪除專案，或在系統中刪除 App 及其本機資料；已輸出的檔案和系統照片副本需要在相應位置另行管理。"] },
+      { title: "離線處理與刪除", paragraphs: ["目前版本不使用雲端同步、廣告、分析、當機追蹤或跨 App 追蹤。如需刪除 App 建立的專案資料，請在系統中刪除 App 及其本機資料；已輸出的檔案和系統照片副本需要在相應位置另行管理。"] },
       { title: "權限與聯絡", paragraphs: ["當你主動從照片圖庫選擇內容或將輸出圖片保存到圖庫時，系統可能要求照片權限。檔案匯入使用你主動選擇的檔案。App 不會讀取未選擇的照片。", "隱私問題和刪除請求請寄至 fxcpxs@163.com。"] }
     ]),
     support: document("用戶支援", [
@@ -63,7 +63,7 @@ export const appstorylineLegal: AppLegalDocuments = {
     privacy: document("Privacy Policy", [
       { title: "Operator and scope", paragraphs: ["AppStoryline, also known in Chinese as 上架图生成器, is independently developed and operated by 付书艺 / Shuyi Fu. This policy applies when you use the app on a supported Apple device.", "The app prepares App Store screenshots and promotional layouts. It does not require an account."] },
       { title: "Information the app handles", paragraphs: ["The app handles only templates, text, colors, screenshots, photos, project files, and exported files that you actively create, choose, or import, to provide editing, saving, and export features.", "This content is stored in the app's local device storage by default. The app does not automatically upload images or projects to a developer server."] },
-      { title: "Offline processing and deletion", paragraphs: ["The current version does not use cloud sync, advertising, analytics, crash tracking, or cross-app tracking. You can delete projects in the app or delete the app and its local data in the system; exported files and copies in Photos must be managed in their respective locations."] },
+      { title: "Offline processing and deletion", paragraphs: ["The current version does not use cloud sync, advertising, analytics, crash tracking, or cross-app tracking. To remove project data created by the app, delete the app and its local data in the system; exported files and copies in Photos must be managed in their respective locations."] },
       { title: "Permissions and contact", paragraphs: ["When you actively choose content from Photos or save an exported image to Photos, the system may request photo access. File import uses only files you select. The app does not read unselected photos.", "For privacy questions or deletion requests, contact fxcpxs@163.com."] }
     ]),
     support: document("User Support", [
@@ -89,7 +89,7 @@ export const appstorylineLegal: AppLegalDocuments = {
     privacy: document("プライバシーポリシー", [
       { title: "運営者と対象", paragraphs: ["AppStoryline（中国語名：上架图生成器）は、付书艺 / Shuyi Fu が独立して開発・運営しています。本ポリシーは、対応する Apple デバイスで本アプリを使用するときに適用されます。", "本アプリは App Store のスクリーンショットと宣伝用レイアウトを作成し、アカウントを要求しません。"] },
       { title: "取り扱う情報", paragraphs: ["本アプリは、編集、保存、書き出しのために、あなたが自分で作成、選択、または読み込んだテンプレート、文字、色、スクリーンショット、写真、プロジェクト、書き出しファイルだけを扱います。", "これらの内容は通常、デバイス内のアプリ領域に保存されます。画像やプロジェクトを開発者のサーバーへ自動送信することはありません。"] },
-      { title: "オフライン処理と削除", paragraphs: ["現在のバージョンは、クラウド同期、広告、分析、クラッシュ追跡、アプリ間追跡を使用しません。プロジェクトはアプリ内で削除でき、アプリと本機データはシステムから削除できます。書き出したファイルや写真のコピーは保存先で管理してください。"] },
+      { title: "オフライン処理と削除", paragraphs: ["現在のバージョンは、クラウド同期、広告、分析、クラッシュ追跡、アプリ間追跡を使用しません。アプリが作成したプロジェクトデータを削除するには、システムからアプリとその本機データを削除してください。書き出したファイルや写真のコピーは保存先で管理してください。"] },
       { title: "権限と連絡先", paragraphs: ["写真から内容を自分で選ぶとき、または書き出した画像を写真に保存するとき、システムが写真へのアクセスを求める場合があります。ファイル読み込みでは選択したファイルだけを使用します。", "プライバシーに関する質問や削除依頼は fxcpxs@163.com までご連絡ください。"] }
     ]),
     support: document("ユーザーサポート", [
@@ -115,7 +115,7 @@ export const appstorylineLegal: AppLegalDocuments = {
     privacy: document("개인정보 처리방침", [
       { title: "운영자와 적용 범위", paragraphs: ["AppStoryline(중국어 이름: 上架图生成器)은 付书艺 / Shuyi Fu가 독립적으로 개발하고 운영합니다. 이 정책은 지원되는 Apple 기기에서 앱을 사용할 때 적용됩니다.", "앱은 App Store 스크린샷과 홍보용 레이아웃을 만들며 계정을 요구하지 않습니다."] },
       { title: "앱이 처리하는 정보", paragraphs: ["앱은 편집, 저장, 내보내기를 위해 사용자가 직접 만들거나 선택하거나 가져온 템플릿, 텍스트, 색상, 스크린샷, 사진, 프로젝트, 내보낸 파일만 처리합니다.", "이 콘텐츠는 기본적으로 기기의 앱 저장 공간에 보관됩니다. 이미지나 프로젝트를 개발자 서버로 자동 업로드하지 않습니다."] },
-      { title: "오프라인 처리와 삭제", paragraphs: ["현재 버전은 클라우드 동기화, 광고, 분석, 충돌 추적, 앱 간 추적을 사용하지 않습니다. 프로젝트는 앱에서 삭제할 수 있고 앱과 로컬 데이터는 시스템에서 삭제할 수 있습니다. 내보낸 파일과 사진 사본은 저장된 위치에서 관리해야 합니다."] },
+      { title: "오프라인 처리와 삭제", paragraphs: ["현재 버전은 클라우드 동기화, 광고, 분석, 충돌 추적, 앱 간 추적을 사용하지 않습니다. 앱이 만든 프로젝트 데이터를 삭제하려면 시스템에서 앱과 로컬 데이터를 삭제하세요. 내보낸 파일과 사진 사본은 저장된 위치에서 관리해야 합니다."] },
       { title: "권한과 문의", paragraphs: ["사진에서 콘텐츠를 직접 선택하거나 내보낸 이미지를 사진에 저장할 때 시스템이 사진 접근 권한을 요청할 수 있습니다. 파일 가져오기는 사용자가 선택한 파일만 사용합니다.", "개인정보 문의나 삭제 요청은 fxcpxs@163.com으로 보내 주세요."] }
     ]),
     support: document("사용자 지원", [
