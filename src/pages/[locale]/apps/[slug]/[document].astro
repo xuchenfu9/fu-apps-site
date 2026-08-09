@@ -12,11 +12,13 @@ import { getListingDisplayName, resolveListing } from "../../../../lib/storefron
 import type { AppRecord, Locale } from "../../../../lib/types";
 
 export function getStaticPaths() {
-  const legalKinds = ["privacy", "support", "terms"] as const satisfies readonly LegalKind[];
-  return locales.flatMap((locale) => apps.filter((app) => appSupportsLocale(app, locale)).flatMap((app) => legalKinds.map((document) => ({
-    params: { locale, slug: app.slug, document },
-    props: { locale, app, document }
-  }))));
+  const legalKinds = ["privacy", "support", "terms", "marketing"] as const satisfies readonly LegalKind[];
+  return locales.flatMap((locale) => apps.filter((app) => appSupportsLocale(app, locale)).flatMap((app) => legalKinds
+    .filter((document) => legalDocumentsBySlug[app.slug]?.[locale]?.[document])
+    .map((document) => ({
+      params: { locale, slug: app.slug, document },
+      props: { locale, app, document }
+    }))));
 }
 
 const { locale, app, document: documentKind } = Astro.props as { locale: Locale; app: AppRecord; document: LegalKind };

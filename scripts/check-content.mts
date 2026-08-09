@@ -27,10 +27,19 @@ function validateApp(root: string, app: AppRecord): string[] {
     }
 
     const documents = legalDocumentsBySlug[app.slug]?.[locale];
-    for (const kind of ["privacy", "support", "terms"] as const) {
+    const requiredKinds = app.slug === "appstoryline"
+      ? (["privacy", "support", "terms", "marketing"] as const)
+      : (["privacy", "support", "terms"] as const);
+    for (const kind of requiredKinds) {
       if (!documents?.[kind] || documents[kind].sections.length === 0) {
         errors.push(`${prefix} is missing ${kind} content for ${locale}.`);
       }
+    }
+  }
+
+  if (app.slug === "appstoryline") {
+    for (const locale of appLocales(app)) {
+      if (!app.pricing?.[locale]?.value || !app.pricing[locale]?.note) errors.push(`${prefix} is missing pricing for ${locale}.`);
     }
   }
 
@@ -52,7 +61,7 @@ export function validateContent(root: string): string[] {
   const errors: string[] = [];
   const slugs = apps.map((app) => app.slug);
 
-  if (apps.length !== 6) errors.push(`Expected six published apps, received ${apps.length}.`);
+  if (apps.length !== 7) errors.push(`Expected seven published apps, received ${apps.length}.`);
   if (new Set(slugs).size !== slugs.length) errors.push("App slugs must be unique.");
   if (slugs.includes("shift-wake-clock")) errors.push("Shift Wake Clock must not be published in this catalog.");
 
@@ -66,7 +75,7 @@ if (process.argv[1]?.endsWith("check-content.mts")) {
     console.error(errors.join("\n"));
     process.exitCode = 1;
   } else {
-    const legalDocumentCount = apps.reduce((count, app) => count + appLocales(app).length * 3, 0);
+    const legalDocumentCount = apps.reduce((count, app) => count + appLocales(app).length * (app.slug === "appstoryline" ? 4 : 3), 0);
     console.log(`Validated ${apps.length} apps, ${legalDocumentCount} legal documents, and all public media assets.`);
   }
 }

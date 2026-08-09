@@ -23,6 +23,11 @@ export interface LocalizedAppCopy {
   features: readonly LocalizedFeature[];
 }
 
+export interface LocalizedPricing {
+  value: string;
+  note: string;
+}
+
 export interface AppRecord {
   slug: string;
   appStoreId?: string;
@@ -31,5 +36,6 @@ export interface AppRecord {
   icon: string;
   screenshots: readonly string[];
   copy: Partial<Record<Locale, LocalizedAppCopy>>;
+  pricing?: Partial<Record<Locale, LocalizedPricing>>;
   listings: Partial<Record<Storefront, StorefrontListing>>;
 }

@@ -1,7 +1,7 @@
 ---
 import { localePath } from "../lib/locales";
 import { publicPath } from "../lib/site";
-import type { LegalKind } from "../data/legal";
+import { legalDocumentsBySlug, type LegalKind } from "../data/legal";
 import type { Locale } from "../lib/types";
 import { ui } from "../lib/ui";
 
@@ -15,12 +15,14 @@ const { locale, slug, current } = Astro.props;
 const labels: Record<LegalKind, string> = {
   privacy: ui[locale].privacy,
   support: ui[locale].support,
-  terms: ui[locale].terms
+  terms: ui[locale].terms,
+  marketing: ui[locale].marketing
 };
+const availableKinds = (Object.keys(labels) as LegalKind[]).filter((kind) => legalDocumentsBySlug[slug]?.[locale]?.[kind]);
 ---
 
 <nav class="document-nav" aria-label={ui[locale].documents}>
-  {(Object.keys(labels) as LegalKind[]).map((kind) => (
+  {availableKinds.map((kind) => (
     <a href={publicPath(localePath(locale, `apps/${slug}/${kind}`))} aria-current={current === kind ? "page" : undefined}>
       {labels[kind]}
     </a>

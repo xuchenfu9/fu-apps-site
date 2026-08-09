@@ -496,6 +496,26 @@
     margin-top: 31px;
   }
 
+  .product-pricing {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    margin-top: 20px;
+  }
+
+  .product-pricing strong {
+    color: var(--ink);
+    font-size: 32px;
+    line-height: 1;
+    letter-spacing: 0;
+  }
+
+  .product-pricing span {
+    color: var(--muted);
+    font-size: 14px;
+  }
+
   .product-hero__screen {
     min-height: 400px;
     padding: 30px;

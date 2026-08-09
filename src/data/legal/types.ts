@@ -1,6 +1,6 @@
 import type { Locale } from "../../lib/types";
 
-export type LegalKind = "privacy" | "support" | "terms";
+export type LegalKind = "privacy" | "support" | "terms" | "marketing";
 
 export interface LegalSection {
   title: string;
@@ -14,7 +14,12 @@ export interface LegalDocument {
   sections: readonly LegalSection[];
 }
 
-export type LocalizedLegalDocuments = Record<LegalKind, LegalDocument>;
+export interface LocalizedLegalDocuments {
+  privacy: LegalDocument;
+  support: LegalDocument;
+  terms: LegalDocument;
+  marketing?: LegalDocument;
+}
 export type AppLegalDocuments = Partial<Record<Locale, LocalizedLegalDocuments>>;
 
 export type PermissionKind = "photos" | "camera" | "microphone" | "calendar" | "location" | "notifications" | "biometric" | "localNetwork";

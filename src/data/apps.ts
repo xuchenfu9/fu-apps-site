@@ -433,6 +433,92 @@ const partyGames: AppRecord = {
   }
 };
 
-export const apps = [perfectlist, meowtalkDiary, myBookmarks, jiajiaIdPhoto, partyGames, banzhuren] as const satisfies readonly AppRecord[];
+const appstoryline: AppRecord = {
+  slug: "appstoryline",
+  supportedLocales: ["zh-Hans", "zh-Hant", "en", "ja", "ko"],
+  contactEmail: publicContactEmail,
+  icon: "/assets/apps/appstoryline/web/icon.webp",
+  screenshots: [
+    "/assets/apps/appstoryline/web/screen-01.webp",
+    "/assets/apps/appstoryline/web/screen-02.webp",
+    "/assets/apps/appstoryline/web/screen-03.webp",
+    "/assets/apps/appstoryline/web/screen-04.webp"
+  ],
+  pricing: {
+    "zh-Hans": { value: "¥12", note: "一次性购买" },
+    "zh-Hant": { value: "¥12", note: "一次性購買" },
+    en: { value: "$3.99", note: "One-time purchase" },
+    ja: { value: "$3.99", note: "一度きりの購入" },
+    ko: { value: "$3.99", note: "일회성 구매" }
+  },
+  copy: copy({
+    "zh-Hans": {
+      eyebrow: "App Store 截图排版",
+      summary: "在设备上把截图整理成更清楚的上架图片：选择模板、编辑文字和背景，保存项目并导出 PNG 或 ZIP。",
+      features: [
+        { title: "模板先把尺寸准备好", description: "从内置的 iPhone 和 iPad 模板开始，先确定画布与设备框架，再专注于截图内容。" },
+        { title: "导入你自己的截图", description: "从文件或照片中选择截图，替换模板画面；应用只读取你主动选择的内容。" },
+        { title: "文字、背景和版式都能改", description: "直接调整标题、字号、颜色、字效、背景和画布上的位置，让每一张图更接近你的产品。" },
+        { title: "项目留在本地", description: "保存可继续编辑的本地项目，不需要账号、云同步或订阅，换一个版本也能重新导入。" },
+        { title: "一次导出一张或一组", description: "导出当前 PNG，或把五张截图整理成 ZIP；提交 App Store 前可以在设备上再次检查。" }
+      ]
+    },
+    "zh-Hant": {
+      eyebrow: "App Store 截圖排版",
+      summary: "在裝置上把截圖整理成更清楚的上架圖片：選擇範本、編輯文字和背景，保存專案並輸出 PNG 或 ZIP。",
+      features: [
+        { title: "範本先準備好尺寸", description: "從內建的 iPhone 和 iPad 範本開始，先確定畫布與裝置框架，再專注於截圖內容。" },
+        { title: "匯入自己的截圖", description: "從檔案或照片中選擇截圖，替換範本畫面；App 只讀取你主動選擇的內容。" },
+        { title: "文字、背景和版式都能改", description: "直接調整標題、字號、顏色、文字效果、背景和畫布上的位置，讓每一張圖更接近你的產品。" },
+        { title: "專案留在本機", description: "保存可繼續編輯的本機專案，不需要帳戶、雲端同步或訂閱，換一個版本也能重新匯入。" },
+        { title: "一次輸出一張或一組", description: "輸出目前 PNG，或把五張截圖整理成 ZIP；提交 App Store 前可以在裝置上再次檢查。" }
+      ]
+    },
+    en: {
+      eyebrow: "App Store screenshot layouts",
+      summary: "Turn your screenshots into clear, ready-to-review product images on your device: choose a template, edit the message and background, save the project, and export PNG or ZIP.",
+      features: [
+        { title: "Templates start with the right canvas", description: "Begin with built-in iPhone and iPad templates, set the canvas and device frame first, and keep your attention on the product story." },
+        { title: "Bring your own screenshots", description: "Choose screenshots from Files or Photos to replace the template artwork. The app reads only what you actively select." },
+        { title: "Edit type, background, and layout", description: "Adjust headlines, size, color, text effects, background, and on-canvas position so each image fits your product." },
+        { title: "Projects stay local", description: "Save an editable local project without an account, cloud sync, or subscription, then reopen it whenever you need another pass." },
+        { title: "Export one or the full set", description: "Export the current PNG or package all five screenshots as a ZIP, then review the files on your device before submission." }
+      ]
+    },
+    ja: {
+      eyebrow: "App Store スクリーンショットのレイアウト",
+      summary: "デバイス上でスクリーンショットを見やすい製品画像に整えます。テンプレートを選び、文字と背景を編集し、プロジェクトを保存して PNG や ZIP に書き出せます。",
+      features: [
+        { title: "テンプレートでキャンバスを準備", description: "内蔵の iPhone と iPad テンプレートから始め、キャンバスとデバイスフレームを決めて製品の内容に集中できます。" },
+        { title: "自分のスクリーンショットを読み込む", description: "ファイルまたは写真からスクリーンショットを選んでテンプレートの画像を置き換えます。選択した内容だけを読み込みます。" },
+        { title: "文字、背景、レイアウトを編集", description: "見出し、サイズ、色、文字効果、背景、キャンバス上の位置を調整し、製品に合う一枚に仕上げます。" },
+        { title: "プロジェクトはローカルに保存", description: "アカウント、クラウド同期、サブスクリプションなしで編集可能なプロジェクトを保存し、必要なときに開き直せます。" },
+        { title: "一枚でも一式でも書き出し", description: "現在の PNG、または5枚のスクリーンショットをまとめた ZIP を書き出し、提出前にデバイス上で確認できます。" }
+      ]
+    },
+    ko: {
+      eyebrow: "App Store 스크린샷 레이아웃",
+      summary: "기기에서 스크린샷을 알아보기 쉬운 제품 이미지로 정리하세요. 템플릿을 선택하고 메시지와 배경을 편집한 뒤 프로젝트를 저장하고 PNG 또는 ZIP으로 내보냅니다.",
+      features: [
+        { title: "템플릿으로 캔버스부터 준비", description: "내장 iPhone 및 iPad 템플릿으로 시작해 캔버스와 기기 프레임을 먼저 정하고 제품 내용에 집중합니다." },
+        { title: "내 스크린샷 가져오기", description: "파일이나 사진에서 스크린샷을 선택해 템플릿 이미지를 바꿉니다. 직접 선택한 콘텐츠만 읽습니다." },
+        { title: "텍스트, 배경, 레이아웃 편집", description: "제목, 크기, 색상, 텍스트 효과, 배경, 캔버스 위치를 조정해 제품에 맞는 이미지를 만듭니다." },
+        { title: "프로젝트는 로컬에 보관", description: "계정, 클라우드 동기화, 구독 없이 편집 가능한 로컬 프로젝트를 저장하고 필요할 때 다시 엽니다." },
+        { title: "한 장 또는 전체 세트 내보내기", description: "현재 PNG를 내보내거나 다섯 장의 스크린샷을 ZIP으로 묶어 제출 전에 기기에서 다시 확인합니다." }
+      ]
+    }
+  }),
+  listings: {
+    CN: plannedWithoutStorefront("CN", "上架图生成器"),
+    HK: plannedWithoutStorefront("HK", "上架圖生成器"),
+    TW: plannedWithoutStorefront("TW", "上架圖生成器"),
+    CA: plannedWithoutStorefront("CA", "AppStoryline"),
+    US: plannedWithoutStorefront("US", "AppStoryline"),
+    JP: plannedWithoutStorefront("JP", "AppStoryline"),
+    KR: plannedWithoutStorefront("KR", "AppStoryline")
+  }
+};
+
+export const apps = [perfectlist, meowtalkDiary, myBookmarks, jiajiaIdPhoto, partyGames, banzhuren, appstoryline] as const satisfies readonly AppRecord[];
 
 export const appsBySlug = Object.fromEntries(apps.map((app) => [app.slug, app])) as Record<string, AppRecord>;

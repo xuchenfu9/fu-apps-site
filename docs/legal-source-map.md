@@ -12,6 +12,7 @@ The site renders app-specific legal documents from `src/data/legal/` rather than
 | ID Photo | `/Volumes/外置硬盘/Developer/OneDollarID/docs/photo-privacy-policy.html` | `/Volumes/外置硬盘/Developer/OneDollarID/docs/photo-technical-support.html` | No existing standalone terms document; the site uses the shared StoreKit and Apple-device license template. | `fxcpxs@163.com` |
 | Party Games | `/Volumes/外置硬盘/Developer/fastwin-1/ReactionDuel/AppStoreAssets/partygames-privacy-policy.html` | `/Volumes/外置硬盘/Developer/fastwin-1/ReactionDuel/AppStoreAssets/partygames-support.html` | `/Volumes/外置硬盘/Developer/fastwin-1/ReactionDuel/AppStoreAssets/partygames-terms-of-service.html` | `fxcpxs@163.com` |
 | 班主任小秘书 | `/Volumes/外置硬盘/Developer/班主任/Banzhuren/`（依据当前本地 Core Data、权限声明、StoreKit、局域网编辑和网络请求实现整理） | `/Volumes/外置硬盘/Developer/班主任/`（依据当前应用功能和支持流程整理） | `/Volumes/外置硬盘/Developer/班主任/`（依据当前应用功能、购买和责任边界整理） | `fxcpxs@163.com` |
+| AppStoryline / 上架图生成器 | `/Volumes/外置硬盘/Developer/apple-image-web/native/INGScreen/`（依据当前离线本地文件、照片选择、导出和权限实现整理） | `/Volumes/外置硬盘/Developer/apple-image-web/native/INGScreen/`（依据当前应用功能和支持流程整理） | `/Volumes/外置硬盘/Developer/apple-image-web/native/INGScreen/`（依据一次性付费下载、离线使用和责任边界整理） | `fxcpxs@163.com` |
 
 ## Update procedure
 
@@ -19,4 +20,4 @@ The site renders app-specific legal documents from `src/data/legal/` rather than
 2. Update the relevant profile in `src/data/legal/<app>.ts`. Keep every locale declared by the app's `supportedLocales`; apps without that field use all five site locales: `zh-Hans`, `zh-Hant`, `en`, `ja`, and `ko`.
 3. Preserve the actual support contact that the app exposes. Do not substitute a personal or unrelated mailbox.
 4. Run `npm test` and `npm run check`. Before publishing, run `npm run validate` and inspect the generated document pages in a browser.
-5. For a new app, add its source row here, create its `src/data/legal/<slug>.ts` profile, register it in `src/data/legal/index.ts`, and add privacy, support, and terms links to its app record. The app must not be listed until all supported-locale document pages build successfully.
+5. For a new app, add its source row here, create its `src/data/legal/<slug>.ts` profile, register it in `src/data/legal/index.ts`, and add privacy, support, and terms links to its app record. The app must not be listed until all supported-locale document pages build successfully. Add marketing terms when the product has a dedicated marketing or promotional policy.

@@ -21,6 +21,7 @@ const copy = appCopy(app, locale);
 const listing = resolveListing(app, localeDefaultStorefront[locale]).listing;
 const attributes = storefrontDataAttributes(app, locale);
 const suffix = `apps/${app.slug}`;
+const pricing = app.pricing?.[locale];
 ---
 
 <SiteLayout locale={locale} title={`FU apps | ${getListingDisplayName(listing)}`} description={copy.summary} suffix={suffix} contactEmail={app.contactEmail}>
@@ -32,6 +33,10 @@ const suffix = `apps/${app.slug}`;
         <p class="section-label">{copy.eyebrow}</p>
         <h1><span {...attributes} data-storefront-name>{getListingDisplayName(listing)}</span></h1>
         <p class="product-intro__summary">{copy.summary}</p>
+        {pricing && <div class="product-pricing" aria-label={`${pricing.value}, ${pricing.note}`}>
+          <strong>{pricing.value}</strong>
+          <span>{pricing.note}</span>
+        </div>}
         <AppStoreCTA app={app} locale={locale} />
       </div>
       <div class="product-hero__screen">
@@ -68,7 +73,7 @@ const suffix = `apps/${app.slug}`;
     </div>
   </section>
 
-  <section class="document-band">
+  <section class:list={["document-band", { "document-band--appstoryline": app.slug === "appstoryline" }]}>
     <div class="page-shell document-band__inner">
       <div>
         <p class="section-label">FU apps</p>

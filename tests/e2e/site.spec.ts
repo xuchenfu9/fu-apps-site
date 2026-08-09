@@ -55,3 +55,19 @@ test("keeps primary actions reachable on a phone viewport", async ({ page }) => 
   await expect(page.locator('[data-storefront-cta]')).toBeVisible();
   await expect(page.getByRole("link", { name: /Privacy Policy/i })).toBeVisible();
 });
+
+test("shows AppStoryline pricing and marketing terms in the supported locales", async ({ page }) => {
+  await page.goto("en/apps/appstoryline/");
+
+  await expect(page.getByRole("heading", { name: "AppStoryline" })).toBeVisible();
+  await expect(page.getByText("$3.99", { exact: true })).toBeVisible();
+  await expect(page.getByText("One-time purchase", { exact: true })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Marketing Terms" })).toBeVisible();
+
+  await page.goto("zh-Hans/apps/appstoryline/");
+  await page.locator("[data-storefront-selector]").selectOption("CN");
+  await expect(page.getByRole("heading", { name: "上架图生成器" })).toBeVisible();
+  await expect(page.getByText("¥12", { exact: true })).toBeVisible();
+  await expect(page.getByText("一次性购买", { exact: true })).toBeVisible();
+  await expect(page.getByRole("link", { name: "营销条款" })).toBeVisible();
+});

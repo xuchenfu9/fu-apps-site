@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { apps, appsBySlug } from "../../src/data/apps";
-import { legalDocumentsBySlug } from "../../src/data/legal";
+import { legalDocumentsBySlug, type LegalDocument } from "../../src/data/legal";
 import { locales } from "../../src/lib/locales";
 
 describe("legal document completeness", () => {
@@ -23,7 +23,7 @@ describe("legal document completeness", () => {
         const documents = legalDocumentsBySlug[app.slug][locale];
         expect(documents).toBeDefined();
         if (!documents) continue;
-        for (const document of Object.values(documents)) {
+        for (const document of Object.values(documents).filter((value): value is LegalDocument => Boolean(value))) {
           const text = document.sections.flatMap((section) => section.paragraphs).join(" ");
           expect(text).toContain("fxcpxs@163.com");
           expect(text).not.toMatch(/panxiaosen@/i);
