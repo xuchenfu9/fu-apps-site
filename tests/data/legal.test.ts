@@ -47,12 +47,22 @@ describe("legal document completeness", () => {
     const privacyText = documents?.privacy.sections
       .flatMap((section) => [...section.paragraphs, ...(section.bullets ?? [])])
       .join(" ") ?? "";
+    const supportText = documents?.support.sections
+      .flatMap((section) => [...section.paragraphs, ...(section.bullets ?? [])])
+      .join(" ") ?? "";
     const termsText = documents?.terms.sections.flatMap((section) => section.paragraphs).join(" ") ?? "";
+    const allText = [privacyText, supportText, termsText].join(" ");
 
-    expect(privacyText).toContain("反馈服务");
-    expect(privacyText).toContain("随机安装标识符");
+    expect(allText).toContain("系统邮件");
+    expect(allText).toContain("CloudKit 私有数据库");
+    expect(allText).toContain("SecretaryTips.json");
+    expect(allText).not.toContain("反馈服务器");
+    expect(allText).not.toContain("随机安装标识符");
+    expect(allText).not.toContain("在线反馈数据库");
     expect(privacyText).toContain("HTTP，传输不加密");
-    expect(privacyText).toContain("申请删除反馈");
+    expect(privacyText).toContain("不自行上传");
+    expect(privacyText).toContain("不保存反馈历史");
+    expect(privacyText).toContain("不轮询回复");
     expect(privacyText).toContain("主动选择照片");
     expect(privacyText).toContain("90 天免费试用");
     expect(privacyText).toContain("首次启动时开始计算");
