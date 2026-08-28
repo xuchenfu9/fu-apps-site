@@ -39,32 +39,31 @@ const idPhoto: AppRecord = {
     CN: {
       storefront: "CN",
       state: "planned",
-      currentName: "佳佳证件照",
-      nextReleaseName: "证照准拍",
+      nextReleaseName: "佳佳照片",
       url: "https://apps.apple.com/cn/app/id6758612379"
     },
     HK: {
       storefront: "HK",
       state: "planned",
-      nextReleaseName: "證照好拍",
+      nextReleaseName: "佳佳照片",
       url: "https://apps.apple.com/hk/app/id6758612379"
     },
     TW: {
       storefront: "TW",
       state: "planned",
-      nextReleaseName: "證照好拍",
+      nextReleaseName: "佳佳照片",
       url: "https://apps.apple.com/tw/app/id6758612379"
     },
     CA: {
       storefront: "CA",
       state: "planned",
-      nextReleaseName: "MapleLens ID",
+      nextReleaseName: "JiaJia Photo",
       url: "https://apps.apple.com/ca/app/id6758612379"
     },
     US: {
       storefront: "US",
       state: "planned",
-      nextReleaseName: "US PassSnap",
+      nextReleaseName: "JiaJia Photo",
       url: "https://apps.apple.com/us/app/id6758612379"
     }
   }
@@ -84,12 +83,19 @@ describe("Storefront resolution", () => {
     expect(resolveListing(partyGames, "CA").resolvedStorefront).toBe("US");
   });
 
-  it("keeps planned ID-photo names separate from current live names", () => {
-    expect(getListingDisplayName(resolveListing(idPhoto, "CA").listing)).toBe("MapleLens ID");
-    expect(getListingDisplayName(resolveListing(idPhoto, "US").listing)).toBe("US PassSnap");
-    expect(getListingDisplayName(resolveListing(idPhoto, "TW").listing)).toBe("證照好拍");
+  it("uses the Build 8 brand name in every planned storefront", () => {
+    expect(getListingDisplayName(resolveListing(idPhoto, "CN").listing)).toBe("佳佳照片");
+    expect(getListingDisplayName(resolveListing(idPhoto, "TW").listing)).toBe("佳佳照片");
+    expect(getListingDisplayName(resolveListing(idPhoto, "CA").listing)).toBe("JiaJia Photo");
+    expect(getListingDisplayName(resolveListing(idPhoto, "US").listing)).toBe("JiaJia Photo");
     expect(resolveListing(idPhoto, "JP").resolvedStorefront).toBe("US");
-    expect(appsBySlug["jiajia-id-photo"].listings.CA?.nextReleaseName).toBe("MapleLens ID");
+    expect(appsBySlug["jiajia-id-photo"].listings.CA?.nextReleaseName).toBe("JiaJia Photo");
+    expect(appsBySlug["jiajia-id-photo"].copy["zh-Hans"]?.summary).toContain("通用人像照片");
+    expect(appsBySlug["jiajia-id-photo"].copy.en?.summary).toContain("portrait photo editor");
+    const copyText = Object.values(appsBySlug["jiajia-id-photo"].copy)
+      .flatMap((copy) => copy ? [copy.eyebrow, copy.summary, ...copy.features.flatMap((feature) => [feature.title, feature.description])] : [])
+      .join(" ");
+    expect(copyText).not.toMatch(/MapleLens|PassSnap|身份证|护照|passport|print layout|打印排版/i);
   });
 
   it("supports a planned listing without a store URL", () => {

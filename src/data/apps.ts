@@ -288,72 +288,73 @@ const myBookmarks: AppRecord = {
 const jiajiaIdPhoto: AppRecord = {
   slug: "jiajia-id-photo",
   appStoreId: "6758612379",
+  supportedLocales: ["zh-Hans", "zh-Hant", "en", "ja", "ko"],
   contactEmail: publicContactEmail,
   icon: "/assets/apps/jiajia-id-photo/web/icon.webp",
   screenshots: ["/assets/apps/jiajia-id-photo/web/screen-01.webp"],
   copy: copy({
     "zh-Hans": {
-      eyebrow: "证件照制作辅助",
-      summary: "从一张自拍或相册照片开始，整理尺寸、底色与导出格式，在手机上完成一张更接近使用要求的证件照。",
+      eyebrow: "智能人像照片编辑",
+      summary: "这是一款通用人像照片编辑器：从相机或照片开始，在设备上完成自然处理、背景调整、常用比例裁剪和清晰导出。",
       features: [
-        { title: "相机或相册，直接开始", description: "从相机拍摄或已有照片选图，再调整画面，让人物以更合适的构图进入制作流程。" },
-        { title: "人物与背景分开处理", description: "进行人物分离并替换常用底色，先把照片整理成干净、易继续调整的证件照画布。" },
-        { title: "规格不再只凭记忆", description: "按地区、用途或搜索选择模板，查看尺寸、像素、DPI 与文件要求等资料，辅助准备对应规格。" },
-        { title: "调整有边界", description: "在模板允许的范围内进行亮度和轻量美化；对限制像素内容修改的规格，应用保留相应的制作边界。" },
-        { title: "为打印和提交准备文件", description: "制作单张图或排版到常用相纸，并按模板导出 PNG 或 JPEG。最终是否接受仍以使用机构的审核为准。" }
+        { title: "拍摄或从照片开始", description: "使用相机拍摄新的人像，或从照片中选择已有图片，再调整构图和画面比例。" },
+        { title: "设备端智能处理", description: "在人像处理、主体分离和背景调整过程中使用设备端算法，照片不需要上传到开发者服务器。" },
+        { title: "常用比例与自由裁剪", description: "选择 4:5、方形、3:4、4:3 等常用画布，或自由裁剪以适应头像和分享场景。" },
+        { title: "自然美化与亮度调整", description: "用轻量磨皮和亮度控制整理画面，保留自然的肤色和人物细节。" },
+        { title: "清晰导出与分享", description: "选择 PNG 或 JPEG，保存到照片或直接分享处理后的单张人像。" }
       ]
     },
     "zh-Hant": {
-      eyebrow: "證件照製作輔助",
-      summary: "從一張自拍或相簿照片開始，整理尺寸、底色與輸出格式，在手機上完成一張更接近使用要求的證件照。",
+      eyebrow: "智慧人像照片編輯",
+      summary: "從相機或照片開始，在裝置上完成自然的人像處理、背景調整、常用比例裁切和清晰匯出。",
       features: [
-        { title: "相機或相簿，直接開始", description: "從相機拍攝或既有照片選圖，再調整畫面，讓人物以更合適的構圖進入製作流程。" },
-        { title: "人物與背景分開處理", description: "進行人物分離並替換常用底色，先把照片整理成乾淨、容易繼續調整的證件照畫布。" },
-        { title: "規格不再只憑記憶", description: "依地區、用途或搜尋選擇範本，查看尺寸、像素、DPI 與檔案要求等資料，輔助準備對應規格。" },
-        { title: "調整有邊界", description: "在範本允許的範圍內進行亮度和輕量美化；對限制像素內容修改的規格，App 保留相應製作邊界。" },
-        { title: "為列印與提交準備檔案", description: "製作單張圖或排版到常用相紙，並依範本輸出 PNG 或 JPEG。最終是否接受仍以使用機構審核為準。" }
+        { title: "拍攝或從照片開始", description: "使用相機拍攝新人像，或從照片中選擇既有圖片，再調整構圖和畫面比例。" },
+        { title: "裝置本機智慧處理", description: "在人像處理、主體分離和背景調整過程中使用裝置端演算法，照片不需要上傳到開發者伺服器。" },
+        { title: "常用比例與自由裁切", description: "選擇 4:5、方形、3:4、4:3 等常用畫布，或自由裁切以適應頭像和分享情境。" },
+        { title: "自然美化與亮度調整", description: "用輕量磨皮和亮度控制整理畫面，保留自然膚色和人物細節。" },
+        { title: "清晰匯出與分享", description: "選擇 PNG 或 JPEG，儲存至照片或直接分享處理後的單張人像。" }
       ]
     },
     en: {
-      eyebrow: "ID photo preparation tools",
-      summary: "Start with a selfie or a library photo, then organize size, background, and export format to prepare an ID photo on your phone.",
+      eyebrow: "Smart portrait photo editor",
+      summary: "JiaJia Photo is a general portrait photo editor: start with the camera or Photos, then use background tools, common ratios, natural retouching, and clear export on device.",
       features: [
-        { title: "Start from the camera or library", description: "Take a photo or choose an existing image, then adjust the framing before bringing the subject into the preparation flow." },
-        { title: "Separate subject and background", description: "Isolate the subject and switch to common background colors, creating a clean canvas for the rest of the ID-photo workflow." },
-        { title: "Requirements in one place", description: "Choose a template by region, purpose, or search, then review size, pixels, DPI, and file requirements while preparing the image." },
-        { title: "Adjustments with guardrails", description: "Use brightness and light enhancement where a template permits them. Templates that restrict pixel-content edits keep those production boundaries." },
-        { title: "Prepare files for print or upload", description: "Make a single image or a print layout, then export PNG or JPEG as a template requires. Final acceptance is always decided by the receiving authority." }
+        { title: "Start with the camera or Photos", description: "Capture a new portrait or choose an existing image, then adjust the framing and canvas ratio." },
+        { title: "Smart processing on device", description: "Use on-device algorithms for portrait processing, subject separation, and background adjustments without uploading photos to a developer server." },
+        { title: "Common ratios and free crop", description: "Choose 4:5, square, 3:4, or 4:3 canvases, or crop freely for avatars and sharing." },
+        { title: "Natural retouching and brightness", description: "Use light skin smoothing and brightness controls while keeping the portrait natural." },
+        { title: "Clear export and sharing", description: "Choose PNG or JPEG, save to Photos, or share the finished single portrait." }
       ]
     },
     ja: {
-      eyebrow: "証明写真作成サポート",
-      summary: "自撮りや写真ライブラリの一枚から、サイズ、背景、出力形式を整え、スマートフォンで証明写真を準備できます。",
+      eyebrow: "スマートポートレート編集",
+      summary: "カメラまたは写真から始め、デバイス上で背景、構図、自然な補正、書き出しを整えます。",
       features: [
-        { title: "カメラでもライブラリでも開始", description: "撮影した写真または既存の写真を選び、人物が適切に収まるよう構図を整えてから作成を始めます。" },
-        { title: "人物と背景を分けて準備", description: "人物を切り抜き、よく使う背景色に切り替えて、後の調整をしやすい証明写真用の画面を作ります。" },
-        { title: "要件を一か所で確認", description: "地域、用途、検索からテンプレートを選び、サイズ、ピクセル、DPI、ファイル要件を確認しながら準備できます。" },
-        { title: "調整にはガードレールを", description: "テンプレートが許可する場合に明るさや軽い補正を使用。ピクセル内容の変更を制限する規格では、その作成上の境界を保ちます。" },
-        { title: "印刷・提出用のファイルへ", description: "単写真または印刷レイアウトを作り、テンプレートに合わせて PNG または JPEG を出力します。最終的な受理は提出先の判断によります。" }
+        { title: "カメラまたは写真から開始", description: "新しいポートレートを撮影するか既存の画像を選び、構図とキャンバス比率を整えます。" },
+        { title: "デバイス上でスマート処理", description: "ポートレート処理、被写体の分離、背景調整をデバイス上で行い、写真を開発者のサーバーへ送信しません。" },
+        { title: "一般的な比率と自由な切り抜き", description: "4:5、正方形、3:4、4:3 のキャンバス、または自由な切り抜きを選べます。" },
+        { title: "自然な補正と明るさ調整", description: "軽い肌補正と明るさを調整し、ポートレートの自然な印象を保ちます。" },
+        { title: "きれいに書き出して共有", description: "PNG または JPEG を選び、写真に保存するか完成したポートレートを共有できます。" }
       ]
     },
     ko: {
-      eyebrow: "증명사진 준비 도구",
-      summary: "셀피나 사진 보관함의 이미지에서 시작해 크기, 배경, 내보내기 형식을 정리하고 휴대폰에서 증명사진을 준비합니다.",
+      eyebrow: "스마트 인물 사진 편집",
+      summary: "카메라나 사진 보관함에서 시작해 기기에서 배경, 구도, 자연스러운 보정과 선명한 내보내기를 정리합니다.",
       features: [
-        { title: "카메라나 사진 보관함에서 시작", description: "직접 촬영하거나 기존 사진을 고른 뒤 인물이 알맞게 들어오도록 구도를 조정해 준비 과정을 시작합니다." },
-        { title: "인물과 배경을 나누어 준비", description: "인물을 분리하고 자주 쓰는 배경색으로 바꾸어 이후 조정에 적합한 깔끔한 증명사진 캔버스를 만듭니다." },
-        { title: "요건을 한곳에서 확인", description: "지역, 용도, 검색으로 템플릿을 선택하고 이미지 준비 중 크기, 픽셀, DPI, 파일 요건을 확인합니다." },
-        { title: "경계를 지키는 조정", description: "템플릿이 허용할 때 밝기와 가벼운 보정을 사용하며, 픽셀 내용 변경을 제한하는 규격에서는 그 제작 경계를 유지합니다." },
-        { title: "인쇄 또는 제출용 파일 준비", description: "단일 사진이나 인쇄 레이아웃을 만들고 템플릿에 맞춰 PNG 또는 JPEG로 내보냅니다. 최종 수락 여부는 제출 기관이 결정합니다." }
+        { title: "카메라나 사진에서 시작", description: "새 인물 사진을 촬영하거나 기존 이미지를 고른 뒤 구도와 캔버스 비율을 조정합니다." },
+        { title: "기기에서 스마트 처리", description: "인물 처리, 피사체 분리, 배경 조정을 기기에서 수행하며 사진을 개발자 서버에 업로드하지 않습니다." },
+        { title: "일반 비율과 자유 자르기", description: "4:5, 정사각형, 3:4, 4:3 캔버스를 선택하거나 아바타와 공유용으로 자유롭게 자릅니다." },
+        { title: "자연스러운 보정과 밝기", description: "가벼운 피부 보정과 밝기 조절로 인물의 자연스러운 느낌을 유지합니다." },
+        { title: "선명하게 내보내고 공유", description: "PNG 또는 JPEG를 선택해 사진에 저장하거나 완성된 인물 사진을 바로 공유합니다." }
       ]
     }
   }),
   listings: {
-    CN: plannedListing("CN", "6758612379", "证照准拍", "佳佳证件照"),
-    HK: plannedListing("HK", "6758612379", "證照好拍"),
-    TW: plannedListing("TW", "6758612379", "證照好拍"),
-    CA: plannedListing("CA", "6758612379", "MapleLens ID"),
-    US: plannedListing("US", "6758612379", "US PassSnap")
+    CN: plannedListing("CN", "6758612379", "佳佳照片"),
+    HK: plannedListing("HK", "6758612379", "佳佳照片"),
+    TW: plannedListing("TW", "6758612379", "佳佳照片"),
+    CA: plannedListing("CA", "6758612379", "JiaJia Photo"),
+    US: plannedListing("US", "6758612379", "JiaJia Photo")
   }
 };
 
