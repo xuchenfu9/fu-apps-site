@@ -37,7 +37,7 @@ describe("legal document completeness", () => {
     }
   });
 
-  it("keeps JiaJia Photo legal copy aligned with Build 8", () => {
+  it("uses the mainland China brand only in Simplified Chinese legal copy", () => {
     const app = appsBySlug["jiajia-id-photo"];
     const forbidden = /MapleLens|PassSnap|证照准拍|證照好拍|身份证|护照|passport|diploma|certificate|print layout|打印排版/i;
     for (const locale of locales) {
@@ -48,7 +48,12 @@ describe("legal document completeness", () => {
         .filter((document): document is LegalDocument => Boolean(document))
         .flatMap((document) => document.sections.flatMap((section) => [...section.paragraphs, ...(section.bullets ?? [])]))
         .join(" ");
-      expect(text).toMatch(/佳佳照片|JiaJia Photo/);
+      if (locale === "zh-Hans") {
+        expect(text).toContain("佳佳证件照");
+      } else {
+        expect(text).toMatch(/佳佳照片|JiaJia Photo/);
+        expect(text).not.toContain("佳佳证件照");
+      }
       expect(text).toMatch(/device|设备|裝置|本機|기기|デバイス/i);
       expect(text).toMatch(/recommend|推荐|推薦|おすすめ|추천/i);
       expect(text).toContain("fxcpxs@163.com");

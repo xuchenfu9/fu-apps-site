@@ -1,6 +1,6 @@
 import type { AppLegalDocuments, LegalDocument, LegalSection } from "./types";
 
-const updatedAt = "2026-08-28";
+const updatedAt = "2026-08-29";
 
 function document(title: string, sections: readonly LegalSection[]): LegalDocument {
   return { title, updatedAt, sections };
@@ -9,20 +9,20 @@ function document(title: string, sections: readonly LegalSection[]): LegalDocume
 export const jiajiaIdPhotoLegal: AppLegalDocuments = {
   "zh-Hans": {
     privacy: document("隐私政策", [
-      { title: "运营者与范围", paragraphs: ["佳佳照片（JiaJia Photo）由 Panxiaosen 独立开发和运营。本政策适用于您在受支持的 Apple 设备上使用本应用。", "本应用是通用人像照片编辑器，不要求创建账户。"] },
+      { title: "运营者与范围", paragraphs: ["中国大陆地区的佳佳证件照（JiaJia Photo）由 Panxiaosen 独立开发和运营。本政策适用于您在受支持的 Apple 设备上使用本应用。", "本应用是通用人像照片编辑器，不要求创建账户。"] },
       { title: "照片与处理信息", paragraphs: ["本应用只处理您主动拍摄或从照片中选择的图片，以及处理过程中临时产生的人脸位置数据，用于裁剪、主体分离、背景调整、自然美化和导出。", "照片和临时人脸位置数据在设备端处理；我们不会把照片、面部数据或身份信息上传到开发者服务器，也不会将其出售或用于广告。"] },
       { title: "网络请求与第三方", paragraphs: ["应用可能查询公开的版本信息和推荐内容。此类请求不包含照片、面部数据或身份信息；推荐内容缓存保留在设备本地。", "您主动打开的 App Store、社交平台或其他外部链接由相应服务提供商处理，网络服务商可能依其政策处理建立连接所必需的技术信息。本应用不集成第三方广告或行为分析服务。"] },
       { title: "权限、保存与删除", paragraphs: ["当您拍照、选择照片或保存结果时，系统可能请求相机或照片权限。应用不会读取您未选择的照片。", "处理期间的临时数据在设备内存中使用。导出的图片只有在您主动保存时才写入系统照片；地区、语言偏好和公开推荐缓存保存在设备本地。删除应用可以移除应用保存的本地数据，系统照片中的副本需要在照片应用中单独删除。"] },
       { title: "联系我们", paragraphs: ["隐私问题、删除请求或数据处理疑问，请联系 fxcpxs@163.com。"] }
     ]),
     support: document("用户支持", [
-      { title: "获得帮助", paragraphs: ["佳佳照片（JiaJia Photo）支持拍摄或选取人像、设备端处理、背景调整、自然美化、常用比例和自由裁剪，以及 PNG/JPEG 导出。"] },
+      { title: "获得帮助", paragraphs: ["中国大陆地区的佳佳证件照（JiaJia Photo）支持拍摄或选取人像、设备端处理、背景调整、自然美化、常用比例和自由裁剪，以及 PNG/JPEG 导出。"] },
       { title: "问题报告", paragraphs: ["请提供应用版本、设备型号、系统版本、发生问题的步骤和截图。发送图片前，请移除与问题无关的个人资料。"] },
       { title: "使用边界", paragraphs: ["应用用于一般人像照片编辑和分享，不保证任何导出结果适合特定平台或第三方流程；请以相关平台的最新要求为准。"] },
       { title: "联系我们", paragraphs: ["支持邮箱：fxcpxs@163.com。支持人员不会要求您提供 Apple ID 密码、支付凭据或不必要的私人照片。"] }
     ]),
     terms: document("服务条款", [
-      { title: "许可与使用", paragraphs: ["下载、安装或使用佳佳照片（JiaJia Photo），即表示您同意本条款。您获得在自己拥有或控制的受支持 Apple 设备上使用本应用的有限、非独占、不可转让许可。"] },
+      { title: "许可与使用", paragraphs: ["下载、安装或使用中国大陆地区的佳佳证件照（JiaJia Photo），即表示您同意本条款。您获得在自己拥有或控制的受支持 Apple 设备上使用本应用的有限、非独占、不可转让许可。"] },
       { title: "内容与责任", paragraphs: ["您对自己拍摄、导入、编辑、保存和分享的内容负责，并应确认拥有使用这些内容所需的权利。请勿使用本应用制作违法、误导他人或侵犯他人权利的内容。"] },
       { title: "购买与可用性", paragraphs: ["当前版本不提供应用内购买或订阅。应用按现状提供，不保证每次处理、导出或分享都适合特定设备、平台或第三方流程；系统服务和外部平台受其各自条款约束。"] },
       { title: "变更与联系", paragraphs: ["我们可能因功能、系统或法律变化更新本条款和隐私政策；更新后继续使用即表示接受修订内容。问题请联系 fxcpxs@163.com。"] }

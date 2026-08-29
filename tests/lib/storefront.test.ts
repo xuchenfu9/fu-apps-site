@@ -39,7 +39,7 @@ const idPhoto: AppRecord = {
     CN: {
       storefront: "CN",
       state: "planned",
-      nextReleaseName: "佳佳照片",
+      nextReleaseName: "佳佳证件照",
       url: "https://apps.apple.com/cn/app/id6758612379"
     },
     HK: {
@@ -83,12 +83,15 @@ describe("Storefront resolution", () => {
     expect(resolveListing(partyGames, "CA").resolvedStorefront).toBe("US");
   });
 
-  it("uses the Build 8 brand name in every planned storefront", () => {
-    expect(getListingDisplayName(resolveListing(idPhoto, "CN").listing)).toBe("佳佳照片");
+  it("keeps the original brand only in mainland China", () => {
+    expect(getListingDisplayName(resolveListing(idPhoto, "CN").listing)).toBe("佳佳证件照");
     expect(getListingDisplayName(resolveListing(idPhoto, "TW").listing)).toBe("佳佳照片");
     expect(getListingDisplayName(resolveListing(idPhoto, "CA").listing)).toBe("JiaJia Photo");
     expect(getListingDisplayName(resolveListing(idPhoto, "US").listing)).toBe("JiaJia Photo");
     expect(resolveListing(idPhoto, "JP").resolvedStorefront).toBe("US");
+    expect(appsBySlug["jiajia-id-photo"].listings.CN?.nextReleaseName).toBe("佳佳证件照");
+    expect(appsBySlug["jiajia-id-photo"].listings.HK?.nextReleaseName).toBe("佳佳照片");
+    expect(appsBySlug["jiajia-id-photo"].listings.TW?.nextReleaseName).toBe("佳佳照片");
     expect(appsBySlug["jiajia-id-photo"].listings.CA?.nextReleaseName).toBe("JiaJia Photo");
     expect(appsBySlug["jiajia-id-photo"].copy["zh-Hans"]?.summary).toContain("通用人像照片");
     expect(appsBySlug["jiajia-id-photo"].copy.en?.summary).toContain("portrait photo editor");

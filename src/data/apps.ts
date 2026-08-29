@@ -350,7 +350,7 @@ const jiajiaIdPhoto: AppRecord = {
     }
   }),
   listings: {
-    CN: plannedListing("CN", "6758612379", "佳佳照片"),
+    CN: plannedListing("CN", "6758612379", "佳佳证件照"),
     HK: plannedListing("HK", "6758612379", "佳佳照片"),
     TW: plannedListing("TW", "6758612379", "佳佳照片"),
     CA: plannedListing("CA", "6758612379", "JiaJia Photo"),
