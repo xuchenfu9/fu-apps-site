@@ -24,7 +24,7 @@ test("opens an app detail page from a card surface while preserving the App Stor
   await expect(page).toHaveURL(/\/fu-apps-site\/zh-Hans\/apps\/perfectlist\/$/);
 });
 
-test("shows Banzhuren as a Chinese-only app that is still coming to the App Store", async ({ page }) => {
+test("shows Banzhuren in every site language while it is still coming to the App Store", async ({ page }) => {
   await page.goto("zh-Hans/");
 
   const card = page.locator('.app-card:has(a[href="/fu-apps-site/zh-Hans/apps/banzhuren/"])');
@@ -33,8 +33,10 @@ test("shows Banzhuren as a Chinese-only app that is still coming to the App Stor
   await expect(card.locator("[data-storefront-status]")).toHaveText("上架中");
   await expect(card.locator("[data-storefront-cta]")).toHaveCount(0);
 
-  const missingLocaleResponse = await page.request.get("en/apps/banzhuren/");
-  expect(missingLocaleResponse.status()).toBe(404);
+  const englishResponse = await page.request.get("en/apps/banzhuren/");
+  expect(englishResponse.status()).toBe(200);
+  await page.goto("en/apps/banzhuren/privacy/");
+  await expect(page.getByRole("heading", { name: "Privacy Policy" })).toBeVisible();
 });
 
 test("keeps a legal document path when changing language", async ({ page }) => {

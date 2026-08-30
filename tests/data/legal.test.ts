@@ -61,21 +61,24 @@ describe("legal document completeness", () => {
     }
   });
 
-  it("provides Chinese-only legal documents for Banzhuren", () => {
+  it("provides complete localized legal documents for Banzhuren", () => {
     const documents = legalDocumentsBySlug.banzhuren;
 
-    expect(appsBySlug.banzhuren.supportedLocales).toEqual(["zh-Hans"]);
-    expect(documents["zh-Hans"]?.privacy.sections.length).toBeGreaterThan(0);
-    expect(documents["zh-Hans"]?.support.sections.length).toBeGreaterThan(0);
-    expect(documents["zh-Hans"]?.terms.sections.length).toBeGreaterThan(0);
-    expect(documents.en).toBeUndefined();
+    expect(appsBySlug.banzhuren.supportedLocales).toEqual(locales);
+    for (const locale of locales) {
+      expect(documents[locale]?.privacy.sections.length).toBeGreaterThan(0);
+      expect(documents[locale]?.support.sections.length).toBeGreaterThan(0);
+      expect(documents[locale]?.terms.sections.length).toBeGreaterThan(0);
+      expect(documents[locale]?.privacy.updatedAt).toBe("2026-08-30");
+      expect(documentText(documents[locale]?.privacy)).toContain("fxcpxs@163.com");
+    }
   });
 
   it("keeps Banzhuren privacy copy aligned with its storage, permissions, mail, and network behavior", () => {
     const document = legalDocumentsBySlug.banzhuren["zh-Hans"]?.privacy;
     const privacyText = documentText(document);
 
-    expect(document?.updatedAt).toBe("2026-08-18");
+    expect(document?.updatedAt).toBe("2026-08-30");
     expect(privacyText).toContain("CloudKit 私有数据库");
     expect(privacyText).toContain("照片、录音和文件附件的二进制内容不会随 Core Data 自动同步");
     expect(privacyText).toContain("SecretaryTips.json");
@@ -104,11 +107,15 @@ describe("legal document completeness", () => {
     expect(privacyText).toContain("不保存反馈历史");
     expect(privacyText).toContain("不轮询回复");
     expect(privacyText).toContain("主动选择照片");
-    expect(privacyText).toContain("90 天免费试用");
-    expect(privacyText).toContain("首次启动时开始计算");
-    expect(privacyText).toContain("Keychain");
-    expect(privacyText).toContain("删除并重新安装后");
+    expect(privacyText).toContain("移动端基础班务管理功能可以免费使用");
+    expect(privacyText).toContain("月度自动续期订阅");
+    expect(privacyText).toContain("年度自动续期订阅");
+    expect(privacyText).toContain("一次性终身会员");
+    expect(privacyText).toContain("不提供免费试用");
+    expect(privacyText).toContain("不会自动取消或退还当前的月度或年度订阅");
     expect(privacyText).toContain("Apple StoreKit");
+    expect(privacyText).not.toContain("90 天");
+    expect(privacyText).not.toContain("Keychain");
     expect(privacyText).not.toContain("反馈服务器");
     expect(privacyText).not.toContain("随机安装标识符");
     expect(privacyText).not.toContain("在线反馈数据库");
@@ -118,7 +125,7 @@ describe("legal document completeness", () => {
     const document = legalDocumentsBySlug.banzhuren["zh-Hans"]?.support;
     const supportText = documentText(document);
 
-    expect(document?.updatedAt).toBe("2026-08-18");
+    expect(document?.updatedAt).toBe("2026-08-30");
     expect(supportText).toContain("照片、录音和文件附件的二进制内容不会随 Core Data 自动同步");
     expect(supportText).toContain("保存草稿");
     expect(supportText).toContain("系统邮件草稿箱");
@@ -126,6 +133,11 @@ describe("legal document completeness", () => {
     expect(supportText).toContain("已发送副本");
     expect(supportText).toContain("邮件 App 或邮件服务商");
     expect(supportText).toContain("开发者收件邮箱");
+    expect(supportText).toContain("月度自动续期订阅");
+    expect(supportText).toContain("年度自动续期订阅");
+    expect(supportText).toContain("终身会员");
+    expect(supportText).toContain("不会自动取消或退款");
+    expect(supportText).not.toContain("90 天");
     expect(supportText).not.toContain("反馈服务器");
     expect(supportText).not.toContain("随机安装标识符");
     expect(supportText).not.toContain("在线反馈数据库");
@@ -135,7 +147,7 @@ describe("legal document completeness", () => {
     const document = legalDocumentsBySlug.banzhuren["zh-Hans"]?.terms;
     const termsText = documentText(document);
 
-    expect(document?.updatedAt).toBe("2026-08-18");
+    expect(document?.updatedAt).toBe("2026-08-30");
     expect(termsText).toContain("未加密 HTTP");
     expect(termsText).toContain("进入后台不会自动停止");
     expect(termsText).toContain("用户主动停止");
@@ -152,12 +164,14 @@ describe("legal document completeness", () => {
     expect(termsText).toContain("成功发送后");
     expect(termsText).toContain("开发者收件邮箱");
     expect(termsText).toContain("照片、录音和文件附件的二进制内容不会随 Core Data 自动同步");
-    expect(termsText).toContain("试用结束后");
-    expect(termsText).toContain("首次启动应用时开始计算");
-    expect(termsText).toContain("本机 Keychain");
-    expect(termsText).toContain("删除并重新安装后仍沿用原试用日期");
+    expect(termsText).toContain("移动端基础班务管理功能可以免费使用");
+    expect(termsText).toContain("月度会员和年度会员");
+    expect(termsText).toContain("自动续期订阅");
+    expect(termsText).toContain("至少 24 小时");
     expect(termsText).toContain("一次性非消耗型");
-    expect(termsText).toContain("不会自动续费");
+    expect(termsText).toContain("不会自动取消或退款");
+    expect(termsText).not.toContain("90 天");
+    expect(termsText).not.toContain("Keychain");
     expect(termsText).not.toContain("反馈服务器");
     expect(termsText).not.toContain("随机安装标识符");
     expect(termsText).not.toContain("在线反馈数据库");

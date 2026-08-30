@@ -39,23 +39,67 @@ function copy(values: Record<Locale, LocalizedAppCopy>): AppRecord["copy"] {
 
 const banzhuren: AppRecord = {
   slug: "banzhuren",
-  supportedLocales: ["zh-Hans"],
+  supportedLocales: ["zh-Hans", "zh-Hant", "en", "ja", "ko"],
   contactEmail: publicContactEmail,
   icon: "/assets/apps/banzhuren/web/icon.webp",
   screenshots: ["/assets/apps/banzhuren/web/screen-01.webp"],
-  copy: {
+  copy: copy({
     "zh-Hans": {
       eyebrow: "班主任的日常工作台",
-      summary: "把班级档案、教学安排、学生表现、待办提醒和电脑端编辑收进一处，让每天的班级工作更容易查、更容易跟进。",
+      summary: "面向全国不同地区和学段的教师，集中管理班级档案、课程、学生表现、待办提醒与工作留痕；移动端基础班务功能可免费使用。",
       features: [
-        { title: "班级与学生资料放在一起", description: "建立多个班级和学年档案，集中维护学生基本资料、学号、家长联系方式、宿舍、职务、生日与特长等信息。" },
-        { title: "教学安排与成绩分析更清楚", description: "记录课程表、考试和倒计时，导入成绩后查看科目表现、班级排名和阶段变化，让教学记录和班级日常连起来。" },
+        { title: "班级与学生资料放在一起", description: "建立多个班级和学年档案，集中维护花名册、学号、家长联系方式、宿舍、职务、生日与特长等信息。" },
+        { title: "适配地区、学段和自定义课程", description: "支持全国不同地区的小学、初中和高中教师；当地课程不在默认列表时，可按实际教学需要自由新增。" },
         { title: "操行、请假与班级事件可追溯", description: "围绕学生记录表现分、操行、请假、宿舍和支持计划，也能留下班级事件与工作日志，方便在需要时回看经过。" },
         { title: "待办、语音和提醒一起推进", description: "为班级工作建立待办，设置重复规则和提醒；需要快速记录时可使用语音待办与语音留痕，再回到列表继续处理。" },
-        { title: "电脑端编辑与表格交换", description: "在同一局域网内用电脑编辑当前班级资料，并通过配对码保护访问；学生与成绩数据支持 CSV 或 Excel 导入导出，减少重复录入。" }
+        { title: "免费基础功能与可选会员工具", description: "移动端基础班务管理可免费使用；数据导入、数据导出、局域网电脑版和成绩分析可通过月度、年度或终身会员解锁。" }
+      ]
+    },
+    "zh-Hant": {
+      eyebrow: "班主任的日常工作台",
+      summary: "面向不同地區與學段的教師，集中管理班級檔案、課程、學生表現、待辦提醒與工作記錄；行動端基礎班務功能可免費使用。",
+      features: [
+        { title: "班級與學生資料放在一起", description: "建立多個班級和學年檔案，集中維護花名冊、學號、家長聯絡方式、宿舍、職務、生日與特長等資訊。" },
+        { title: "配合地區、學段與自訂課程", description: "適用於不同地區的小學、初中和高中教師；當地課程不在預設清單時，可依實際教學需求自由新增。" },
+        { title: "操行、請假與班級事件可追溯", description: "圍繞學生記錄表現分、操行、請假、宿舍與支援計畫，也能留下班級事件與工作日誌。" },
+        { title: "待辦、語音與提醒一起推進", description: "為班級工作建立待辦、重複規則與提醒；也可以語音快速記錄待辦和工作留痕。" },
+        { title: "免費基礎功能與可選會員工具", description: "行動端基礎班務管理可免費使用；資料匯入、匯出、區域網路電腦版與成績分析可透過月度、年度或終身會員解鎖。" }
+      ]
+    },
+    en: {
+      eyebrow: "A daily workspace for homeroom teachers",
+      summary: "Manage classes, courses, student records, reminders, and work logs across regions and school levels. Core classroom tools on iPhone and iPad are free to use.",
+      features: [
+        { title: "Classes and student records together", description: "Keep multiple classes and school years organized with rosters, student numbers, guardian contacts, dorms, roles, birthdays, and strengths." },
+        { title: "Courses for different regions and school levels", description: "Support primary, middle, and high school workflows. If a local course is not included by default, add any course required by your actual timetable." },
+        { title: "Traceable conduct, leave, and class events", description: "Record conduct, points, leave, dorm matters, support plans, class events, and work logs so the history is easy to review." },
+        { title: "Tasks, voice capture, and reminders", description: "Create classroom tasks with recurring rules and reminders, or capture tasks and work records quickly with voice." },
+        { title: "Free core tools with optional member features", description: "Core mobile classroom management is free. Import, export, the local-network computer editor, and grade analytics are available with monthly, yearly, or lifetime membership." }
+      ]
+    },
+    ja: {
+      eyebrow: "担任教師の日常ワークスペース",
+      summary: "地域や学段に合わせて、学級、時間割、生徒記録、リマインダー、業務記録を一元管理。iPhone と iPad の基本的な学級管理機能は無料です。",
+      features: [
+        { title: "学級と生徒情報をひとつに", description: "複数の学級と年度ごとに、名簿、学籍番号、保護者連絡先、寮、役割、誕生日、得意分野を管理します。" },
+        { title: "地域・学段・独自科目に対応", description: "小学校、中学校、高等学校の運用に対応。必要な科目が初期一覧にない場合も、実際の時間割に合わせて自由に追加できます。" },
+        { title: "行動、欠席、学級出来事を追跡", description: "生徒の行動、ポイント、欠席、寮、支援計画、学級出来事、業務日誌を記録します。" },
+        { title: "タスク、音声入力、リマインダー", description: "繰り返しルール付きのタスクと通知を作成し、音声でタスクや業務記録をすばやく残せます。" },
+        { title: "無料の基本機能と会員向けツール", description: "モバイルの基本的な学級管理は無料です。インポート、エクスポート、LAN 内の PC 編集、成績分析は月額、年額、または永続会員で利用できます。" }
+      ]
+    },
+    ko: {
+      eyebrow: "담임 교사를 위한 일상 업무 공간",
+      summary: "지역과 학교 급별에 맞게 학급, 시간표, 학생 기록, 알림, 업무 로그를 한곳에서 관리합니다. iPhone과 iPad의 기본 학급 관리 기능은 무료입니다.",
+      features: [
+        { title: "학급과 학생 정보를 한곳에", description: "여러 학급과 학년의 명부, 학번, 보호자 연락처, 기숙사, 역할, 생일, 특기를 정리합니다." },
+        { title: "지역·학교 급별·사용자 과목 지원", description: "초등학교, 중학교, 고등학교 업무에 맞출 수 있습니다. 현지 과목이 기본 목록에 없어도 실제 시간표에 맞게 자유롭게 추가할 수 있습니다." },
+        { title: "행동, 결석, 학급 사건 기록", description: "학생 행동, 점수, 결석, 기숙사, 지원 계획, 학급 사건, 업무 일지를 남겨 흐름을 다시 확인합니다." },
+        { title: "할 일, 음성 기록, 알림", description: "반복 규칙과 알림이 있는 할 일을 만들고, 음성으로 할 일과 업무 기록을 빠르게 남깁니다." },
+        { title: "무료 기본 기능과 선택형 회원 도구", description: "모바일 기본 학급 관리는 무료입니다. 가져오기, 내보내기, 로컬 네트워크 PC 편집, 성적 분석은 월간, 연간 또는 평생 회원으로 이용할 수 있습니다." }
       ]
     }
-  },
+  }),
   listings: {
     CN: plannedWithoutStorefront("CN", "班主任小秘书")
   }
