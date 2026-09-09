@@ -132,13 +132,18 @@ export const banzhurenLegal: AppLegalDocuments = {
     },
     terms: {
       title: "服务条款",
-      updatedAt: "2026-08-30",
+      updatedAt: "2026-09-09",
       sections: [
         {
-          title: "接受条款与使用许可",
+          title: "使用条款（Apple 标准 EULA）",
           paragraphs: [
-            "下载、安装或使用班主任小秘书，即表示你同意遵守本服务条款。我们授予你在自己拥有或控制的受支持 Apple 设备上使用本应用的有限、非独占、不可转让许可。"
-          ]
+            "班主任小秘书采用 Apple 标准最终用户许可协议（EULA）。请通过下方链接查看完整使用条款。",
+            "本页其余内容为班级资料处理、会员订阅和支持服务的补充说明，不替代 Apple 标准 EULA；涉及应用使用许可的内容以该标准 EULA 为准。"
+          ],
+          links: [{
+            label: "查看 Apple 标准使用条款（EULA）",
+            href: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/"
+          }]
         },
         {
           title: "班级资料与用户责任",
@@ -283,11 +288,18 @@ export const banzhurenLegal: AppLegalDocuments = {
     },
     terms: {
       title: "服務條款",
-      updatedAt: "2026-08-30",
+      updatedAt: "2026-09-09",
       sections: [
         {
-          title: "接受條款與使用授權",
-          paragraphs: ["下載、安裝或使用班主任小秘書，即表示你同意在自己擁有或控制的受支援 Apple 裝置上依本條款使用本 App。"]
+          title: "使用條款（Apple 標準 EULA）",
+          paragraphs: [
+            "班主任小秘書採用 Apple 標準最終用戶許可協議（EULA）。請透過下方連結查看完整使用條款。",
+            "本頁其餘內容為班級資料處理、會員訂閱和支援服務的補充說明，不取代 Apple 標準 EULA；涉及 App 使用授權的內容以該標準 EULA 為準。"
+          ],
+          links: [{
+            label: "查看 Apple 標準使用條款（EULA）",
+            href: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/"
+          }]
         },
         {
           title: "班級資料與使用者責任",
@@ -421,11 +433,18 @@ export const banzhurenLegal: AppLegalDocuments = {
     },
     terms: {
       title: "Terms of Service",
-      updatedAt: "2026-08-30",
+      updatedAt: "2026-09-09",
       sections: [
         {
-          title: "Acceptance and license",
-          paragraphs: ["By downloading, installing, or using Banzhuren Secretary, you agree to use the app under these terms on supported Apple devices that you own or control."]
+          title: "Terms of Use (Apple Standard EULA)",
+          paragraphs: [
+            "Banzhuren Secretary uses Apple’s Standard End User License Agreement (EULA). Follow the link below to read the full Terms of Use.",
+            "The remaining sections supplement the Standard EULA with information about class data, membership subscriptions, and support services. They do not replace it; the Standard EULA governs the app license."
+          ],
+          links: [{
+            label: "Read Apple’s Standard Terms of Use (EULA)",
+            href: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/"
+          }]
         },
         {
           title: "Class data and your responsibilities",
@@ -559,11 +578,18 @@ export const banzhurenLegal: AppLegalDocuments = {
     },
     terms: {
       title: "利用規約",
-      updatedAt: "2026-08-30",
+      updatedAt: "2026-09-09",
       sections: [
         {
-          title: "同意とライセンス",
-          paragraphs: ["班主任小秘书をダウンロード、インストール、または使用すると、所有または管理する対応 Apple デバイスで本規約に従って利用することに同意したものとします。"]
+          title: "利用規約（Apple 標準 EULA）",
+          paragraphs: [
+            "本アプリには Apple 標準エンドユーザ使用許諾契約（EULA）が適用されます。利用規約の全文は下記のリンクからご確認ください。",
+            "本ページのその他の項目は、学級データ、会員サブスクリプション、サポートサービスに関する補足説明であり、Apple 標準 EULA に代わるものではありません。アプリの使用許諾については標準 EULA が適用されます。"
+          ],
+          links: [{
+            label: "Apple 標準利用規約（EULA）を読む",
+            href: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/"
+          }]
         },
         {
           title: "学級データと利用者の責任",
@@ -697,11 +723,18 @@ export const banzhurenLegal: AppLegalDocuments = {
     },
     terms: {
       title: "서비스 약관",
-      updatedAt: "2026-08-30",
+      updatedAt: "2026-09-09",
       sections: [
         {
-          title: "동의 및 라이선스",
-          paragraphs: ["Banzhuren Secretary를 다운로드, 설치 또는 사용하면 본인이 소유하거나 관리하는 지원 Apple 기기에서 본 약관에 따라 앱을 사용하는 데 동의하는 것입니다."]
+          title: "이용 약관 (Apple 표준 EULA)",
+          paragraphs: [
+            "본 앱에는 Apple 표준 최종 사용자 사용권 계약(EULA)이 적용됩니다. 아래 링크에서 전체 이용 약관을 확인할 수 있습니다.",
+            "이 페이지의 나머지 내용은 학급 데이터, 멤버십 구독 및 지원 서비스에 관한 보충 설명이며 Apple 표준 EULA를 대체하지 않습니다. 앱 사용권에는 표준 EULA가 적용됩니다."
+          ],
+          links: [{
+            label: "Apple 표준 이용 약관(EULA) 보기",
+            href: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/"
+          }]
         },
         {
           title: "학급 데이터 및 사용자 책임",

@@ -147,7 +147,7 @@ describe("legal document completeness", () => {
     const document = legalDocumentsBySlug.banzhuren["zh-Hans"]?.terms;
     const termsText = documentText(document);
 
-    expect(document?.updatedAt).toBe("2026-08-30");
+    expect(document?.updatedAt).toBe("2026-09-09");
     expect(termsText).toContain("未加密 HTTP");
     expect(termsText).toContain("进入后台不会自动停止");
     expect(termsText).toContain("用户主动停止");
