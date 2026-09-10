@@ -3,7 +3,7 @@ import { appsBySlug } from "../../src/data/apps";
 import { legalDocumentsBySlug } from "../../src/data/legal";
 import { locales } from "../../src/lib/locales";
 
-describe("AppStoryline launch catalog", () => {
+describe("App Screenshot Tools launch catalog", () => {
   it("registers the five supported locales and regional one-time prices", () => {
     const app = appsBySlug.appstoryline;
 

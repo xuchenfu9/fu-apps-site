@@ -554,13 +554,13 @@ const appstoryline: AppRecord = {
     }
   }),
   listings: {
-    CN: plannedWithoutStorefront("CN", "上架图生成器"),
-    HK: plannedWithoutStorefront("HK", "上架圖生成器"),
-    TW: plannedWithoutStorefront("TW", "上架圖生成器"),
-    CA: plannedWithoutStorefront("CA", "AppStoryline"),
-    US: plannedWithoutStorefront("US", "AppStoryline"),
-    JP: plannedWithoutStorefront("JP", "AppStoryline"),
-    KR: plannedWithoutStorefront("KR", "AppStoryline")
+    CN: plannedWithoutStorefront("CN", "上架图工具"),
+    HK: plannedWithoutStorefront("HK", "上架圖工具"),
+    TW: plannedWithoutStorefront("TW", "上架圖工具"),
+    CA: plannedWithoutStorefront("CA", "App Screenshot Tools"),
+    US: plannedWithoutStorefront("US", "App Screenshot Tools"),
+    JP: plannedWithoutStorefront("JP", "App Screenshot Tools"),
+    KR: plannedWithoutStorefront("KR", "App Screenshot Tools")
   }
 };
 
