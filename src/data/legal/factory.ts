@@ -122,8 +122,8 @@ const labels: Record<Locale, Labels> = {
   }
 };
 
-function document(title: string, sections: LegalDocument["sections"]): LegalDocument {
-  return { title, updatedAt: "2026-07-28", sections };
+function document(title: string, sections: LegalDocument["sections"], updatedAt: string): LegalDocument {
+  return { title, updatedAt, sections };
 }
 
 function serviceBullets(profile: LegalProfile, label: Labels, locale: Locale): string[] {
@@ -131,8 +131,13 @@ function serviceBullets(profile: LegalProfile, label: Labels, locale: Locale): s
   if (profile.usesICloud) bullets.push(label.cloud);
   if (profile.usesWeatherKit) bullets.push("Apple Weather / WeatherKit");
   if (profile.usesStoreKit) bullets.push("Apple StoreKit");
-  if (profile.localSharing) bullets.push(profile.localSharing[locale]);
+  const localSharing = profile.localSharing?.[locale] ?? profile.localSharing?.["zh-Hans"];
+  if (localSharing) bullets.push(localSharing);
   return bullets;
+}
+
+function localizedValue(values: Partial<Record<Locale, string>>, locale: Locale): string {
+  return values[locale] ?? values["zh-Hans"] ?? "";
 }
 
 export function createLegalDocuments(profile: LegalProfile): AppLegalDocuments {
@@ -140,26 +145,28 @@ export function createLegalDocuments(profile: LegalProfile): AppLegalDocuments {
     locales.map((locale) => {
       const label = labels[locale];
       const localServiceBullets = serviceBullets(profile, label, locale);
+      const updatedAt = profile.updatedAt ?? "2026-07-28";
+      const retentionDetails = localizedValue(profile.retentionDetails ?? {}, locale) || label.retentionBody;
       const privacy = document(label.privacy, [
-        { title: label.operator, paragraphs: [`${profile.names[locale]} · ${profile.operator}`, label.controller] },
-        { title: label.information, paragraphs: [label.data(profile.contentKinds[locale]), label.local] },
+        { title: label.operator, paragraphs: [`${localizedValue(profile.names, locale)} · ${profile.operator}`, label.controller] },
+        { title: label.information, paragraphs: [label.data(localizedValue(profile.contentKinds, locale)), label.local] },
         { title: label.permissions, paragraphs: profile.permissions.length ? [] : [label.local], bullets: localServiceBullets },
-        { title: label.retention, paragraphs: [label.retentionBody] },
+        { title: label.retention, paragraphs: [retentionDetails] },
         { title: label.contact, paragraphs: [profile.email] }
-      ]);
+      ], updatedAt);
       const support = document(label.support, [
         { title: label.help, paragraphs: [label.helpBody] },
         { title: label.report, paragraphs: [label.reportBody] },
         { title: label.scope, paragraphs: [label.scopeBody] },
         { title: label.contact, paragraphs: [profile.email] }
-      ]);
+      ], updatedAt);
       const terms = document(label.terms, [
         { title: label.acceptance, paragraphs: [label.acceptanceBody] },
         { title: label.content, paragraphs: [label.contentBody] },
-        { title: label.purchases, paragraphs: [profile.hasPurchases ? label.purchaseBody : label.noPurchaseBody] },
+        { title: label.purchases, paragraphs: [profile.hasPurchases ? label.purchaseBody : label.noPurchaseBody, ...(localizedValue(profile.purchaseDetails ?? {}, locale) ? [localizedValue(profile.purchaseDetails ?? {}, locale)] : [])] },
         { title: label.changes, paragraphs: [label.changesBody] },
         { title: label.contact, paragraphs: [profile.email] }
-      ]);
+      ], updatedAt);
       return [locale, { privacy, support, terms }];
     })
   ) as AppLegalDocuments;

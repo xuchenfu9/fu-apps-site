@@ -519,6 +519,30 @@ const appstoryline: AppRecord = {
   }
 };
 
-export const apps = [perfectlist, meowtalkDiary, myBookmarks, jiajiaIdPhoto, partyGames, banzhuren, appstoryline] as const satisfies readonly AppRecord[];
+const fuzhixingDashcam: AppRecord = {
+  slug: "fuzhixing-dashcam",
+  supportedLocales: ["zh-Hans"],
+  contactEmail: publicContactEmail,
+  icon: "/assets/apps/fuzhixing-dashcam/web/icon.webp",
+  screenshots: ["/assets/apps/fuzhixing-dashcam/web/screen-01.webp"],
+  copy: {
+    "zh-Hans": {
+      eyebrow: "把旧 iPhone 变成行车记录仪",
+      summary: "让一部闲置 iPhone 回到车上：本机录像、循环分段、事件保护、回放导出，车机连接只是可选的本地传输。",
+      features: [
+        { title: "一部旧 iPhone，独立开始记录", description: "不连接车机也能完成相机预览、分段录像、录像库和回放，把闲置设备变成一台随车使用的记录工具。" },
+        { title: "循环分段，留住最近路况", description: "录像按约三分钟分段保存并自动管理存储空间，减少单个文件损坏对整段记录的影响。" },
+        { title: "疑似碰撞，及时保护当前片段", description: "检测到持续抖动、急刹或疑似碰撞时可以保护当前分段，也支持手动保护；保护不会替代你对道路和设备的观察。" },
+        { title: "暗屏、录音和定位都由你控制", description: "前台近黑暗屏可以降低光线干扰；录音和位置摘要是可选能力，拒绝可选权限仍不影响基础视频录像。" },
+        { title: "本机回放，主动导出或传到车机", description: "录像默认留在 iPhone，只有你主动导出、保存到相册或连接已配对车机时才传输，不上传云端；480p 为基础画质，720p 和 1080p 可通过一次性购买解锁。" }
+      ]
+    }
+  },
+  listings: {
+    CN: plannedWithoutStorefront("CN", "福之行车记录仪")
+  }
+};
+
+export const apps = [perfectlist, meowtalkDiary, myBookmarks, jiajiaIdPhoto, partyGames, banzhuren, appstoryline, fuzhixingDashcam] as const satisfies readonly AppRecord[];
 
 export const appsBySlug = Object.fromEntries(apps.map((app) => [app.slug, app])) as Record<string, AppRecord>;

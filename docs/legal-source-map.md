@@ -13,6 +13,7 @@ The site renders app-specific legal documents from `src/data/legal/` rather than
 | Party Games | `/Volumes/外置硬盘/Developer/fastwin-1/ReactionDuel/AppStoreAssets/partygames-privacy-policy.html` | `/Volumes/外置硬盘/Developer/fastwin-1/ReactionDuel/AppStoreAssets/partygames-support.html` | `/Volumes/外置硬盘/Developer/fastwin-1/ReactionDuel/AppStoreAssets/partygames-terms-of-service.html` | `fxcpxs@163.com` |
 | 班主任小秘书 | `/Volumes/外置硬盘/Developer/班主任/Banzhuren/`（依据当前本地 Core Data、权限声明、StoreKit、局域网编辑和网络请求实现整理） | `/Volumes/外置硬盘/Developer/班主任/`（依据当前应用功能和支持流程整理） | `/Volumes/外置硬盘/Developer/班主任/`（依据当前应用功能、购买和责任边界整理） | `fxcpxs@163.com` |
 | AppStoryline / 上架图生成器 | `/Volumes/外置硬盘/Developer/apple-image-web/native/INGScreen/`（依据当前离线本地文件、照片选择、导出和权限实现整理） | `/Volumes/外置硬盘/Developer/apple-image-web/native/INGScreen/`（依据当前应用功能和支持流程整理） | `/Volumes/外置硬盘/Developer/apple-image-web/native/INGScreen/`（依据一次性付费下载、离线使用和责任边界整理） | `fxcpxs@163.com` |
+| 福之行车记录仪 | `/Users/fuxuchen/开发代码/威马/wm-dashcam-ios/docs/legal/fuzhixing-privacy-policy.md`（结合当前相机、麦克风、定位、照片、本地网络和 Bluetooth 声明复核） | `/Users/fuxuchen/开发代码/威马/wm-dashcam-ios/docs/release/app-store-review-notes-zh.md`（依据当前功能、支持流程和发布边界整理） | `/Users/fuxuchen/开发代码/威马/wm-dashcam-ios/docs/legal/fuzhixing-user-agreement.md`（依据本机优先、主动传输和收费模型整理） | `fxcpxs@163.com` |
 
 ## Update procedure
 

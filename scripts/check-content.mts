@@ -61,7 +61,7 @@ export function validateContent(root: string): string[] {
   const errors: string[] = [];
   const slugs = apps.map((app) => app.slug);
 
-  if (apps.length !== 7) errors.push(`Expected seven published apps, received ${apps.length}.`);
+  if (apps.length !== 8) errors.push(`Expected eight published apps, received ${apps.length}.`);
   if (new Set(slugs).size !== slugs.length) errors.push("App slugs must be unique.");
   if (slugs.includes("shift-wake-clock")) errors.push("Shift Wake Clock must not be published in this catalog.");
 

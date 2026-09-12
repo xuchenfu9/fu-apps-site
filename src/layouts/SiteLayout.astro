@@ -13,10 +13,11 @@ interface Props {
   description: string;
   suffix?: string;
   contactEmail?: string;
+  supportedLocales?: readonly Locale[];
   noindex?: boolean;
 }
 
-const { locale, title, description, suffix = "", contactEmail = "fxcpxs@163.com", noindex = false } = Astro.props;
+const { locale, title, description, suffix = "", contactEmail = "fxcpxs@163.com", supportedLocales, noindex = false } = Astro.props;
 const labels = ui[locale];
 const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).toString();
 ---
@@ -40,7 +41,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).to
         </nav>
         <div class="site-tools">
           <StorefrontSelector locale={locale} />
-          <LanguageSwitcher locale={locale} suffix={suffix} />
+          <LanguageSwitcher locale={locale} suffix={suffix} supportedLocales={supportedLocales} />
         </div>
       </div>
     </header>

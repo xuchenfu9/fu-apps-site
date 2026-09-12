@@ -26,14 +26,17 @@ export type PermissionKind = "photos" | "camera" | "microphone" | "calendar" | "
 
 export interface LegalProfile {
   slug: string;
-  names: Record<Locale, string>;
-  contentKinds: Record<Locale, string>;
+  names: Partial<Record<Locale, string>>;
+  contentKinds: Partial<Record<Locale, string>>;
   email: string;
   operator: string;
   permissions: readonly PermissionKind[];
   usesICloud: boolean;
   usesStoreKit: boolean;
   usesWeatherKit?: boolean;
-  localSharing?: Record<Locale, string>;
+  localSharing?: Partial<Record<Locale, string>>;
+  purchaseDetails?: Partial<Record<Locale, string>>;
+  retentionDetails?: Partial<Record<Locale, string>>;
+  updatedAt?: string;
   hasPurchases: boolean;
 }

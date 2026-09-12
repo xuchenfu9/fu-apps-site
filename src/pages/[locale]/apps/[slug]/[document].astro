@@ -29,7 +29,7 @@ const attributes = storefrontDataAttributes(app, locale);
 const suffix = `apps/${app.slug}/${documentKind}`;
 ---
 
-<SiteLayout locale={locale} title={`FU apps | ${legalDocument.title}`} description={legalDocument.sections[0]?.paragraphs[0] ?? legalDocument.title} suffix={suffix} contactEmail={app.contactEmail}>
+<SiteLayout locale={locale} title={`FU apps | ${legalDocument.title}`} description={legalDocument.sections[0]?.paragraphs[0] ?? legalDocument.title} suffix={suffix} contactEmail={app.contactEmail} supportedLocales={app.supportedLocales}>
   <section class="legal-page page-shell">
     <a class="back-link" href={publicPath(localePath(locale, `apps/${app.slug}`))}><span aria-hidden="true">←</span> <span {...attributes} data-storefront-name>{getListingDisplayName(listing)}</span></a>
     <DocumentNav locale={locale} slug={app.slug} current={documentKind} />

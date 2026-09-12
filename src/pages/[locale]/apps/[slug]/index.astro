@@ -24,7 +24,7 @@ const suffix = `apps/${app.slug}`;
 const pricing = app.pricing?.[locale];
 ---
 
-<SiteLayout locale={locale} title={`FU apps | ${getListingDisplayName(listing)}`} description={copy.summary} suffix={suffix} contactEmail={app.contactEmail}>
+<SiteLayout locale={locale} title={`FU apps | ${getListingDisplayName(listing)}`} description={copy.summary} suffix={suffix} contactEmail={app.contactEmail} supportedLocales={app.supportedLocales}>
   <section class="product-hero page-shell">
     <a class="back-link" href={publicPath(localePath(locale))}><span aria-hidden="true">←</span> {labels.allApps}</a>
     <div class="product-hero__grid">

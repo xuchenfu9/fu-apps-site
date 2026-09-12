@@ -7,11 +7,13 @@ import { ui } from "../lib/ui";
 interface Props {
   locale: Locale;
   suffix?: string;
+  supportedLocales?: readonly Locale[];
 }
 
-const { locale, suffix = "" } = Astro.props;
+const { locale, suffix = "", supportedLocales } = Astro.props;
 const labels = ui[locale];
 const menuId = `language-menu-${locale}-${suffix.replace(/[^a-zA-Z0-9]/g, "-") || "home"}`;
+const availableLocales = supportedLocales ?? locales;
 ---
 
 <div class="language-switcher" data-language-switcher>
@@ -20,7 +22,7 @@ const menuId = `language-menu-${locale}-${suffix.replace(/[^a-zA-Z0-9]/g, "-") |
     <span>{localeLabels[locale]}</span>
   </button>
   <div class="language-menu" id={menuId} data-language-menu hidden>
-    {locales.map((candidate) => (
+    {availableLocales.map((candidate) => (
       <a href={publicPath(localePath(candidate, suffix))} aria-current={candidate === locale ? "page" : undefined}>
         {localeLabels[candidate]}
       </a>
