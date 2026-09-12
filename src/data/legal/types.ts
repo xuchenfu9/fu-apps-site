@@ -5,6 +5,7 @@ export type LegalKind = "privacy" | "support" | "terms" | "marketing";
 export interface LegalSection {
   title: string;
   paragraphs: readonly string[];
+  links?: readonly { label: string; href: string }[];
   bullets?: readonly string[];
 }
 

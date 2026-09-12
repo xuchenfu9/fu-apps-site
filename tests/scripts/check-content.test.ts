@@ -24,12 +24,13 @@ describe("published site content", () => {
     }
   });
 
-  it("keeps Banzhuren Chinese-only and pre-release", () => {
+  it("keeps Banzhuren localized and pre-release", () => {
     const banzhuren = appsBySlug.banzhuren;
 
-    expect(banzhuren.supportedLocales).toEqual(["zh-Hans"]);
-    expect(banzhuren.copy["zh-Hans"]?.features).toHaveLength(5);
-    expect(banzhuren.copy.en).toBeUndefined();
+    expect(banzhuren.supportedLocales).toEqual(locales);
+    for (const locale of locales) {
+      expect(banzhuren.copy[locale]?.features).toHaveLength(5);
+    }
     expect(banzhuren.listings.CN?.state).toBe("planned");
     expect(banzhuren.listings.CN?.url).toBeUndefined();
   });

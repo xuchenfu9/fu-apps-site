@@ -24,7 +24,7 @@ test("opens an app detail page from a card surface while preserving the App Stor
   await expect(page).toHaveURL(/\/fu-apps-site\/zh-Hans\/apps\/perfectlist\/$/);
 });
 
-test("shows Banzhuren as a Chinese-only app that is still coming to the App Store", async ({ page }) => {
+test("shows Banzhuren in every site language while it is still coming to the App Store", async ({ page }) => {
   await page.goto("zh-Hans/");
 
   const card = page.locator('.app-card:has(a[href="/fu-apps-site/zh-Hans/apps/banzhuren/"])');
@@ -33,8 +33,10 @@ test("shows Banzhuren as a Chinese-only app that is still coming to the App Stor
   await expect(card.locator("[data-storefront-status]")).toHaveText("上架中");
   await expect(card.locator("[data-storefront-cta]")).toHaveCount(0);
 
-  const missingLocaleResponse = await page.request.get("en/apps/banzhuren/");
-  expect(missingLocaleResponse.status()).toBe(404);
+  const englishResponse = await page.request.get("en/apps/banzhuren/");
+  expect(englishResponse.status()).toBe(200);
+  await page.goto("en/apps/banzhuren/privacy/");
+  await expect(page.getByRole("heading", { name: "Privacy Policy" })).toBeVisible();
 });
 
 test("keeps a legal document path when changing language", async ({ page }) => {
@@ -56,17 +58,17 @@ test("keeps primary actions reachable on a phone viewport", async ({ page }) => 
   await expect(page.getByRole("link", { name: /Privacy Policy/i })).toBeVisible();
 });
 
-test("shows AppStoryline pricing and marketing terms in the supported locales", async ({ page }) => {
+test("shows App Screenshot Tools pricing and marketing terms in the supported locales", async ({ page }) => {
   await page.goto("en/apps/appstoryline/");
 
-  await expect(page.getByRole("heading", { name: "AppStoryline" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "App Screenshot Tools" })).toBeVisible();
   await expect(page.getByText("$3.99", { exact: true })).toBeVisible();
   await expect(page.getByText("One-time purchase", { exact: true })).toBeVisible();
   await expect(page.getByRole("link", { name: "Marketing Terms" })).toBeVisible();
 
   await page.goto("zh-Hans/apps/appstoryline/");
   await page.locator("[data-storefront-selector]").selectOption("CN");
-  await expect(page.getByRole("heading", { name: "上架图生成器" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "上架图工具" })).toBeVisible();
   await expect(page.getByText("¥12", { exact: true })).toBeVisible();
   await expect(page.getByText("一次性购买", { exact: true })).toBeVisible();
   await expect(page.getByRole("link", { name: "营销条款" })).toBeVisible();

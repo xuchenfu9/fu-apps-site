@@ -18,6 +18,7 @@ const { document } = Astro.props;
     <section>
       <h2>{section.title}</h2>
       {section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+      {section.links?.map((link) => <p><a href={link.href}>{link.label}</a></p>)}
       {section.bullets && (
         <ul>
           {section.bullets.map((bullet) => <li>{bullet}</li>)}
