@@ -357,6 +357,14 @@
     overflow-wrap: anywhere;
   }
 
+  .app-card__version {
+    margin-top: 7px;
+    color: var(--coral);
+    font-size: 12px;
+    font-weight: 750;
+    line-height: 1.4;
+  }
+
   .app-card__summary {
     margin-top: 11px;
     color: var(--muted);
@@ -492,6 +500,14 @@
     font-size: 48px;
   }
 
+  .product-release-meta {
+    margin-top: 16px;
+    color: var(--coral);
+    font-size: 14px;
+    font-weight: 750;
+    line-height: 1.4;
+  }
+
   .product-intro .app-store-cta {
     margin-top: 31px;
   }
@@ -531,6 +547,46 @@
   .product-hero__screen img {
     max-height: 430px;
     object-fit: contain;
+  }
+
+  .release-section {
+    padding-top: 72px;
+    padding-bottom: 72px;
+    display: grid;
+    grid-template-columns: minmax(200px, .6fr) minmax(0, 1.4fr);
+    gap: 60px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .release-section__version {
+    margin-top: 10px;
+    color: var(--coral);
+    font-size: 14px;
+    font-weight: 750;
+    line-height: 1.4;
+  }
+
+  .release-notes {
+    list-style: none;
+    border-top: 1px solid var(--line);
+  }
+
+  .release-notes li {
+    position: relative;
+    padding: 18px 0 18px 30px;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.6;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .release-notes li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--coral);
+    font-weight: 800;
   }
 
   .feature-list {
@@ -796,6 +852,13 @@
 
     .product-hero__screen {
       min-height: 340px;
+    }
+
+    .release-section {
+      grid-template-columns: 1fr;
+      gap: 22px;
+      padding-top: 58px;
+      padding-bottom: 58px;
     }
 
     .document-band__inner {

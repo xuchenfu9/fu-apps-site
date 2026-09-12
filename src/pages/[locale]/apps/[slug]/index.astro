@@ -22,6 +22,7 @@ const listing = resolveListing(app, localeDefaultStorefront[locale]).listing;
 const attributes = storefrontDataAttributes(app, locale);
 const suffix = `apps/${app.slug}`;
 const pricing = app.pricing?.[locale];
+const releaseNotes = app.release?.notes[locale] ?? app.release?.notes["zh-Hans"] ?? [];
 ---
 
 <SiteLayout locale={locale} title={`FU apps | ${getListingDisplayName(listing)}`} description={copy.summary} suffix={suffix} contactEmail={app.contactEmail} supportedLocales={app.supportedLocales}>
@@ -33,6 +34,7 @@ const pricing = app.pricing?.[locale];
         <p class="section-label">{copy.eyebrow}</p>
         <h1><span {...attributes} data-storefront-name>{getListingDisplayName(listing)}</span></h1>
         <p class="product-intro__summary">{copy.summary}</p>
+        {app.release && <p class="product-release-meta">{labels.currentVersion} {app.release.version}{app.release.build ? ` (${app.release.build})` : ""}</p>}
         {pricing && <div class="product-pricing" aria-label={`${pricing.value}, ${pricing.note}`}>
           <strong>{pricing.value}</strong>
           <span>{pricing.note}</span>
@@ -44,6 +46,17 @@ const pricing = app.pricing?.[locale];
       </div>
     </div>
   </section>
+
+  {app.release && <section class="release-section page-shell" aria-labelledby="release-heading">
+    <div class="release-section__meta">
+      <p class="section-label">{labels.currentVersion}</p>
+      <h2 id="release-heading">{labels.latestUpdate}</h2>
+      <p class="release-section__version">{labels.version} {app.release.version}{app.release.build ? ` (${app.release.build})` : ""}</p>
+    </div>
+    <ul class="release-notes">
+      {releaseNotes.map((note) => <li>{note}</li>)}
+    </ul>
+  </section>}
 
   <section class="feature-section page-shell" aria-labelledby="features-heading">
     <header class="section-heading">

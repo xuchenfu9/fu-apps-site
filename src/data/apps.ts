@@ -37,6 +37,10 @@ function copy(values: Record<Locale, LocalizedAppCopy>): AppRecord["copy"] {
   return values;
 }
 
+function release(version: string, notes: Partial<Record<Locale, readonly string[]>>, build?: string): NonNullable<AppRecord["release"]> {
+  return { version, build, notes };
+}
+
 const banzhuren: AppRecord = {
   slug: "banzhuren",
   supportedLocales: ["zh-Hans", "zh-Hant", "en", "ja", "ko"],
@@ -100,6 +104,13 @@ const banzhuren: AppRecord = {
       ]
     }
   }),
+  release: release("1.0.1", {
+    "zh-Hans": ["新增花名册、成绩和课表的图片识别与导入入口，完善多页资料处理、取消与冲突确认流程。", "App、Widget、Watch App 与 Watch Extension 统一为 1.0.1 (12)；当前仍处于计划发布阶段。"],
+    "zh-Hant": ["新增花名冊、成績和課表的圖片辨識與匯入入口，完善多頁資料處理、取消與衝突確認流程。", "App、Widget、Watch App 與 Watch Extension 統一為 1.0.1 (12)；目前仍處於計畫發布階段。"],
+    en: ["Added image recognition and import entry points for rosters, grades, and timetables, with clearer multi-page processing, cancellation, and conflict confirmation.", "Aligned the App, Widget, Watch App, and Watch Extension at 1.0.1 (12); the public release is still planned."],
+    ja: ["名簿、成績、時間割の画像認識と読み込み入口を追加し、複数ページの処理、キャンセル、競合確認を整理しました。", "App、Widget、Watch App、Watch Extension を 1.0.1 (12) に統一しました。一般公開はまだ予定段階です。"],
+    ko: ["명부, 성적, 시간표의 이미지 인식 및 가져오기 진입점을 추가하고 여러 페이지 처리, 취소, 충돌 확인 흐름을 정리했습니다.", "App, Widget, Watch App, Watch Extension을 1.0.1 (12)로 통일했습니다. 공개 출시는 아직 예정 단계입니다."]
+  }, "12"),
   listings: {
     CN: plannedWithoutStorefront("CN", "班主任小秘书")
   }
@@ -171,6 +182,13 @@ const perfectlist: AppRecord = {
         { title: "익숙한 Apple 기기에서", description: "iPhone, iPad, Mac, Apple Watch, 위젯에서 일정을 확인하고 기기 설정에 따라 iCloud 동기화를 이용합니다." }
       ]
     }
+  }),
+  release: release("2.0.0", {
+    "zh-Hans": ["修复 AlarmKit 闹钟偶尔回退到通知闹钟的问题。"],
+    "zh-Hant": ["修正 AlarmKit 鬧鐘偶爾退回通知鬧鐘的問題。"],
+    en: ["Fixed an issue that could make AlarmKit alarms fall back to notification alarms."],
+    ja: ["AlarmKit のアラームが通知アラームに戻ることがある問題を修正しました。"],
+    ko: ["AlarmKit 알람이 알림 알람으로 되돌아갈 수 있던 문제를 수정했습니다."]
   }),
   listings: {
     CN: liveListing("CN", "6759079848", "番茄钟Todo|生日管理器(支持农历)|工作日闹钟"),
@@ -248,6 +266,13 @@ const meowtalkDiary: AppRecord = {
       ]
     }
   }),
+  release: release("1.0.2", {
+    "zh-Hans": ["优化记账编辑后的保存体验，调整记事排序，新增分享，并优化大图头像处理。", "相册支持一次导入多张图片，也支持导入 Live Photo。"],
+    "zh-Hant": ["優化記帳編輯後的儲存體驗，調整記事排序，新增分享，並優化大圖頭像處理。", "相簿支援一次匯入多張圖片，也支援匯入 Live Photo。"],
+    en: ["Made saving edits in the ledger smoother, improved note ordering, added sharing, and refined large pet-avatar handling.", "Albums now support importing multiple images at once, including Live Photos."],
+    ja: ["家計記録の編集保存を改善し、メモの並び順を整理、共有を追加、大きなペット画像の処理を改善しました。", "アルバムで複数画像と Live Photo を一度に読み込めるようになりました。"],
+    ko: ["가계 기록 편집 저장을 개선하고 메모 정렬을 조정했으며 공유와 큰 반려동물 아바타 처리를 추가로 다듬었습니다.", "앨범에서 여러 장의 이미지와 Live Photo를 한 번에 가져올 수 있습니다."]
+  }),
   listings: {
     CN: liveListing("CN", "6761005924", "喵语日记｜与猫对话，记录宠物的点滴"),
     HK: liveListing("HK", "6761005924", "喵語日記｜與貓對話，記錄寵物的點滴"),
@@ -319,6 +344,13 @@ const myBookmarks: AppRecord = {
         { title: "이동, 백업, 다시 정리", description: "여러 링크를 선택해 이동하고 북마크 데이터를 내보내거나 가져와 백업과 재정리를 할 수 있습니다." }
       ]
     }
+  }),
+  release: release("1.0.2", {
+    "zh-Hans": ["修复 iCloud 备份错误，新增手动备份与恢复。", "改进图片分享方式，支持批量分享书签。"],
+    "zh-Hant": ["修正 iCloud 備份錯誤，新增手動備份與恢復。", "改進圖片分享方式，支援批次分享書籤。"],
+    en: ["Fixed an iCloud backup issue and added manual backup and restore.", "Improved image sharing and added batch bookmark sharing."],
+    ja: ["iCloud バックアップの問題を修正し、手動バックアップと復元を追加しました。", "画像共有を改善し、ブックマークの一括共有に対応しました。"],
+    ko: ["iCloud 백업 문제를 수정하고 수동 백업 및 복원을 추가했습니다.", "이미지 공유를 개선하고 북마크 일괄 공유를 지원합니다."]
   }),
   listings: {
     CN: liveListing("CN", "6758990165", "我的书签 - 极简书签管理器 & 二维码分享"),
@@ -393,8 +425,15 @@ const jiajiaIdPhoto: AppRecord = {
       ]
     }
   }),
+  release: release("1.1.1", {
+    "zh-Hans": ["收敛为通用人像照片编辑流程，支持常用比例与自由裁剪。", "加强设备端处理、自然美化与 PNG/JPEG 单张导出，并移除旧版官方文件与排版流程。"],
+    "zh-Hant": ["聚焦通用人像照片編輯流程，支援常用比例與自由裁切。", "加強裝置端處理、自然美化與 PNG/JPEG 單張匯出，並移除舊版官方文件與排版流程。"],
+    en: ["Focused the app on general portrait editing with common ratios and free crop.", "Improved on-device processing, natural retouching, and single-image PNG/JPEG export while removing the former official-document and print-layout flows."],
+    ja: ["一般的なポートレート編集に集中し、一般的な比率と自由な切り抜きに対応しました。", "デバイス上の処理、自然な補正、PNG/JPEG の単一画像書き出しを改善し、旧来の公的書類と印刷レイアウト機能を削除しました。"],
+    ko: ["일반 인물 사진 편집에 집중하고 자주 쓰는 비율과 자유 자르기를 지원합니다.", "기기 처리, 자연스러운 보정, 단일 PNG/JPEG 내보내기를 개선하고 기존 공식 문서 및 인쇄 레이아웃 흐름을 제거했습니다."]
+  }, "8"),
   listings: {
-    CN: plannedListing("CN", "6758612379", "佳佳证件照"),
+    CN: liveListing("CN", "6758612379", "佳佳证件照"),
     HK: plannedListing("HK", "6758612379", "佳佳照片"),
     TW: plannedListing("TW", "6758612379", "佳佳照片"),
     CA: plannedListing("CA", "6758612379", "JiaJia Photo"),
@@ -469,6 +508,13 @@ const partyGames: AppRecord = {
       ]
     }
   }),
+  release: release("1.0.3", {
+    "zh-Hans": ["优化六种本地多人玩法的游戏体验，调整部分玩法流程并修复已知问题。", "继续强化点球、反应、转盘、翻牌、摸高和手指炸弹的现场联机流程。"],
+    "zh-Hant": ["優化六種本機多人玩法的遊戲體驗，調整部分玩法流程並修正已知問題。", "持續強化點球、反應、轉盤、翻牌、摸高和手指炸彈的現場連線流程。"],
+    en: ["Improved the experience across six local multiplayer games, adjusted selected game flows, and fixed known issues.", "Continued refining the in-room multiplayer flow for penalties, reaction, wheel, cards, high jump, and finger bomb."],
+    ja: ["6種類のローカル対戦ゲームの体験を改善し、一部のゲームフローを調整して既知の問題を修正しました。", "PK、反応、ルーレット、カード、ハイジャンプ、指爆弾の対面マルチプレイを引き続き改善しました。"],
+    ko: ["여섯 가지 로컬 멀티플레이 게임의 경험을 개선하고 일부 게임 흐름을 조정했으며 알려진 문제를 수정했습니다.", "페널티, 반응, 휠, 카드, 높이뛰기, 손가락 폭탄의 현장 멀티플레이 흐름을 계속 다듬었습니다."]
+  }, "6"),
   listings: {
     CN: liveListing("CN", "6759240304", "派对游戏 — 多人聚会小游戏合集-PartyGames"),
     HK: liveListing("HK", "6759240304", "派对游戏 — 多人聚会小游戏合集-PartyGames"),
@@ -480,6 +526,7 @@ const partyGames: AppRecord = {
 
 const appstoryline: AppRecord = {
   slug: "appstoryline",
+  appStoreId: "6799942231",
   supportedLocales: ["zh-Hans", "zh-Hant", "en", "ja", "ko"],
   contactEmail: publicContactEmail,
   icon: "/assets/apps/appstoryline/web/icon.webp",
@@ -553,12 +600,19 @@ const appstoryline: AppRecord = {
       ]
     }
   }),
+  release: release("1.0.1", {
+    "zh-Hans": ["应用更名为上架图工具。", "优化文本框新增、删除、拖动和大屏编辑；同一文本框支持分别设置字号与颜色。", "预览改为按需打开，优化手机模型控制按钮，并修复文本框拖动抖动。"],
+    "zh-Hant": ["App 更名為上架圖工具。", "優化文字框新增、刪除、拖曳和大螢幕編輯；同一文字框支援分別設定字號與顏色。", "預覽改為按需開啟，優化手機模型控制按鈕，並修正文字框拖曳抖動。"],
+    en: ["Renamed to App Screenshot Tools.", "Improved text box creation, deletion, dragging, and full-screen editing. Use different font sizes and colors within the same text box.", "Open previews when needed, enjoy clearer device controls, and move text more smoothly."],
+    ja: ["App Screenshot Tools に名称を変更しました。", "テキストボックスの追加、削除、ドラッグ、全画面編集を改善し、同じテキストボックス内で文字サイズと色を個別に設定できるようにしました。", "プレビューを必要なときだけ開く方式にし、デバイスモデルの操作ボタンを整理して、テキスト移動時の揺れを修正しました。"],
+    ko: ["App Screenshot Tools로 이름을 변경했습니다.", "텍스트 상자 추가, 삭제, 드래그, 전체 화면 편집을 개선했으며 같은 텍스트 상자 안에서 글자 크기와 색상을 각각 설정할 수 있습니다.", "미리보기를 필요할 때 열도록 바꾸고 기기 모델 제어 버튼을 정리했으며 텍스트 이동 떨림을 수정했습니다."]
+  }, "8"),
   listings: {
-    CN: plannedWithoutStorefront("CN", "上架图工具"),
+    CN: liveListing("CN", "6799942231", "上架图工具"),
     HK: plannedWithoutStorefront("HK", "上架圖工具"),
     TW: plannedWithoutStorefront("TW", "上架圖工具"),
     CA: plannedWithoutStorefront("CA", "App Screenshot Tools"),
-    US: plannedWithoutStorefront("US", "App Screenshot Tools"),
+    US: liveListing("US", "6799942231", "App Screenshot Tools"),
     JP: plannedWithoutStorefront("JP", "App Screenshot Tools"),
     KR: plannedWithoutStorefront("KR", "App Screenshot Tools")
   }
@@ -583,6 +637,9 @@ const fuzhixingDashcam: AppRecord = {
       ]
     }
   },
+  release: release("1.0", {
+    "zh-Hans": ["首发版本聚焦本机录像、循环分段、事件保护和回放导出。", "可选地将录像主动保存、导出或传到已配对车机；正式上架与真机/车机验收仍在准备中。"]
+  }, "1"),
   listings: {
     CN: plannedWithoutStorefront("CN", "福之行车记录仪")
   }

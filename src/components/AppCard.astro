@@ -19,6 +19,7 @@ const copy = appCopy(app, locale);
 const listing = resolveListing(app, localeDefaultStorefront[locale]).listing;
 const attributes = storefrontDataAttributes(app, locale);
 const appPath = publicPath(localePath(locale, `apps/${app.slug}`));
+const labels = ui[locale];
 ---
 
 <article class="app-card" style={`--card-position: ${position}`}>
@@ -29,6 +30,7 @@ const appPath = publicPath(localePath(locale, `apps/${app.slug}`));
   <div class="app-card__body">
     <p>{copy.eyebrow}</p>
     <h2><span {...attributes} data-storefront-name>{getListingDisplayName(listing)}</span></h2>
+    {app.release && <p class="app-card__version">{labels.version} {app.release.version}{app.release.build ? ` (${app.release.build})` : ""}</p>}
     <p class="app-card__summary">{copy.summary}</p>
     <div class="app-card__actions">
       <span class="text-link">{ui[locale].viewApp}<span aria-hidden="true"> →</span></span>

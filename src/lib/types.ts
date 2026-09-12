@@ -28,6 +28,12 @@ export interface LocalizedPricing {
   note: string;
 }
 
+export interface AppRelease {
+  version: string;
+  build?: string;
+  notes: Partial<Record<Locale, readonly string[]>>;
+}
+
 export interface AppRecord {
   slug: string;
   appStoreId?: string;
@@ -37,5 +43,6 @@ export interface AppRecord {
   screenshots: readonly string[];
   copy: Partial<Record<Locale, LocalizedAppCopy>>;
   pricing?: Partial<Record<Locale, LocalizedPricing>>;
+  release?: AppRelease;
   listings: Partial<Record<Storefront, StorefrontListing>>;
 }

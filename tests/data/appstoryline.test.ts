@@ -8,6 +8,13 @@ describe("App Screenshot Tools launch catalog", () => {
     const app = appsBySlug.appstoryline;
 
     expect(app).toBeDefined();
+    expect(app?.appStoreId).toBe("6799942231");
+    expect(app?.release).toMatchObject({ version: "1.0.1", build: "8" });
+    expect(app?.release?.notes["zh-Hans"]).toEqual([
+      "应用更名为上架图工具。",
+      "优化文本框新增、删除、拖动和大屏编辑；同一文本框支持分别设置字号与颜色。",
+      "预览改为按需打开，优化手机模型控制按钮，并修复文本框拖动抖动。"
+    ]);
     expect(app?.supportedLocales).toEqual(locales);
     expect(app?.pricing?.["zh-Hans"]).toEqual({ value: "¥12", note: "一次性购买" });
     expect(app?.pricing?.en).toEqual({ value: "$3.99", note: "One-time purchase" });
@@ -28,5 +35,18 @@ describe("App Screenshot Tools launch catalog", () => {
     }
 
     expect(app?.copy.en?.summary).toMatch(/device/i);
+  });
+
+  it("records a version and update notes for every catalog app", () => {
+    expect(Object.keys(appsBySlug)).toHaveLength(8);
+
+    for (const app of Object.values(appsBySlug)) {
+      expect(app.release?.version).toMatch(/^\d+\.\d+(\.\d+)?$/);
+      expect(app.release?.notes["zh-Hans"]?.length).toBeGreaterThan(0);
+    }
+
+    expect(appsBySlug["jiajia-id-photo"].listings.CN?.state).toBe("live");
+    expect(appsBySlug["jiajia-id-photo"].release).toMatchObject({ version: "1.1.1", build: "8" });
+    expect(appsBySlug["fuzhixing-dashcam"].release).toMatchObject({ version: "1.0", build: "1" });
   });
 });

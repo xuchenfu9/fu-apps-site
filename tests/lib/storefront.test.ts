@@ -89,7 +89,7 @@ describe("Storefront resolution", () => {
     expect(getListingDisplayName(resolveListing(idPhoto, "CA").listing)).toBe("JiaJia Photo");
     expect(getListingDisplayName(resolveListing(idPhoto, "US").listing)).toBe("JiaJia Photo");
     expect(resolveListing(idPhoto, "JP").resolvedStorefront).toBe("US");
-    expect(appsBySlug["jiajia-id-photo"].listings.CN?.nextReleaseName).toBe("佳佳证件照");
+    expect(appsBySlug["jiajia-id-photo"].listings.CN?.currentName).toBe("佳佳证件照");
     expect(appsBySlug["jiajia-id-photo"].listings.HK?.nextReleaseName).toBe("佳佳照片");
     expect(appsBySlug["jiajia-id-photo"].listings.TW?.nextReleaseName).toBe("佳佳照片");
     expect(appsBySlug["jiajia-id-photo"].listings.CA?.nextReleaseName).toBe("JiaJia Photo");
