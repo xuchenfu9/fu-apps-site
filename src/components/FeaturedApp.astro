@@ -1,0 +1,35 @@
+---
+import AppStoreCTA from "./AppStoreCTA.astro";
+import { localeDefaultStorefront, localePath } from "../lib/locales";
+import { publicPath } from "../lib/site";
+import { appCopy } from "../lib/apps";
+import { getListingDisplayName, resolveListing } from "../lib/storefront";
+import { storefrontDataAttributes } from "../lib/storefront-dom";
+import type { AppRecord, Locale } from "../lib/types";
+import { ui } from "../lib/ui";
+
+interface Props { app: AppRecord; locale: Locale; tone: string; }
+const { app, locale, tone } = Astro.props;
+const copy = appCopy(app, locale);
+const listing = resolveListing(app, localeDefaultStorefront[locale]).listing;
+const attributes = storefrontDataAttributes(app, locale);
+const labels = ui[locale];
+const appPath = publicPath(localePath(locale, `apps/${app.slug}`));
+---
+
+<article class="featured-app" data-tone={tone}>
+  <div class="featured-app__copy">
+    <p class="section-label">{copy.eyebrow}</p>
+    <h3><span {...attributes} data-storefront-name>{getListingDisplayName(listing)}</span></h3>
+    <p class="featured-app__summary">{copy.summary}</p>
+    {app.release && <p class="featured-app__version">{labels.version} {app.release.version}{app.release.build ? ` (${app.release.build})` : ""}</p>}
+    <div class="featured-app__actions">
+      <a class="button-link button-link--light" href={appPath}>{labels.viewDetails}<span aria-hidden="true"> ↗</span></a>
+      <AppStoreCTA app={app} locale={locale} compact />
+    </div>
+  </div>
+  <a class="featured-app__visual" href={appPath} aria-label={`${labels.viewDetails}: ${getListingDisplayName(listing)}`}>
+    <img src={publicPath(app.screenshots[0]!)} alt="" loading="lazy" />
+    <img class="featured-app__icon" src={publicPath(app.icon)} alt="" loading="lazy" />
+  </a>
+</article>

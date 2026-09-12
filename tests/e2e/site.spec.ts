@@ -3,9 +3,20 @@ import { expect, test } from "@playwright/test";
 test("shows the FU apps gallery and Storefront-aware App Store links", async ({ page }) => {
   await page.goto("en/");
 
-  await expect(page.getByRole("heading", { name: "FU apps" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Small apps. Clearer days.", exact: false })).toBeVisible();
   await expect(page.getByRole("link", { name: /PerfectList/i }).first()).toBeVisible();
   await expect(page.locator('[data-storefront-cta]').first()).toHaveAttribute("href", /apps\.apple\.com/);
+});
+
+test("keeps the redesigned homepage usable at phone widths", async ({ page }) => {
+  for (const width of [320, 390]) {
+    await page.setViewportSize({ width, height: 844 });
+    await page.goto("zh-Hans/");
+    await expect(page.getByRole("heading", { name: "Small apps. Clearer days.", exact: false })).toBeVisible();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(await page.evaluate(() => document.documentElement.clientWidth));
+    await expect(page.locator(".featured-app").first()).toBeVisible();
+    await expect(page.locator("[data-storefront-selector]")).toBeVisible();
+  }
 });
 
 test("opens an app detail page from a card surface while preserving the App Store CTA", async ({ page }) => {
@@ -56,6 +67,17 @@ test("keeps primary actions reachable on a phone viewport", async ({ page }) => 
   await expect(page.getByRole("heading", { name: /派对游戏/ })).toBeVisible();
   await expect(page.locator('[data-storefront-cta]')).toBeVisible();
   await expect(page.getByRole("link", { name: /Privacy Policy/i })).toBeVisible();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(await page.evaluate(() => document.documentElement.clientWidth));
+});
+
+test("keeps every legal document link stable on a phone viewport", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  for (const documentName of ["privacy", "support", "terms"]) {
+    await page.goto(`zh-Hans/apps/perfectlist/${documentName}/`);
+    await expect(page).toHaveURL(new RegExp(`/fu-apps-site/zh-Hans/apps/perfectlist/${documentName}/$`));
+    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(await page.evaluate(() => document.documentElement.clientWidth));
+    await expect(page.locator(".document-nav")).toBeVisible();
+  }
 });
 
 test("shows App Screenshot Tools pricing and marketing terms in the supported locales", async ({ page }) => {

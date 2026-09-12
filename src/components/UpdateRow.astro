@@ -1,0 +1,22 @@
+---
+import { localePath } from "../lib/locales";
+import { publicPath } from "../lib/site";
+import { appCopy } from "../lib/apps";
+import { getListingDisplayName, resolveListing } from "../lib/storefront";
+import type { AppRecord, Locale } from "../lib/types";
+import { ui } from "../lib/ui";
+
+interface Props { app: AppRecord; locale: Locale; }
+const { app, locale } = Astro.props;
+const copy = appCopy(app, locale);
+const listing = resolveListing(app, "CN").listing;
+const labels = ui[locale];
+const note = app.release?.notes[locale]?.[0] ?? app.release?.notes["zh-Hans"]?.[0] ?? copy.summary;
+---
+
+<a class="update-row" href={publicPath(localePath(locale, `apps/${app.slug}`))}>
+  <span class="update-row__date">{app.release ? `${labels.version} ${app.release.version}` : labels.planned}</span>
+  <span class="update-row__name">{getListingDisplayName(listing)}</span>
+  <span class="update-row__note">{note}</span>
+  <span class="update-row__arrow" aria-hidden="true">↗</span>
+</a>

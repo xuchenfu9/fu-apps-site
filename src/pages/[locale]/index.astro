@@ -1,9 +1,12 @@
 ---
 import AppCard from "../../components/AppCard.astro";
+import FeaturedApp from "../../components/FeaturedApp.astro";
+import UpdateRow from "../../components/UpdateRow.astro";
 import SiteLayout from "../../layouts/SiteLayout.astro";
 import { apps } from "../../data/apps";
 import { locales } from "../../lib/locales";
 import { appSupportsLocale } from "../../lib/apps";
+import { publicPath } from "../../lib/site";
 import type { Locale } from "../../lib/types";
 import { ui } from "../../lib/ui";
 
@@ -14,24 +17,52 @@ export function getStaticPaths() {
 const { locale } = Astro.props as { locale: Locale };
 const labels = ui[locale];
 const visibleApps = apps.filter((app) => appSupportsLocale(app, locale));
+const featuredSlugs = ["appstoryline", "jiajia-id-photo", "perfectlist"];
+const featuredApps = featuredSlugs.map((slug) => apps.find((app) => app.slug === slug)).filter((app): app is (typeof apps)[number] => Boolean(app && appSupportsLocale(app, locale)));
+const updateApps = visibleApps.filter((app) => app.release).slice(0, 5);
 ---
 
 <SiteLayout locale={locale} title="FU apps" description={labels.galleryBody}>
-  <section class="gallery-hero page-shell">
-    <p class="section-label">{labels.galleryEyebrow}</p>
-    <h1>FU apps</h1>
-    <p class="gallery-hero__title">{labels.galleryTitle}</p>
-    <p class="gallery-hero__body">{labels.galleryBody}</p>
-    <a class="text-link gallery-hero__jump" href="#apps">{labels.allApps}<span aria-hidden="true"> ↓</span></a>
+  <section class="studio-hero page-shell">
+    <div class="studio-hero__copy">
+      <p class="section-label">{labels.galleryEyebrow}</p>
+      <h1>Small apps.<br /><em>Clearer days.</em></h1>
+      <p class="studio-hero__body">{labels.studioIntro}</p>
+      <div class="studio-hero__actions">
+        <a class="button-link" href="#featured">{labels.featuredApps}<span aria-hidden="true"> ↓</span></a>
+        <a class="text-link" href="#apps">{labels.exploreApps}<span aria-hidden="true"> ↘</span></a>
+      </div>
+    </div>
+    <div class="studio-hero__art" aria-hidden="true">
+      <div class="studio-hero__orb studio-hero__orb--one"></div>
+      <div class="studio-hero__orb studio-hero__orb--two"></div>
+      <img src={publicPath("/assets/apps/appstoryline/web/screen-01.webp")} alt="" />
+      <img src={publicPath("/assets/apps/jiajia-id-photo/web/icon.webp")} alt="" />
+    </div>
+  </section>
+
+  <section class="featured-section page-shell" id="featured" aria-labelledby="featured-heading">
+    <header class="section-heading section-heading--intro">
+      <div><p class="section-label">{labels.galleryEyebrow}</p><h2 id="featured-heading">{labels.featuredApps}</h2></div>
+      <p>{labels.galleryBody}</p>
+    </header>
+    <div class="featured-grid">
+      {featuredApps.map((app, index) => <FeaturedApp app={app} locale={locale} tone={index === 0 ? "coral" : index === 1 ? "blue" : "green"} />)}
+    </div>
   </section>
 
   <section class="app-gallery page-shell" id="apps" aria-labelledby="apps-heading">
     <header class="section-heading">
       <p class="section-label">{labels.galleryEyebrow}</p>
-      <h2 id="apps-heading">{labels.allApps}</h2>
+      <h2 id="apps-heading">{labels.exploreApps}</h2>
     </header>
     <div class="app-gallery__grid">
       {visibleApps.map((app, index) => <AppCard app={app} locale={locale} position={index + 1} />)}
     </div>
+  </section>
+
+  <section class="updates-section page-shell" aria-labelledby="updates-heading">
+    <header class="section-heading"><div><p class="section-label">FU apps</p><h2 id="updates-heading">{labels.latestUpdates}</h2></div></header>
+    <div class="updates-list">{updateApps.map((app) => <UpdateRow app={app} locale={locale} />)}</div>
   </section>
 </SiteLayout>
