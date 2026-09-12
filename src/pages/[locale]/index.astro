@@ -17,7 +17,7 @@ export function getStaticPaths() {
 const { locale } = Astro.props as { locale: Locale };
 const labels = ui[locale];
 const visibleApps = apps.filter((app) => appSupportsLocale(app, locale));
-const featuredSlugs = ["appstoryline", "jiajia-id-photo", "perfectlist"];
+const featuredSlugs = ["banzhuren", "perfectlist", "meowtalk-diary"];
 const featuredApps = featuredSlugs.map((slug) => apps.find((app) => app.slug === slug)).filter((app): app is (typeof apps)[number] => Boolean(app && appSupportsLocale(app, locale)));
 const updateApps = visibleApps.filter((app) => app.release).slice(0, 5);
 ---
@@ -50,6 +50,21 @@ const updateApps = visibleApps.filter((app) => app.release).slice(0, 5);
       {featuredApps.map((app, index) => <FeaturedApp app={app} locale={locale} tone={index === 0 ? "coral" : index === 1 ? "blue" : "green"} />)}
     </div>
   </section>
+
+  {locale === "zh-Hans" && <section class="beta-guide page-shell" id="testflight" aria-labelledby="testflight-heading">
+    <div class="beta-guide__copy">
+      <p class="section-label">班主任小秘书 · TestFlight</p>
+      <h2 id="testflight-heading">加入内测，提前试用班主任小秘书</h2>
+      <p>面向中国用户的 iPhone / iPad 内测教程。需要先安装 Apple 的 TestFlight，再通过邀请链接加入测试。</p>
+      <a class="button-link" href="https://testflight.apple.com/join/G4XDzZjC" target="_blank" rel="noreferrer">打开内测邀请链接 ↗</a>
+    </div>
+    <ol class="beta-guide__steps">
+      <li><strong>下载 TestFlight</strong><span>在 App Store 搜索“TestFlight”，或点击上方链接后按提示安装。</span></li>
+      <li><strong>打开邀请链接</strong><span>安装完成后，回到本页再次点击邀请链接，并选择“在 TestFlight 中打开”。</span></li>
+      <li><strong>接受测试邀请</strong><span>在 TestFlight 中点击“接受”或“开始测试”，即可安装班主任小秘书内测版。</span></li>
+      <li><strong>后续更新</strong><span>之后打开 TestFlight，在“App”列表里即可查看并安装新版本。</span></li>
+    </ol>
+  </section>}
 
   <section class="app-gallery page-shell" id="apps" aria-labelledby="apps-heading">
     <header class="section-heading">

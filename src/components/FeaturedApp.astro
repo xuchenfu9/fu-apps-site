@@ -15,6 +15,7 @@ const listing = resolveListing(app, localeDefaultStorefront[locale]).listing;
 const attributes = storefrontDataAttributes(app, locale);
 const labels = ui[locale];
 const appPath = publicPath(localePath(locale, `apps/${app.slug}`));
+const isBanzhurenBeta = app.slug === "banzhuren" && locale === "zh-Hans";
 ---
 
 <article class="featured-app" data-tone={tone}>
@@ -25,7 +26,9 @@ const appPath = publicPath(localePath(locale, `apps/${app.slug}`));
     {app.release && <p class="featured-app__version">{labels.version} {app.release.version}{app.release.build ? ` (${app.release.build})` : ""}</p>}
     <div class="featured-app__actions">
       <a class="button-link button-link--light" href={appPath}>{labels.viewDetails}<span aria-hidden="true"> ↗</span></a>
-      <AppStoreCTA app={app} locale={locale} compact />
+      {isBanzhurenBeta
+        ? <a class="text-link text-link--light" href="https://testflight.apple.com/join/G4XDzZjC" target="_blank" rel="noreferrer">内测中 · 加入 TestFlight ↗</a>
+        : <AppStoreCTA app={app} locale={locale} compact />}
     </div>
   </div>
   <a class="featured-app__visual" href={appPath} aria-label={`${labels.viewDetails}: ${getListingDisplayName(listing)}`}>
