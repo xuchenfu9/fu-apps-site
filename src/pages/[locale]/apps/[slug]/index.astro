@@ -25,7 +25,7 @@ const pricing = app.pricing?.[locale];
 const releaseNotes = app.release?.notes[locale] ?? app.release?.notes["zh-Hans"] ?? [];
 ---
 
-<SiteLayout locale={locale} title={`FU apps | ${getListingDisplayName(listing)}`} description={copy.summary} suffix={suffix} contactEmail={app.contactEmail} supportedLocales={app.supportedLocales}>
+<SiteLayout locale={locale} title={`测试小站 | ${getListingDisplayName(listing)}`} description={copy.summary} suffix={suffix} contactEmail={app.contactEmail} supportedLocales={app.supportedLocales}>
   <section class="product-hero page-shell">
     <a class="back-link" href={publicPath(localePath(locale))}><span aria-hidden="true">←</span> {labels.allApps}</a>
     <div class="product-hero__grid">
@@ -78,7 +78,7 @@ const releaseNotes = app.release?.notes[locale] ?? app.release?.notes["zh-Hans"]
 
   <section class="screens-section page-shell" aria-labelledby="screens-heading">
     <header class="section-heading">
-      <p class="section-label">FU apps</p>
+      <p class="section-label">测试小站</p>
       <h2 id="screens-heading">{labels.screenshots}</h2>
     </header>
     <div class="screens-grid">
@@ -89,7 +89,7 @@ const releaseNotes = app.release?.notes[locale] ?? app.release?.notes["zh-Hans"]
   <section class:list={["document-band", { "document-band--appstoryline": app.slug === "appstoryline" }]}>
     <div class="page-shell document-band__inner">
       <div>
-        <p class="section-label">FU apps</p>
+        <p class="section-label">测试小站</p>
         <h2>{labels.documents}</h2>
       </div>
       <DocumentNav locale={locale} slug={app.slug} />

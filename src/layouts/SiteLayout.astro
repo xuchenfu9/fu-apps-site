@@ -35,7 +35,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).to
   <body>
     <header class="site-header">
       <div class="site-header__inner">
-        <a class="wordmark" href={publicPath(localePath(locale))} aria-label="FU apps">FU <span>apps</span></a>
+        <a class="wordmark" href={publicPath(localePath(locale))} aria-label="测试小站">测试小站</a>
         <nav class="site-nav" aria-label={labels.allApps}>
           <a href={publicPath(localePath(locale))}>{labels.allApps}</a>
         </nav>
@@ -50,8 +50,9 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).to
     </main>
     <footer class="site-footer">
       <div>
-        <a class="wordmark" href={publicPath(localePath(locale))}>FU <span>apps</span></a>
+        <a class="wordmark" href={publicPath(localePath(locale))}>测试小站</a>
         <p>{labels.footer}</p>
+        <p class="site-footer__record"><a href="https://beian.miit.gov.cn/" rel="noreferrer">浙ICP备2026078852号</a></p>
       </div>
       <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
     </footer>

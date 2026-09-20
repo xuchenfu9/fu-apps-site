@@ -7,10 +7,10 @@ import { publicPath } from "../lib/site";
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>FU apps</title>
+    <title>测试小站</title>
   </head>
   <body>
-    <p><a href={publicPath("/en/")}>FU apps</a></p>
+    <p><a href={publicPath("/en/")}>测试小站</a></p>
     <script is:inline define:vars={{ base: import.meta.env.BASE_URL }}>
       const supportedLocales = ["zh-Hans", "zh-Hant", "en", "ja", "ko"];
       const browserLanguages = navigator.languages ?? [navigator.language];
