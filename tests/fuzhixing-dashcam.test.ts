@@ -32,4 +32,15 @@ describe("福之行车记录仪 catalog", () => {
     expect(documents?.terms.sections.flatMap((section) => section.paragraphs.join(" "))
       .join(" ")).toContain("720p");
   });
+
+  it("keeps the dashcam storefront copy free of the iPhone brand term", () => {
+    const app = apps.find((candidate) => candidate.slug === "fuzhixing-dashcam");
+    const copy = app?.copy["zh-Hans"];
+
+    expect([
+      copy?.eyebrow,
+      copy?.summary,
+      ...(copy?.features ?? []).flatMap((feature) => [feature.title, feature.description]),
+    ].join(" ").toLowerCase()).not.toContain("iphone");
+  });
 });

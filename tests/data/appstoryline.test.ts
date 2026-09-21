@@ -47,6 +47,6 @@ describe("App Screenshot Tools launch catalog", () => {
 
     expect(appsBySlug["jiajia-id-photo"].listings.CN?.state).toBe("live");
     expect(appsBySlug["jiajia-id-photo"].release).toMatchObject({ version: "1.1.1", build: "8" });
-    expect(appsBySlug["fuzhixing-dashcam"].release).toMatchObject({ version: "1.0", build: "1" });
+    expect(appsBySlug["fuzhixing-dashcam"].release).toMatchObject({ version: "1.0.0", build: "1" });
   });
 });
