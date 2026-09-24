@@ -14,7 +14,7 @@ export function getStaticPaths() {
 
 const { locale } = Astro.props as { locale: Locale };
 const labels = ui[locale];
-const visibleApps = apps.filter((app) => app.slug === "banzhuren" && appSupportsLocale(app, locale));
+const visibleApps = apps.filter((app) => app.slug === "fuzhixing-dashcam" && appSupportsLocale(app, locale));
 ---
 
 <SiteLayout locale={locale} title="测试小站" description={labels.galleryBody}>
@@ -22,7 +22,7 @@ const visibleApps = apps.filter((app) => app.slug === "banzhuren" && appSupports
     <div class="studio-hero__copy">
       <p class="section-label">{labels.galleryEyebrow}</p>
       <h1>Small apps.<br /><em>Clearer days.</em></h1>
-      <p class="studio-hero__body">班主任小秘书正在开发中，敬请期待。</p>
+      <p class="studio-hero__body">福之行车记录仪正在上架中，敬请期待。</p>
       <div class="studio-hero__actions">
         <a class="button-link" href="#apps">查看应用<span aria-hidden="true"> ↓</span></a>
       </div>
@@ -30,30 +30,15 @@ const visibleApps = apps.filter((app) => app.slug === "banzhuren" && appSupports
     <div class="studio-hero__art" aria-hidden="true">
       <div class="studio-hero__orb studio-hero__orb--one"></div>
       <div class="studio-hero__orb studio-hero__orb--two"></div>
-      <img src={publicPath("/assets/apps/banzhuren/web/screen-01.webp")} alt="" />
-      <img src={publicPath("/assets/apps/banzhuren/web/icon.webp")} alt="" />
+      <img src={publicPath("/assets/apps/fuzhixing-dashcam/web/screen-01.webp")} alt="" />
+      <img src={publicPath("/assets/apps/fuzhixing-dashcam/web/icon.webp")} alt="" />
     </div>
   </section>
-
-  {locale === "zh-Hans" && <section class="beta-guide page-shell" id="testflight" aria-labelledby="testflight-heading">
-    <div class="beta-guide__copy">
-      <p class="section-label">班主任小秘书 · TestFlight</p>
-      <h2 id="testflight-heading">加入内测，提前试用班主任小秘书</h2>
-      <p>面向中国用户的 iPhone / iPad 内测教程。需要先安装 Apple 的 TestFlight，再通过邀请链接加入测试。</p>
-      <a class="button-link" href="https://testflight.apple.com/join/G4XDzZjC" target="_blank" rel="noreferrer">打开内测邀请链接 ↗</a>
-    </div>
-    <ol class="beta-guide__steps">
-      <li><strong>下载 TestFlight</strong><span>在 App Store 搜索“TestFlight”，或点击上方链接后按提示安装。</span></li>
-      <li><strong>打开邀请链接</strong><span>安装完成后，回到本页再次点击邀请链接，并选择“在 TestFlight 中打开”。</span></li>
-      <li><strong>接受测试邀请</strong><span>在 TestFlight 中点击“接受”或“开始测试”，即可安装班主任小秘书内测版。</span></li>
-      <li><strong>后续更新</strong><span>之后打开 TestFlight，在“App”列表里即可查看并安装新版本。</span></li>
-    </ol>
-  </section>}
 
   <section class="app-gallery page-shell" id="apps" aria-labelledby="apps-heading">
     <header class="section-heading">
       <p class="section-label">{labels.galleryEyebrow}</p>
-      <h2 id="apps-heading">班主任小秘书 · 开发中</h2>
+      <h2 id="apps-heading">福之行车记录仪 · 上架中</h2>
     </header>
     <div class="app-gallery__grid">
       {visibleApps.map((app, index) => <AppCard app={app} locale={locale} position={index + 1} />)}
