@@ -105,14 +105,17 @@ const banzhuren: AppRecord = {
     }
   }),
   release: release("1.0.1", {
-    "zh-Hans": ["新增花名册、成绩和课表的图片识别与导入入口，完善多页资料处理、取消与冲突确认流程。", "App、Widget、Watch App 与 Watch Extension 统一为 1.0.1 (12)；当前仍处于计划发布阶段。"],
-    "zh-Hant": ["新增花名冊、成績和課表的圖片辨識與匯入入口，完善多頁資料處理、取消與衝突確認流程。", "App、Widget、Watch App 與 Watch Extension 統一為 1.0.1 (12)；目前仍處於計畫發布階段。"],
-    en: ["Added image recognition and import entry points for rosters, grades, and timetables, with clearer multi-page processing, cancellation, and conflict confirmation.", "Aligned the App, Widget, Watch App, and Watch Extension at 1.0.1 (12); the public release is still planned."],
-    ja: ["名簿、成績、時間割の画像認識と読み込み入口を追加し、複数ページの処理、キャンセル、競合確認を整理しました。", "App、Widget、Watch App、Watch Extension を 1.0.1 (12) に統一しました。一般公開はまだ予定段階です。"],
-    ko: ["명부, 성적, 시간표의 이미지 인식 및 가져오기 진입점을 추가하고 여러 페이지 처리, 취소, 충돌 확인 흐름을 정리했습니다.", "App, Widget, Watch App, Watch Extension을 1.0.1 (12)로 통일했습니다. 공개 출시는 아직 예정 단계입니다."]
+    "zh-Hans": ["新增花名册、成绩和课表的图片识别与导入入口，完善多页资料处理、取消与冲突确认流程。", "App、Widget、Watch App 与 Watch Extension 统一为 1.0.1 (12)；班主任小秘书已在 App Store 上架。"],
+    "zh-Hant": ["新增花名冊、成績和課表的圖片辨識與匯入入口，完善多頁資料處理、取消與衝突確認流程。", "App、Widget、Watch App 與 Watch Extension 統一為 1.0.1 (12)；班主任小秘書已在 App Store 上架。"],
+    en: ["Added image recognition and import entry points for rosters, grades, and timetables, with clearer multi-page processing, cancellation, and conflict confirmation.", "Aligned the App, Widget, Watch App, and Watch Extension at 1.0.1 (12); Banzhuren Secretary is now available on the App Store."],
+    ja: ["名簿、成績、時間割の画像認識と読み込み入口を追加し、複数ページの処理、キャンセル、競合確認を整理しました。", "App、Widget、Watch App、Watch Extension を 1.0.1 (12) に統一しました。班主任小秘书は App Store で配信中です。"],
+    ko: ["명부, 성적, 시간표의 이미지 인식 및 가져오기 진입점을 추가하고 여러 페이지 처리, 취소, 충돌 확인 흐름을 정리했습니다.", "App, Widget, Watch App, Watch Extension을 1.0.1 (12)로 통일했습니다. 반주임 비서는 이제 App Store에서 이용할 수 있습니다."]
   }, "12"),
   listings: {
-    CN: plannedWithoutStorefront("CN", "班主任小秘书")
+    CN: liveListing("CN", "6797754054", "班主任小秘书"),
+    HK: liveListing("HK", "6797754054", "班主任小秘书"),
+    TW: liveListing("TW", "6797754054", "班主任小秘书"),
+    US: liveListing("US", "6797754054", "班主任小秘书")
   }
 };
 

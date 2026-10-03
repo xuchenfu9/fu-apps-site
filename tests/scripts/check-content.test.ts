@@ -24,15 +24,15 @@ describe("published site content", () => {
     }
   });
 
-  it("keeps Banzhuren localized and pre-release", () => {
+  it("keeps Banzhuren localized and live", () => {
     const banzhuren = appsBySlug.banzhuren;
 
     expect(banzhuren.supportedLocales).toEqual(locales);
     for (const locale of locales) {
       expect(banzhuren.copy[locale]?.features).toHaveLength(5);
     }
-    expect(banzhuren.listings.CN?.state).toBe("planned");
-    expect(banzhuren.listings.CN?.url).toBeUndefined();
+    expect(banzhuren.listings.CN?.state).toBe("live");
+    expect(banzhuren.listings.CN?.url).toContain("id6797754054");
   });
 
   it("leads PerfectList with its system-level alarm and schedule rules", () => {

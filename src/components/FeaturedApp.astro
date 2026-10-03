@@ -8,14 +8,13 @@ import { storefrontDataAttributes } from "../lib/storefront-dom";
 import type { AppRecord, Locale } from "../lib/types";
 import { ui } from "../lib/ui";
 
-interface Props { app: AppRecord; locale: Locale; tone: string; }
-const { app, locale, tone } = Astro.props;
+interface Props { app: AppRecord; locale: Locale; tone: string; image?: string; }
+const { app, locale, tone, image } = Astro.props;
 const copy = appCopy(app, locale);
 const listing = resolveListing(app, localeDefaultStorefront[locale]).listing;
 const attributes = storefrontDataAttributes(app, locale);
 const labels = ui[locale];
 const appPath = publicPath(localePath(locale, `apps/${app.slug}`));
-const isBanzhurenBeta = app.slug === "banzhuren" && locale === "zh-Hans";
 ---
 
 <article class="featured-app" data-tone={tone}>
@@ -26,13 +25,11 @@ const isBanzhurenBeta = app.slug === "banzhuren" && locale === "zh-Hans";
     {app.release && <p class="featured-app__version">{labels.version} {app.release.version}{app.release.build ? ` (${app.release.build})` : ""}</p>}
     <div class="featured-app__actions">
       <a class="button-link button-link--light" href={appPath}>{labels.viewDetails}<span aria-hidden="true"> ↗</span></a>
-      {isBanzhurenBeta
-        ? <a class="text-link text-link--light" href="https://testflight.apple.com/join/G4XDzZjC" target="_blank" rel="noreferrer">内测中 · 加入 TestFlight ↗</a>
-        : <AppStoreCTA app={app} locale={locale} compact />}
+      <AppStoreCTA app={app} locale={locale} compact />
     </div>
   </div>
   <a class="featured-app__visual" href={appPath} aria-label={`${labels.viewDetails}: ${getListingDisplayName(listing)}`}>
-    <img src={publicPath(app.screenshots[0]!)} alt="" loading="lazy" />
+    <img src={publicPath(image ?? app.screenshots[0]!)} alt="" loading="lazy" />
     <img class="featured-app__icon" src={publicPath(app.icon)} alt="" loading="lazy" />
   </a>
 </article>
