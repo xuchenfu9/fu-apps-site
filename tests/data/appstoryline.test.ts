@@ -38,7 +38,7 @@ describe("App Screenshot Tools launch catalog", () => {
   });
 
   it("records a version and update notes for every catalog app", () => {
-    expect(Object.keys(appsBySlug)).toHaveLength(8);
+    expect(Object.keys(appsBySlug)).toHaveLength(9);
 
     for (const app of Object.values(appsBySlug)) {
       expect(app.release?.version).toMatch(/^\d+\.\d+(\.\d+)?$/);
