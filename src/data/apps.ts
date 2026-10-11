@@ -454,6 +454,13 @@ const partyGames: AppRecord = {
     "/assets/apps/party-games/web/screen-02.webp",
     "/assets/apps/party-games/web/screen-03.webp"
   ],
+  pricing: {
+    "zh-Hans": { value: "¥6", note: "一次性购买" },
+    "zh-Hant": { value: "¥6", note: "一次性購買" },
+    en: { value: "$1.00", note: "One-time purchase" },
+    ja: { value: "$1.00", note: "一度きりの購入" },
+    ko: { value: "$1.00", note: "일회성 구매" }
+  },
   copy: copy({
     "zh-Hans": {
       eyebrow: "多人聚会小游戏",
