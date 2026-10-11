@@ -655,6 +655,36 @@ const fuzhixingDashcam: AppRecord = {
   }
 };
 
-export const apps = [perfectlist, meowtalkDiary, myBookmarks, jiajiaIdPhoto, partyGames, banzhuren, appstoryline, fuzhixingDashcam] as const satisfies readonly AppRecord[];
+const mobiElliptical: AppRecord = {
+  slug: "mobi-elliptical",
+  supportedLocales: ["zh-Hans"],
+  contactEmail: publicContactEmail,
+  icon: "/assets/apps/mobi-elliptical/web/icon.webp",
+  screenshots: ["/assets/apps/mobi-elliptical/web/screen-01.webp"],
+  copy: {
+    "zh-Hans": {
+      eyebrow: "连接椭圆机，记录每次训练",
+      summary: "用 iPhone 连上莫比椭圆机，边练边看数据，训练结束后回看记录。",
+      features: [
+        { title: "先把设备连上", description: "搜索并保存兼容的莫比椭圆机，连接状态和设备信息都在本机管理。" },
+        { title: "训练数据实时显示", description: "训练时查看踏频、速度、功率、里程、热量和训练时间；设备没有提供的指标会显示为“--”。" },
+        { title: "阻力可以直接调", description: "在支持的设备上直接调整阻力等级，手机上的操作和设备反馈保持同步。" },
+        { title: "暂停后还能接着练", description: "暂停后会保留上次的时间、里程和热量；暂停超过三十分钟，训练会自动结束并归档。" },
+        { title: "训练记录保存在本机", description: "每次训练都会保存到本机，首页可以查看近七日消耗、体重趋势和历史详情，不需要账号或云端服务。" }
+      ]
+    }
+  },
+  pricing: {
+    "zh-Hans": { value: "¥12", note: "一次性买断，无订阅" }
+  },
+  release: release("1.0.0", {
+    "zh-Hans": ["首发版本只支持莫比椭圆机。", "加入训练记录、暂停归档、阻力调节、历史分析和隐私说明。"]
+  }, "1"),
+  listings: {
+    CN: plannedWithoutStorefront("CN", "Mobi椭圆机")
+  }
+};
+
+export const apps = [mobiElliptical, perfectlist, meowtalkDiary, myBookmarks, jiajiaIdPhoto, partyGames, banzhuren, appstoryline, fuzhixingDashcam] as const satisfies readonly AppRecord[];
 
 export const appsBySlug = Object.fromEntries(apps.map((app) => [app.slug, app])) as Record<string, AppRecord>;
