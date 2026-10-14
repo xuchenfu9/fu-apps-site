@@ -4,8 +4,18 @@ export const banzhurenLegal: AppLegalDocuments = {
   "zh-Hans": {
     privacy: {
       title: "隐私政策",
-      updatedAt: "2026-08-30",
+      updatedAt: "2026-10-14",
       sections: [
+        {
+          title: "可选的恢复趋势与放松提醒",
+          paragraphs: [
+            "本条款适用于提供恢复趋势功能的版本，包括 TestFlight 测试版本。该功能由你主动开启，通过 Apple HealthKit 请求只读的心率变异性（HRV）和睡眠时段，用于与自己的历史水平比较。完成授权流程后应用自动启用更新；你可以选择允许的数据类别，拒绝或没有可读数据时显示暂无数据，不影响班级管理和课程倒计时。应用不请求写入、修改或删除 Apple 健康记录。",
+            "原始健康样本仅在设备上计算，不上传开发者服务器。为在你自己的配对 Apple Watch 和表盘组件中展示状态，手机通过 Apple 配对设备通信传递必要的每日趋势摘要、比较范围、测量时间、有效期和设置，不传递逐次原始健康样本或睡眠明细。",
+            "健康缓存独立于学生和班级资料，不进入班级数据库、业务导入导出、局域网编辑、支持邮件、本应用 iCloud 业务备份或分析服务，也不用于广告、营销、跟踪或画像。计算仅使用过去二十八天的必要每日摘要及比较依据；设备保存最近一次摘要快照，更新时替换旧快照。应用不运行时不能保证按时删除旧文件，但过期摘要不会作为当前状态或提醒依据。缓存和读取同意控制记录采用平台数据保护并排除云备份；停用后保留不含健康数值的版本和撤销标记，防止旧摘要恢复。",
+            "放松提醒需要另行主动开启并允许系统通知，结合个人趋势、数据新旧和你的课表提供呼吸或空档放松建议。不会仅因一次偏低读数反复提醒；你可关闭课中提醒、调整时段、推迟到下课后或暂停当天提醒。通知不含具体 HRV 数值，预览和完整内容受系统通知预览与专注模式设置影响。",
+            "你可随时关闭恢复趋势、清除本应用健康缓存，或在 Apple 健康中撤回读取权限。手机会向配对手表同步停用和清除指令；离线手表恢复通信后完成同步，过期摘要不会继续作为当前状态。清除本应用缓存不删除 Apple 健康原始记录或班级业务资料。本功能只作日常趋势参考，不用于疾病、疲劳或压力诊断，也不保证呼吸练习改变 HRV。"
+          ]
+        },
         {
           title: "运营者与适用范围",
           paragraphs: [
@@ -195,8 +205,18 @@ export const banzhurenLegal: AppLegalDocuments = {
   "zh-Hant": {
     privacy: {
       title: "隱私政策",
-      updatedAt: "2026-08-30",
+      updatedAt: "2026-10-14",
       sections: [
+        {
+          title: "選用的恢復趨勢與放鬆提醒",
+          paragraphs: [
+            "本條款適用於提供恢復趨勢的版本，包括 TestFlight 測試版。你主動開啟後，App 透過 Apple HealthKit 請求唯讀的心率變異性（HRV）及睡眠時段，以與自己的歷史水平比較。完成授權流程後自動啟用更新；你可選擇允許的資料類別。拒絕或無可讀資料時顯示暫無資料，不影響班務及課程倒數。App 不請求寫入、修改或刪除 Apple 健康記錄。",
+            "原始健康樣本僅在裝置上計算，不上傳開發者伺服器。手機透過 Apple 配對裝置通訊，向你自己的 Apple Watch 和錶面組件傳遞必要每日趨勢摘要、比較範圍、測量時間、有效期和設定，不傳遞逐次原始樣本或睡眠明細。",
+            "健康快取與學生及班級資料分開，不進入班級資料庫、業務匯入匯出、區域網路編輯、支援郵件、本 App iCloud 業務備份或分析服務，也不用於廣告、行銷、追蹤或個人畫像。計算只使用過去二十八天必要的每日摘要與比較依據；裝置保留最近一次快照，更新時取代舊快照。App 未執行時不能保證按時刪除舊檔，但過期摘要不作為當前狀態或提醒依據。快取和讀取同意記錄使用平台資料保護並排除雲端備份；停用後保留不含健康數值的版本及撤銷標記，以免舊摘要恢復。",
+            "放鬆提醒須另行主動開啟並允許系統通知，結合個人趨勢、資料時效及你的課表提供呼吸或空檔放鬆建議，不會只因一次偏低讀數反覆提醒。你可關閉課中提醒、調整時段、延至下課後或暫停當日提醒。通知不含具體 HRV 數值，預覽受系統通知與專注模式設定影響。",
+            "你可關閉恢復趨勢、清除本 App 健康快取，或在 Apple 健康撤回讀取權限。手機會同步停用與清除指令；離線手錶恢復通訊後才完成同步，過期摘要不再作為當前狀態。清除快取不會刪除 Apple 健康原始記錄或班級資料。本功能只供日常趨勢參考，不診斷疾病、疲勞或壓力，也不保證呼吸練習改變 HRV。"
+          ]
+        },
         {
           title: "營運者與適用範圍",
           paragraphs: [
@@ -340,8 +360,18 @@ export const banzhurenLegal: AppLegalDocuments = {
   en: {
     privacy: {
       title: "Privacy Policy",
-      updatedAt: "2026-08-30",
+      updatedAt: "2026-10-14",
       sections: [
+        {
+          title: "Optional recovery trends and relaxation reminders",
+          paragraphs: [
+            "These terms apply to releases offering recovery trends, including TestFlight builds. After you choose to enable the feature, the app requests read-only heart rate variability (HRV) and sleep intervals through Apple HealthKit to compare with your own history. Updates start automatically after the authorization flow completes. You choose which categories to allow; refusal or no readable samples produces a no-data state without affecting classroom features or course countdowns. The app does not request permission to write, modify, or delete Apple Health records.",
+            "Raw health samples are processed on your device and are not uploaded to a developer server. Using Apple paired-device communication, the phone sends only necessary daily trend summaries, comparison ranges, measurement times, expiry times, and settings to your own paired Apple Watch and watch-face widgets. Individual raw samples and detailed sleep records are not sent.",
+            "Health caches are separate from classroom records and excluded from classroom databases, business imports or exports, local-network editing, support email, this app’s iCloud business backup, and analytics. They are not used for advertising, marketing, tracking, or profiling. Calculations use only the necessary daily summaries and comparison inputs from the preceding twenty-eight days. The device retains the latest snapshot, replacing it on update. Files may remain while the app is not running, but expired summaries are not used as current status or reminder inputs. Caches and read-consent records use platform data protection and are excluded from cloud backup. Disabling retains health-value-free revision and revocation markers to prevent older summaries from returning.",
+            "Relaxation reminders require a separate opt-in and system notification permission. They use personal trends, data freshness, and your timetable for breathing or free-period suggestions, without repeated reminders based solely on one low reading. You can disable in-class reminders, adjust hours, defer until class ends, or pause for the day. Notifications omit numeric HRV values; previews and full content follow system notification-preview and Focus settings.",
+            "You can disable recovery trends, clear this app’s health cache, or revoke read access in Apple Health. Disable and clear instructions synchronize to your paired watch when communication resumes; expired summaries are not treated as current status. Clearing the cache does not delete original Apple Health or classroom records. This feature is for everyday trend reference, not diagnosis of disease, fatigue, or stress, and does not promise that breathing exercises change HRV."
+          ]
+        },
         {
           title: "Operator and scope",
           paragraphs: [
@@ -485,8 +515,18 @@ export const banzhurenLegal: AppLegalDocuments = {
   ja: {
     privacy: {
       title: "プライバシーポリシー",
-      updatedAt: "2026-08-30",
+      updatedAt: "2026-10-14",
       sections: [
+        {
+          title: "任意の回復傾向とリラックス通知",
+          paragraphs: [
+            "本条項は TestFlight を含む回復傾向機能のあるバージョンに適用されます。利用者が有効化すると、Apple HealthKit で心拍変動（HRV）と睡眠時間帯の読み取りのみを求め、本人の過去の値と比較します。許可手続きの完了後に更新が自動で有効になります。許可するデータ種別は選択できます。拒否または読み取り可能な記録がない場合はデータなしと表示し、学級管理や授業の残り時間には影響しません。Apple ヘルスケアへの書き込み、変更、削除権限は求めません。",
+            "元の健康サンプルは端末内で計算し、開発者サーバーには送信しません。Apple のペアリング端末間通信により、必要な日次傾向の要約、比較範囲、測定時刻、有効期限、設定のみを本人の Apple Watch と文字盤ウィジェットへ送ります。個々の元サンプルや睡眠の詳細は送りません。",
+            "健康キャッシュは学級情報から分離し、学級データベース、業務データの入出力、LAN 編集、サポートメール、本アプリの iCloud 業務バックアップ、分析サービスには含めません。広告、マーケティング、追跡、プロファイリングにも使いません。計算には過去二十八日間の必要な日次要約と比較資料のみを使い、端末は最新のスナップショットを更新時に置き換えます。アプリ停止中は古いファイルの定時削除を保証できませんが、期限切れ要約を現在の状態や通知判定には使いません。キャッシュと読み取り同意記録はプラットフォームのデータ保護を使用し、クラウドバックアップから除外します。無効化後は古い要約の復活を防ぐため、健康値を含まない版番号と取消印を保持します。",
+            "リラックス通知には別途有効化とシステム通知の許可が必要です。本人の傾向、記録の新しさ、時間割に応じて呼吸や空き時間の提案をし、一度の低い値だけで繰り返し通知しません。授業中の通知停止、時間帯変更、授業後への延期、当日の停止が可能です。具体的な HRV 数値は通知に含めず、プレビューと全文の表示はシステム通知と集中モード設定に従います。",
+            "機能の無効化、アプリの健康キャッシュ削除、Apple ヘルスケアでの読み取り許可取消が可能です。無効化と削除指示はペアリングした時計へ同期し、オフライン時は通信再開後に完了します。期限切れ要約は現在の状態として扱いません。キャッシュ削除は元の健康記録や学級情報を削除しません。本機能は日常的な傾向の参考であり、疾病、疲労、ストレスの診断ではなく、呼吸練習による HRV の変化も保証しません。"
+          ]
+        },
         {
           title: "運営者と適用範囲",
           paragraphs: [
@@ -630,8 +670,18 @@ export const banzhurenLegal: AppLegalDocuments = {
   ko: {
     privacy: {
       title: "개인정보 처리방침",
-      updatedAt: "2026-08-30",
+      updatedAt: "2026-10-14",
       sections: [
+        {
+          title: "선택형 회복 추세 및 이완 알림",
+          paragraphs: [
+            "이 조항은 TestFlight를 포함하여 회복 추세를 제공하는 버전에 적용됩니다. 사용자가 기능을 켜면 Apple HealthKit을 통해 심박 변이도(HRV)와 수면 시간대의 읽기 전용 권한을 요청해 자신의 과거 수준과 비교합니다. 권한 요청 절차를 마치면 업데이트가 자동 활성화됩니다. 허용할 데이터 종류는 직접 선택할 수 있습니다. 거부하거나 읽을 기록이 없으면 데이터 없음으로 표시하며 학급 기능과 수업 종료 카운트다운에는 영향이 없습니다. Apple 건강 기록의 쓰기, 수정, 삭제 권한은 요청하지 않습니다.",
+            "원본 건강 샘플은 기기에서 계산하며 개발자 서버로 업로드하지 않습니다. Apple의 페어링 기기 통신을 통해 필요한 일별 추세 요약, 비교 범위, 측정 시각, 유효 기간, 설정만 본인의 Apple Watch와 시계 페이스 위젯으로 보냅니다. 개별 원본 샘플과 상세 수면 기록은 보내지 않습니다.",
+            "건강 캐시는 학급 자료와 분리되며 학급 데이터베이스, 업무 가져오기·내보내기, 로컬 네트워크 편집, 지원 이메일, 앱의 iCloud 업무 백업, 분석 서비스에 포함되지 않습니다. 광고, 마케팅, 추적, 프로파일링에도 사용하지 않습니다. 계산에는 최근 이십팔 일의 필요한 일별 요약과 비교 자료만 사용하며 기기는 최신 스냅샷을 업데이트 시 교체합니다. 앱이 실행되지 않으면 오래된 파일의 정시 삭제를 보장할 수 없지만 만료된 요약을 현재 상태나 알림 판단에 쓰지 않습니다. 캐시와 읽기 동의 기록은 플랫폼 데이터 보호를 사용하고 클라우드 백업에서 제외합니다. 기능을 끈 뒤에는 이전 요약의 복원을 막도록 건강 수치가 없는 버전 및 철회 표식을 보관합니다.",
+            "이완 알림에는 별도의 활성화와 시스템 알림 권한이 필요합니다. 개인 추세, 데이터 최신성, 시간표를 바탕으로 호흡 또는 여유 시간의 이완을 제안하며 한 번의 낮은 수치만으로 반복 알림을 보내지 않습니다. 수업 중 알림 끄기, 시간대 변경, 수업 후로 미루기, 당일 일시 중지가 가능합니다. 알림에는 구체적인 HRV 수치를 넣지 않으며 미리보기와 전체 내용은 시스템 알림 미리보기 및 집중 모드 설정을 따릅니다.",
+            "회복 추세를 끄거나 앱의 건강 캐시를 지우거나 Apple 건강에서 읽기 권한을 철회할 수 있습니다. 끄기 및 삭제 지시는 페어링한 시계로 동기화되며 오프라인이면 통신 재개 후 완료됩니다. 만료된 요약은 현재 상태로 취급하지 않습니다. 캐시 삭제로 원본 건강 기록이나 학급 자료가 삭제되지는 않습니다. 이 기능은 일상 추세 참고용이며 질병, 피로, 스트레스를 진단하지 않고 호흡 연습이 HRV를 바꾼다고 보장하지 않습니다."
+          ]
+        },
         {
           title: "운영자와 적용 범위",
           paragraphs: [
