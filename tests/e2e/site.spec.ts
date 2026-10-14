@@ -1,5 +1,28 @@
 import { expect, test } from "@playwright/test";
 
+test("shows the released dashcam with App Store download links and legal documents", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("zh-Hans/");
+
+  const card = page.locator('.app-card:has(a[href="/fu-apps-site/zh-Hans/apps/fuzhixing-dashcam/"])');
+  await expect(card.locator("[data-storefront-cta]")).toHaveAttribute("href", "https://apps.apple.com/cn/app/id6811306608");
+  await expect(card.locator("[data-storefront-status]")).toHaveCount(0);
+  await expect(card).toContainText("1.0.1");
+
+  await page.goto("zh-Hans/apps/fuzhixing-dashcam/");
+  await expect(page.getByRole("heading", { name: "福之行车记录仪", exact: true })).toBeVisible();
+  await expect(page.locator("[data-storefront-cta]")).toHaveAttribute("href", "https://apps.apple.com/cn/app/id6811306608");
+  await expect(page.locator(".product-release-meta")).toContainText("1.0.1 (4)");
+  await expect(page.locator(".release-notes")).toContainText("正式上架");
+  await expect(page.locator("[data-storefront-status]")).toHaveCount(0);
+  await expect(page.getByText(/App Store Connect 发布准备/)).toHaveCount(0);
+  for (const documentName of ["privacy", "support", "terms"]) {
+    const response = await page.request.get(`zh-Hans/apps/fuzhixing-dashcam/${documentName}/`);
+    expect(response.status()).toBe(200);
+  }
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(await page.evaluate(() => document.documentElement.clientWidth));
+});
+
 test("shows the FU apps gallery and Storefront-aware App Store links", async ({ page }) => {
   await page.goto("en/");
 

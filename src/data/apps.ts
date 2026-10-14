@@ -647,11 +647,11 @@ const fuzhixingDashcam: AppRecord = {
       ]
     }
   },
-  release: release("1.0.0", {
-    "zh-Hans": ["首发版本聚焦本机录像、循环分段、事件保护和回放导出。", "可选地将录像主动保存、导出或传到已配对车机；当前版本已进入 App Store Connect 发布准备。"]
-  }, "1"),
+  release: release("1.0.1", {
+    "zh-Hans": ["已在 App Store 正式上架，支持本机录像、循环分段、事件保护和回放导出。", "录像可按需保存、导出或传到已配对车机；不连接车机也能独立使用。"]
+  }, "4"),
   listings: {
-    CN: plannedWithoutStorefront("CN", "福之行车记录仪")
+    CN: liveListing("CN", "6811306608", "福之行车记录仪")
   }
 };
 
