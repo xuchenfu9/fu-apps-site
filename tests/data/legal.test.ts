@@ -69,7 +69,7 @@ describe("legal document completeness", () => {
       expect(documents[locale]?.privacy.sections.length).toBeGreaterThan(0);
       expect(documents[locale]?.support.sections.length).toBeGreaterThan(0);
       expect(documents[locale]?.terms.sections.length).toBeGreaterThan(0);
-      expect(documents[locale]?.privacy.updatedAt).toBe("2026-10-19");
+      expect(documents[locale]?.privacy.updatedAt).toBe("2026-10-25");
       expect(documentText(documents[locale]?.privacy)).toContain("fxcpxs@163.com");
     }
   });
@@ -78,7 +78,7 @@ describe("legal document completeness", () => {
     const document = legalDocumentsBySlug.banzhuren["zh-Hans"]?.privacy;
     const privacyText = documentText(document);
 
-    expect(document?.updatedAt).toBe("2026-10-19");
+    expect(document?.updatedAt).toBe("2026-10-25");
     expect(privacyText).toContain("CloudKit 私有数据库");
     expect(privacyText).toContain("照片、录音和文件附件的二进制内容不会随 Core Data 自动同步");
     expect(privacyText).toContain("SecretaryTips.json");
