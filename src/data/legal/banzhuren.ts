@@ -4,8 +4,16 @@ export const banzhurenLegal: AppLegalDocuments = {
   "zh-Hans": {
     privacy: {
       title: "隐私政策",
-      updatedAt: "2026-10-19",
+      updatedAt: "2026-10-25",
       sections: [
+        {
+          title: "可选的云端持续课程提醒",
+          paragraphs: [
+            "仅在你主动启用后，应用向开发者的班主任专用 HTTPS 服务同步匿名课表规则：星期、起止时间、时区、已知日期例外、提醒方案、随机安装标识和 Apple 推送标识，用于持续生成课程提醒并经 Apple APNs 发送。不上传课程或班级名称、学生资料、HRV 数值、恢复趋势或睡眠数据。设备鉴权信息不写入普通日志。",
+            "云端排程与推送注册信息保留至你关闭并删除该安装的云端提醒。网络失败时，应用显示删除尚未确认，需联网重试；本地开关变化不代表服务器已经删除。未启用此功能时，不进行云端注册或课表上传，本地提醒仍可独立使用。",
+            "首次启用并成功同步后，服务器按已同步的规则持续排程，无需打开手机或手表 App 补排。修改课表、调课或假期安排后需同步一次，服务器无法知道尚未录入或上传的变化。网络、Apple 推送和设备设置会影响时效和送达。HRV 数据仍仅在设备及配对同步链路处理，云端课程提醒不提供实时健康监测。"
+          ]
+        },
         {
           title: "可选的恢复趋势与状态提醒",
           paragraphs: [
@@ -66,7 +74,7 @@ export const banzhurenLegal: AppLegalDocuments = {
             "相机：只在你主动为工作留痕拍摄时调用，拍摄结果作为附件保存在应用数据中。",
             "照片：当你在工作日志中主动选择照片时，应用读取所选内容并将副本保存在应用数据中；保存应用生成的图片时，应用只请求添加到系统照片图库的权限，不读取你未选择的既有照片。",
             "定位：只在你主动为工作留痕获取位置时处理当前经纬度，并可能使用系统反向地理编码生成位置文本。坐标和位置文本随对应记录保存；撤回定位权限会阻止后续定位，不会自动删除已保存的内容。",
-            "通知：发送你主动设置的待办提醒。提醒使用系统本地通知，不需要把班级资料上传到开发者服务器。",
+            "通知：发送你主动设置的待办、课程与恢复状态提醒。本地提醒不需要上传班级资料；主动启用云端课程提醒时，仅按上述专用条款同步必要的匿名时间规则与推送标识。",
             "Apple StoreKit：处理月度、年度自动续期订阅和一次性终身会员的商品查询、购买、续期、交易验证、恢复购买及订阅管理。付款和 Apple ID 账户凭据由 Apple 处理，开发者不会获得你的 Apple ID 密码或完整支付信息。",
             "iCloud 与 CloudKit：只有在你主动启用可选备份后，才使用你 Apple 账户的 CloudKit 私有数据库同步前述数据；开发者无法访问。",
             "意见建议：只调用系统邮件界面创建草稿；应用不使用广告、分析或 App Tracking Transparency 跟踪。"
@@ -205,8 +213,16 @@ export const banzhurenLegal: AppLegalDocuments = {
   "zh-Hant": {
     privacy: {
       title: "隱私政策",
-      updatedAt: "2026-10-19",
+      updatedAt: "2026-10-25",
       sections: [
+        {
+          title: "選用的雲端持續課程提醒",
+          paragraphs: [
+            "僅在你主動啟用後，App 才會向開發者的班主任專用 HTTPS 服務同步匿名課表規則：星期、起迄時間、時區、已知日期例外、提醒方案、隨機安裝識別碼與 Apple 推送識別碼，用於持續產生課程提醒並透過 Apple APNs 傳送。不上傳課程或班級名稱、學生資料、HRV 數值、恢復趨勢或睡眠資料。裝置驗證資訊不寫入一般日誌。",
+            "雲端排程與推送註冊資訊保留至你關閉並刪除該安裝的雲端提醒。網路失敗時，App 顯示刪除尚未確認，需連線重試；本機開關變更不代表伺服器已刪除。未啟用時不進行雲端註冊或課表上傳，本機提醒仍可獨立使用。",
+            "首次啟用並成功同步後，伺服器按已同步規則持續排程，無需開啟手機或手錶 App 補排。修改課表、調課或假期安排後需同步一次，伺服器無法得知尚未輸入或上傳的變更。網路、Apple 推送及裝置設定會影響時效與送達。HRV 仍只在裝置及配對同步鏈路處理，雲端課程提醒不提供即時健康監測。"
+          ]
+        },
         {
           title: "選用的恢復趨勢與狀態提醒",
           paragraphs: [
@@ -360,8 +376,16 @@ export const banzhurenLegal: AppLegalDocuments = {
   en: {
     privacy: {
       title: "Privacy Policy",
-      updatedAt: "2026-10-19",
+      updatedAt: "2026-10-25",
       sections: [
+        {
+          title: "Optional continuous cloud course reminders",
+          paragraphs: [
+            "Only after you explicitly enable this feature, the app sends anonymous timetable rules to the developer’s dedicated Banzhuren HTTPS service: weekdays, start and end times, time zone, known date exceptions, reminder plan, a random installation identifier, and an Apple push token. The service continuously schedules course alerts and sends them through Apple APNs. It does not receive course or class names, student records, HRV values, recovery trends, or sleep data. Device authentication information is excluded from ordinary logs.",
+            "Cloud schedules and push registration information are retained until you turn off and delete cloud reminders for that installation. If the network request fails, the app shows that deletion is unconfirmed and requires an online retry; changing the local switch does not confirm server deletion. Without opt-in, no cloud registration or timetable upload occurs, and local reminders remain available independently.",
+            "After initial activation and successful synchronization, the server schedules alerts from the synchronized rules without requiring you to reopen the phone or Watch app to refill reminders. Synchronize again after changing your timetable, rescheduled classes, or holidays; the server cannot know changes that have not been entered or uploaded. Network conditions, Apple push delivery, and device settings affect timeliness and delivery. HRV stays on devices and their paired synchronization channel; cloud course reminders do not provide real-time health monitoring."
+          ]
+        },
         {
           title: "Optional recovery trends and status reminders",
           paragraphs: [
@@ -515,8 +539,16 @@ export const banzhurenLegal: AppLegalDocuments = {
   ja: {
     privacy: {
       title: "プライバシーポリシー",
-      updatedAt: "2026-10-19",
+      updatedAt: "2026-10-25",
       sections: [
+        {
+          title: "任意のクラウド継続授業通知",
+          paragraphs: [
+            "この機能を自分で有効にした場合のみ、曜日、開始・終了時刻、タイムゾーン、登録済みの日付例外、通知プラン、ランダムなインストール識別子、Apple のプッシュトークンを、開発者の班主任専用 HTTPS サービスに送信します。サーバーは匿名の時間割ルールから継続的に通知を予約し、Apple APNs で配信します。授業名、学級名、生徒情報、HRV 値、回復傾向、睡眠情報は送信しません。端末認証情報は通常のログに記録しません。",
+            "クラウドの予約とプッシュ登録情報は、そのインストールのクラウド通知を無効化して削除するまで保持します。通信に失敗した場合は削除未確認と表示され、オンラインでの再試行が必要です。端末側のスイッチ変更だけではサーバーでの削除を確認できません。有効にしない限りクラウド登録や時間割の送信は行わず、ローカル通知は単独で利用できます。",
+            "初回の有効化と同期に成功すると、スマートフォンや Watch のアプリを開いて通知を補充しなくても、同期済みルールに基づいて予約を続けます。時間割、振替授業、休日を変更した場合は再同期が必要です。未入力・未送信の変更をサーバーは把握できません。通信環境、Apple の配信、端末設定により遅延や未達が生じます。HRV は端末とペアリングされた同期経路内で処理され、クラウド授業通知はリアルタイムの健康監視を行いません。"
+          ]
+        },
         {
           title: "任意の回復傾向と状態通知",
           paragraphs: [
@@ -670,8 +702,16 @@ export const banzhurenLegal: AppLegalDocuments = {
   ko: {
     privacy: {
       title: "개인정보 처리방침",
-      updatedAt: "2026-10-19",
+      updatedAt: "2026-10-25",
       sections: [
+        {
+          title: "선택형 클라우드 지속 수업 알림",
+          paragraphs: [
+            "사용자가 직접 활성화한 경우에만 요일, 시작·종료 시간, 시간대, 등록된 날짜 예외, 알림 방식, 무작위 설치 식별자 및 Apple 푸시 토큰을 개발자의 반주임 전용 HTTPS 서비스로 전송합니다. 서버는 익명 시간표 규칙으로 수업 알림을 지속 예약하고 Apple APNs로 보냅니다. 수업명, 학급명, 학생 자료, HRV 수치, 회복 추세 및 수면 정보는 업로드하지 않습니다. 기기 인증 정보는 일반 로그에 기록하지 않습니다.",
+            "클라우드 예약 및 푸시 등록 정보는 해당 설치의 클라우드 알림을 끄고 삭제할 때까지 보관합니다. 네트워크 요청이 실패하면 삭제 미확인 상태를 표시하며 온라인으로 다시 시도해야 합니다. 로컬 스위치 변경만으로 서버 삭제가 확인되지는 않습니다. 활성화하지 않으면 클라우드 등록이나 시간표 업로드가 없으며 로컬 알림은 독립적으로 사용할 수 있습니다.",
+            "최초 활성화 및 동기화가 성공하면 휴대폰이나 Watch 앱을 열어 알림을 보충하지 않아도 동기화된 규칙에 따라 서버가 계속 예약합니다. 시간표, 보강 수업 또는 휴일을 변경한 후에는 다시 동기화해야 합니다. 입력하거나 업로드하지 않은 변경은 서버가 알 수 없습니다. 네트워크, Apple 푸시 및 기기 설정은 알림 시점과 수신에 영향을 줍니다. HRV는 기기와 페어링 동기화 경로에서만 처리하며 클라우드 수업 알림은 실시간 건강 모니터링을 제공하지 않습니다."
+          ]
+        },
         {
           title: "선택형 회복 추세 및 상태 알림",
           paragraphs: [
