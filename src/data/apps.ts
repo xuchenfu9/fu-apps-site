@@ -49,14 +49,14 @@ const banzhuren: AppRecord = {
   screenshots: ["/assets/apps/banzhuren/web/screen-01.webp"],
   copy: copy({
     "zh-Hans": {
-      eyebrow: "班主任的日常工作台",
-      summary: "面向全国不同地区和学段的教师，集中管理班级档案、课程、学生表现、待办提醒与工作留痕；移动端基础班务功能可免费使用。",
+      eyebrow: "班主任的工作台",
+      summary: "把班级、课程、学生情况、待办和工作记录放在一起。基础班务功能可以免费使用。",
       features: [
-        { title: "班级与学生资料放在一起", description: "建立多个班级和学年档案，集中维护花名册、学号、家长联系方式、宿舍、职务、生日与特长等信息。" },
-        { title: "适配地区、学段和自定义课程", description: "支持全国不同地区的小学、初中和高中教师；当地课程不在默认列表时，可按实际教学需要自由新增。" },
-        { title: "操行、请假与班级事件可追溯", description: "围绕学生记录表现分、操行、请假、宿舍和支持计划，也能留下班级事件与工作日志，方便在需要时回看经过。" },
-        { title: "待办、语音和提醒一起推进", description: "为班级工作建立待办，设置重复规则和提醒；需要快速记录时可使用语音待办与语音留痕，再回到列表继续处理。" },
-        { title: "免费基础功能与可选会员工具", description: "移动端基础班务管理可免费使用；数据导入、数据导出、局域网电脑版和成绩分析可通过月度、年度或终身会员解锁。" }
+        { title: "班级和学生资料一处管理", description: "按班级和学年保存花名册、学号、家长联系方式、宿舍、职务、生日和特长。" },
+        { title: "课程可以按学校实际调整", description: "覆盖小学、初中和高中，也可以自己添加学校当地的课程。" },
+        { title: "学生情况和班级事务都有记录", description: "记录表现分、操行、请假、宿舍和支持计划，也能记下班级事件和日常工作。" },
+        { title: "想到就记，之后按清单处理", description: "为班级工作设置待办、重复规则和提醒；也可以直接用语音记下待办和工作记录。" },
+        { title: "基础功能免费，进阶工具按需购买", description: "手机端的基础班务功能免费使用；数据导入导出、局域网电脑版和成绩分析可通过月度、年度或终身会员使用。" }
       ]
     },
     "zh-Hant": {
@@ -105,7 +105,7 @@ const banzhuren: AppRecord = {
     }
   }),
   release: release("1.0.1", {
-    "zh-Hans": ["新增花名册、成绩和课表的图片识别与导入入口，完善多页资料处理、取消与冲突确认流程。", "App、Widget、Watch App 与 Watch Extension 统一为 1.0.1 (12)；班主任小秘书已在 App Store 上架。"],
+    "zh-Hans": ["新增花名册、成绩和课表的图片识别与导入；多页资料处理、取消和冲突确认也更清楚了。", "App、Widget、Watch App 与 Watch Extension 统一为 1.0.1 (12)；班主任小秘书已在 App Store 上架。"],
     "zh-Hant": ["新增花名冊、成績和課表的圖片辨識與匯入入口，完善多頁資料處理、取消與衝突確認流程。", "App、Widget、Watch App 與 Watch Extension 統一為 1.0.1 (12)；班主任小秘書已在 App Store 上架。"],
     en: ["Added image recognition and import entry points for rosters, grades, and timetables, with clearer multi-page processing, cancellation, and conflict confirmation.", "Aligned the App, Widget, Watch App, and Watch Extension at 1.0.1 (12); Banzhuren Secretary is now available on the App Store."],
     ja: ["名簿、成績、時間割の画像認識と読み込み入口を追加し、複数ページの処理、キャンセル、競合確認を整理しました。", "App、Widget、Watch App、Watch Extension を 1.0.1 (12) に統一しました。班主任小秘书は App Store で配信中です。"],
@@ -131,63 +131,63 @@ const perfectlist: AppRecord = {
   ],
   copy: copy({
     "zh-Hans": {
-      eyebrow: "系统级闹钟、任务与习惯",
-      summary: "让系统级闹钟理解节假日、工作日与排班节奏，再把农历生日、任务、习惯和日历收进同一份日程。",
+      eyebrow: "把要做的事安排好",
+      summary: "把任务、习惯、番茄钟和提醒放在一起。无论是每天的待办，还是大小周、做几休几的工作节奏，都能按自己的日程来安排。",
       features: [
-        { title: "系统级闹钟，懂你的排班", description: "在支持的 iOS 18+ 系统版本且获授权时使用 AlarmKit；闹钟支持每天、每周、每月、每年、工作日与节假日，还能适配单休、大小周和自定义周循环。" },
-        { title: "农历生日，不再手算", description: "为农历或公历生日建立提醒，也能管理重复日期，让重要的人和日子提前出现在日程里。" },
-        { title: "任务进入系统日历", description: "用优先级、分类和时间整理任务，并可把有日期的任务同步到系统日历，安排与待办保持一致。" },
-        { title: "习惯与番茄钟一起推进", description: "按每日、每周、每月或每年建立习惯，在任务之间启动番茄钟，用清晰的专注时段完成计划。" },
-        { title: "常用设备上随时查看", description: "在 iPhone、iPad、Mac、Apple Watch 与小组件中查看日程，并可按设备设置使用 iCloud 同步。" }
+        { title: "Todo 任务，今天做什么一目了然", description: "新建任务，分好分类和优先级，记下时间、备注和重复方式；列表、分类和优先级都能按你的习惯查看。" },
+        { title: "番茄钟和习惯一起用", description: "给任务安排一段专注时间，完成后及时记录；每天、每周、每月或每年要坚持的事情，也可以单独设成习惯。" },
+        { title: "闹钟跟着工作日来", description: "在支持并获授权的 iOS 26+ 设备上使用 AlarmKit；每天、每周、每月、每年、工作日、休息日和节假日都能设提醒，也能按单休、大小周和自定义周循环来算。" },
+        { title: "大小周、做几休几、调休，都能排", description: "设置自己的工作/休息日历，闹钟会按做几休几、大小周、法定节假日和调休计算日期；还可以提醒一段工作日或休息日的第一天、最后一天。" },
+        { title: "生日提醒和日历安排放在一起", description: "从联系人导入或手动添加生日，阳历、农历都可以，提醒时间也能自己定；有日期的任务可以同步到系统日历，iPhone、iPad、Mac、Apple Watch 和小组件都能查看。" }
       ]
     },
     "zh-Hant": {
-      eyebrow: "系統級鬧鐘、任務與習慣",
-      summary: "讓系統級鬧鐘理解節假日、工作日與排班節奏，再把農曆生日、任務、習慣和日曆收進同一份日程。",
+      eyebrow: "Todo、習慣、番茄鐘與智慧提醒",
+      summary: "一個完整的 Todo 工具：把任務、習慣、番茄鐘、系統級鬧鐘、生日提醒和日曆安排放進同一套清晰的日程。",
       features: [
-        { title: "系統級鬧鐘，懂你的排班", description: "在支援的 iOS 18+ 系統版本且獲得授權時使用 AlarmKit；鬧鐘支援每天、每週、每月、每年、工作日與節假日，也能配合單休、大小週和自訂週循環。" },
-        { title: "農曆生日，不再手算", description: "為農曆或國曆生日建立提醒，也能管理重複日期，讓重要的人和日子提早出現在日程裡。" },
-        { title: "任務進入系統日曆", description: "用優先順序、分類和時間整理任務，並可把有日期的任務同步到系統日曆，安排與待辦保持一致。" },
-        { title: "習慣與番茄鐘一起推進", description: "依每日、每週、每月或每年建立習慣，在任務之間啟動番茄鐘，以清楚的專注時段完成計畫。" },
-        { title: "常用裝置隨時查看", description: "在 iPhone、iPad、Mac、Apple Watch 與小工具中查看日程，並可依裝置設定使用 iCloud 同步。" }
+        { title: "完整的 Todo 任務管理", description: "建立任務、設定優先順序與分類，補充日期、時間、備註和重複規則；用清單、分類與優先順序整理每天真正要做的事。" },
+        { title: "番茄鐘與習慣，保持持續行動", description: "用番茄鐘把任務拆成專注時段，記錄完成進度；建立每日、每週、每月或每年的習慣，持續打卡並回看節奏。" },
+        { title: "系統級鬧鐘，懂工作與休息節奏", description: "在支援 AlarmKit 的 iOS 26+ 且獲得授權時使用系統級鬧鐘；支援每天、每週、每月、每年、工作日、休息日與節假日，也能識別單休、大小週和自訂週循環。" },
+        { title: "大小週、做幾休幾、單休與調休", description: "用工作／休息日曆計算真正需要提醒的日期，支援做幾休幾、大小週、法定節假日和調休；還可在每段工作日或休息日的第一天、最後一天提醒。" },
+        { title: "陽曆、農曆生日與日曆同步", description: "從聯絡人匯入或手動建立生日提醒，支援陽曆和農曆、獨立開關與提醒時間；任務和日程還可同步系統日曆，並在 iPhone、iPad、Mac、Apple Watch 與小工具上查看。" }
       ]
     },
     en: {
-      eyebrow: "System alarms, tasks, and habits",
-      summary: "Let system-level alarms follow holidays, workdays, and your work rhythm, then keep lunar birthdays, tasks, habits, and calendar plans in one schedule.",
+      eyebrow: "Todo, habits, Pomodoro, and smart reminders",
+      summary: "A complete Todo tool for tasks, habits, Pomodoro focus, system alarms, birthday reminders, and calendar plans in one clear schedule.",
       features: [
-        { title: "A system-level alarm for your schedule", description: "On supported, authorized iOS 18+ devices, use AlarmKit for daily, weekly, monthly, yearly, workday, and holiday alarms, including single-day weekends, alternating work weeks, and custom weekly cycles." },
-        { title: "Lunar birthdays without mental math", description: "Create reminders for lunar or Gregorian birthdays and recurring dates, so important people and days appear before they are due." },
-        { title: "Tasks that reach your calendar", description: "Organize tasks with priorities, categories, and times, then synchronize dated tasks with the system calendar to keep plans aligned." },
-        { title: "Habits and Pomodoro in one flow", description: "Build daily, weekly, monthly, or yearly habits, then start a Pomodoro session between tasks for a defined period of focus." },
-        { title: "Ready on your Apple devices", description: "Check the schedule from iPhone, iPad, Mac, Apple Watch, and widgets, with iCloud synchronization available through your device settings." }
+        { title: "A complete Todo workspace", description: "Create tasks with priorities, categories, dates, times, notes, and repeat rules, then keep the day clear with lists and focused organization." },
+        { title: "Habits and Pomodoro for steady progress", description: "Turn tasks into focused Pomodoro sessions, track completion, and build daily, weekly, monthly, or yearly habits you can keep checking in on." },
+        { title: "System alarms that follow your work rhythm", description: "On supported, authorized iOS 26+ devices, use AlarmKit for daily, weekly, monthly, yearly, workday, off-day, and holiday alarms, including single-day weekends, alternating work weeks, and custom weekly cycles." },
+        { title: "Alternate weeks, work-rest cycles, and adjustments", description: "Use a work/rest calendar to calculate the dates that really need an alert, including work-N-rest-N cycles, alternating weeks, legal holidays, adjusted workdays, and the first or last day of each work or rest run." },
+        { title: "Solar and lunar birthdays, plus calendar sync", description: "Import birthdays from Contacts or add them manually, choose solar or lunar dates, set reminder times, sync dated plans with the system calendar, and view them on iPhone, iPad, Mac, Apple Watch, and widgets." }
       ]
     },
     ja: {
-      eyebrow: "システムアラーム、タスク、習慣",
-      summary: "祝日、平日、勤務サイクルに合わせたシステムレベルのアラームと、旧暦の誕生日、タスク、習慣、カレンダーを一つの予定にまとめます。",
+      eyebrow: "Todo、習慣、ポモドーロ、スマートリマインダー",
+      summary: "タスク、習慣、ポモドーロ、システムアラーム、誕生日通知、カレンダーを一つの見やすい予定にまとめる Todo ツールです。",
       features: [
-        { title: "勤務に合わせるシステムレベルのアラーム", description: "対応し、許可された iOS 18+ では AlarmKit を使用。毎日、毎週、毎月、毎年、平日、祝日のアラームに加え、週休1日、隔週勤務、カスタムの週サイクルにも対応します。" },
-        { title: "旧暦の誕生日も迷わない", description: "旧暦または新暦の誕生日と繰り返し日を通知に設定し、大切な人と日を前もって予定に表示します。" },
-        { title: "タスクをシステムカレンダーへ", description: "優先度、カテゴリ、時刻でタスクを整理し、日付のあるタスクをシステムカレンダーに同期して予定をそろえます。" },
-        { title: "習慣とポモドーロを一つの流れに", description: "毎日、毎週、毎月、毎年の習慣を作り、タスクの合間にポモドーロを始めて集中時間を確保できます。" },
-        { title: "いつもの Apple デバイスで", description: "iPhone、iPad、Mac、Apple Watch、ウィジェットで予定を確認し、端末設定に応じて iCloud 同期も利用できます。" }
+        { title: "完全な Todo ワークスペース", description: "優先度、カテゴリ、日付、時刻、メモ、繰り返しを設定したタスクを作り、リストと整理機能で一日の次の行動を明確にします。" },
+        { title: "習慣とポモドーロで続ける", description: "タスクをポモドーロの集中時間に変え、完了を記録。毎日、毎週、毎月、毎年の習慣を作って継続できます。" },
+        { title: "勤務リズムに合わせるシステムアラーム", description: "対応し、許可された iOS 26+ では AlarmKit を使用。毎日、毎週、毎月、毎年、勤務日、休日、祝日に加え、週休1日、隔週勤務、カスタム週サイクルにも対応します。" },
+        { title: "隔週勤務、勤務休みサイクル、振替休日", description: "勤務・休みのカレンダーから本当に通知が必要な日を計算し、勤務N日・休みN日、隔週、祝日、振替勤務日、勤務または休みのまとまりの初日・最終日に対応します。" },
+        { title: "新暦・旧暦の誕生日とカレンダー同期", description: "連絡先から誕生日を読み込むか手動で追加し、新暦または旧暦と通知時刻を設定。日付のある予定はシステムカレンダーと同期し、Apple デバイスとウィジェットで確認できます。" }
       ]
     },
     ko: {
-      eyebrow: "시스템 알람, 할 일, 습관",
-      summary: "공휴일, 평일, 근무 리듬에 맞는 시스템 수준 알람과 음력 생일, 할 일, 습관, 캘린더 계획을 하나의 일정으로 관리하세요.",
+      eyebrow: "Todo, 습관, 포모도로, 스마트 알림",
+      summary: "할 일, 습관, 포모도로 집중, 시스템 알람, 생일 알림, 캘린더 계획을 하나의 분명한 일정으로 관리하는 Todo 도구입니다.",
       features: [
-        { title: "근무 일정에 맞는 시스템 수준 알람", description: "지원되고 권한이 허용된 iOS 18+ 기기에서 AlarmKit을 사용합니다. 매일, 매주, 매월, 매년, 평일, 공휴일 알람과 주 1회 휴무, 격주 근무, 사용자 지정 주간 반복을 지원합니다." },
-        { title: "음력 생일도 계산 없이", description: "음력 또는 양력 생일과 반복 날짜에 알림을 설정해 중요한 사람과 날짜를 미리 일정에서 확인합니다." },
-        { title: "캘린더까지 이어지는 할 일", description: "우선순위, 카테고리, 시간으로 할 일을 정리하고 날짜가 있는 할 일을 시스템 캘린더와 동기화해 계획을 맞춥니다." },
-        { title: "습관과 포모도로를 한 흐름으로", description: "매일, 매주, 매월, 매년 습관을 만들고 할 일 사이에서 포모도로를 시작해 분명한 집중 시간을 확보합니다." },
-        { title: "익숙한 Apple 기기에서", description: "iPhone, iPad, Mac, Apple Watch, 위젯에서 일정을 확인하고 기기 설정에 따라 iCloud 동기화를 이용합니다." }
+        { title: "완전한 Todo 작업 공간", description: "우선순위, 카테고리, 날짜, 시간, 메모, 반복 규칙이 있는 할 일을 만들고 목록과 정리 기능으로 오늘의 다음 행동을 분명하게 관리합니다." },
+        { title: "습관과 포모도로로 꾸준하게", description: "할 일을 포모도로 집중 시간으로 바꾸고 완료를 기록합니다. 매일, 매주, 매월, 매년 습관을 만들어 계속 체크인할 수 있습니다." },
+        { title: "근무 리듬을 이해하는 시스템 알람", description: "지원되고 권한이 허용된 iOS 26+ 기기에서 AlarmKit을 사용합니다. 매일, 매주, 매월, 매년, 근무일, 휴무일, 공휴일과 주 1회 휴무, 격주 근무, 사용자 지정 주간 반복을 지원합니다." },
+        { title: "격주 근무, 근무·휴무 주기, 대체 휴무", description: "근무·휴무 달력으로 실제 알림이 필요한 날짜를 계산하고, 근무 N일·휴무 N일, 격주, 공휴일, 대체 근무일, 각 근무·휴무 구간의 첫날과 마지막 날을 지원합니다." },
+        { title: "양력·음력 생일과 캘린더 동기화", description: "연락처에서 생일을 가져오거나 직접 추가하고 양력·음력과 알림 시간을 설정합니다. 날짜가 있는 계획은 시스템 캘린더와 동기화하며 Apple 기기와 위젯에서 확인할 수 있습니다." }
       ]
     }
   }),
   release: release("2.0.0", {
-    "zh-Hans": ["修复 AlarmKit 闹钟偶尔回退到通知闹钟的问题。"],
+    "zh-Hans": ["修复部分 AlarmKit 闹钟会退回为通知提醒的问题。"],
     "zh-Hant": ["修正 AlarmKit 鬧鐘偶爾退回通知鬧鐘的問題。"],
     en: ["Fixed an issue that could make AlarmKit alarms fall back to notification alarms."],
     ja: ["AlarmKit のアラームが通知アラームに戻ることがある問題を修正しました。"],
@@ -214,14 +214,14 @@ const meowtalkDiary: AppRecord = {
   ],
   copy: copy({
     "zh-Hans": {
-      eyebrow: "宠物日记与猫语参考",
-      summary: "为宠物留下一本慢慢长大的生活档案：日记、照片、照护记录与小提醒都回到同一个温暖的家。",
+      eyebrow: "给宠物写的日记",
+      summary: "记录宠物的日常、照片和照护情况，也留下一些以后想再看的声音和回忆。",
       features: [
-        { title: "把日常写成一册日记", description: "按宠物保存文字、心情和重要片段，让平凡的一天也能在以后被轻松找到。" },
-        { title: "照片有自己的位置", description: "用相册收纳成长、玩耍与相伴的画面，把回忆和当天的记录放在一起。" },
-        { title: "照护记录更连贯", description: "集中记录体重、就诊与用药等信息，帮助你回看照护过程；它不是医疗诊断工具。" },
-        { title: "把琐事提前记住", description: "为日常事项设置提醒，并记录用品、账本和食谱，让照护安排不再散落在不同地方。" },
-        { title: "留给猫咪的声音与纪念", description: "浏览离线猫叫示例和养猫参考内容，也可以为想念的伙伴保存专属的纪念页面。" }
+        { title: "每天发生的事，记下来就好", description: "按宠物保存文字、心情和生活片段，之后想找某一天也方便。" },
+        { title: "照片和文字放在一起", description: "把成长、玩耍和相伴的照片放进相册，也保留拍摄当天的记录。" },
+        { title: "照护记录不再零散", description: "记下体重、就诊和用药情况，回看照护过程更方便；应用不提供医疗诊断。" },
+        { title: "用品、账目和食谱也能记", description: "为日常事项设置提醒，顺手保存用品、账本和食谱，不必在几个应用之间来回找。" },
+        { title: "猫叫参考和纪念页", description: "离线浏览猫叫示例和养猫资料，也可以为想念的宠物留下一页纪念。" }
       ]
     },
     "zh-Hant": {
@@ -270,7 +270,7 @@ const meowtalkDiary: AppRecord = {
     }
   }),
   release: release("1.0.2", {
-    "zh-Hans": ["优化记账编辑后的保存体验，调整记事排序，新增分享，并优化大图头像处理。", "相册支持一次导入多张图片，也支持导入 Live Photo。"],
+    "zh-Hans": ["记账编辑后的保存更稳定了，记事排序、分享和大图头像也做了调整。", "相册现在可以一次导入多张图片，也支持 Live Photo。"],
     "zh-Hant": ["優化記帳編輯後的儲存體驗，調整記事排序，新增分享，並優化大圖頭像處理。", "相簿支援一次匯入多張圖片，也支援匯入 Live Photo。"],
     en: ["Made saving edits in the ledger smoother, improved note ordering, added sharing, and refined large pet-avatar handling.", "Albums now support importing multiple images at once, including Live Photos."],
     ja: ["家計記録の編集保存を改善し、メモの並び順を整理、共有を追加、大きなペット画像の処理を改善しました。", "アルバムで複数画像と Live Photo を一度に読み込めるようになりました。"],
@@ -293,14 +293,14 @@ const myBookmarks: AppRecord = {
   screenshots: ["/assets/apps/my-bookmarks/web/screen-01.webp"],
   copy: copy({
     "zh-Hans": {
-      eyebrow: "极简书签管理",
-      summary: "把工作、学习和生活里的链接整理成真正会再打开的私人书签库，而不是又一个被遗忘的收藏夹。",
+      eyebrow: "把书签整理好",
+      summary: "工作、学习和日常会用到的链接，放进一个找得到、也愿意再打开的书签库。",
       features: [
-        { title: "链接按你的方式归位", description: "创建自己的分类，给常用网站一个明确位置；需要时可拖拽调整分类和链接顺序。" },
-        { title: "从收藏到再次使用", description: "点击就能打开链接，让资料、工具和灵感从静态收藏变成随手可用的入口。" },
-        { title: "私密分类单独保护", description: "为需要额外保护的分类启用 Face ID 或 Touch ID，在设备生物识别验证后访问。" },
-        { title: "一条或一组都能分享", description: "分享单个书签，也可分享整理好的分类；二维码和系统分享让链接传递更直接。" },
-        { title: "带着书签迁移与整理", description: "支持批量选择和移动链接，并可导出或导入书签数据，便于备份与重新整理。" }
+        { title: "分类和顺序自己定", description: "给常用网站建好分类，想怎么排就怎么排；分类和链接都能拖动调整。" },
+        { title: "收藏之后，打开要用", description: "点一下就能打开链接，资料、工具和灵感不用再埋在一长串收藏里。" },
+        { title: "私密分类加一层保护", description: "需要单独保护的分类可以启用 Face ID 或 Touch ID，通过设备验证后才能打开。" },
+        { title: "单个链接或整组分享", description: "可以分享一条书签，也可以把一个分类分享出去；二维码和系统分享都能用。" },
+        { title: "批量整理，随时导入导出", description: "一次选中多条链接进行移动，也可以导入或导出书签数据，备份和换设备都方便。" }
       ]
     },
     "zh-Hant": {
@@ -349,7 +349,7 @@ const myBookmarks: AppRecord = {
     }
   }),
   release: release("1.0.2", {
-    "zh-Hans": ["修复 iCloud 备份错误，新增手动备份与恢复。", "改进图片分享方式，支持批量分享书签。"],
+    "zh-Hans": ["修复 iCloud 备份问题，增加手动备份和恢复。", "图片分享更方便了，书签现在支持批量分享。"],
     "zh-Hant": ["修正 iCloud 備份錯誤，新增手動備份與恢復。", "改進圖片分享方式，支援批次分享書籤。"],
     en: ["Fixed an iCloud backup issue and added manual backup and restore.", "Improved image sharing and added batch bookmark sharing."],
     ja: ["iCloud バックアップの問題を修正し、手動バックアップと復元を追加しました。", "画像共有を改善し、ブックマークの一括共有に対応しました。"],
@@ -373,14 +373,14 @@ const jiajiaIdPhoto: AppRecord = {
   screenshots: ["/assets/apps/jiajia-id-photo/web/screen-01.webp"],
   copy: copy({
     "zh-Hans": {
-      eyebrow: "智能人像照片编辑",
-      summary: "这是一款通用人像照片编辑器：从相机或照片开始，在设备上完成自然处理、背景调整、常用比例裁剪和清晰导出。",
+      eyebrow: "人像照片编辑",
+      summary: "一款通用人像照片编辑器，从相机或照片开始，在手机上完成裁剪、背景调整、自然美化和导出。",
       features: [
-        { title: "拍摄或从照片开始", description: "使用相机拍摄新的人像，或从照片中选择已有图片，再调整构图和画面比例。" },
-        { title: "设备端智能处理", description: "在人像处理、主体分离和背景调整过程中使用设备端算法，照片不需要上传到开发者服务器。" },
-        { title: "常用比例与自由裁剪", description: "选择 4:5、方形、3:4、4:3 等常用画布，或自由裁剪以适应头像和分享场景。" },
-        { title: "自然美化与亮度调整", description: "用轻量磨皮和亮度控制整理画面，保留自然的肤色和人物细节。" },
-        { title: "清晰导出与分享", description: "选择 PNG 或 JPEG，保存到照片或直接分享处理后的单张人像。" }
+        { title: "拍一张，或者选一张", description: "可以直接拍摄人像，也可以从照片里选一张，再调整构图和画面比例。" },
+        { title: "照片留在设备上处理", description: "人像处理、主体分离和背景调整都在设备上完成，照片不会上传到开发者服务器。" },
+        { title: "常用尺寸和自由裁剪", description: "提供 4:5、方形、3:4、4:3 等常用比例，也可以按需要自由裁剪。" },
+        { title: "稍微修一修，保留真实感", description: "用轻度磨皮和亮度调整整理画面，尽量保留自然肤色和人物细节。" },
+        { title: "导出后直接保存或分享", description: "选择 PNG 或 JPEG，保存到照片，或者把处理好的人像直接分享出去。" }
       ]
     },
     "zh-Hant": {
@@ -429,7 +429,7 @@ const jiajiaIdPhoto: AppRecord = {
     }
   }),
   release: release("1.1.1", {
-    "zh-Hans": ["收敛为通用人像照片编辑流程，支持常用比例与自由裁剪。", "加强设备端处理、自然美化与 PNG/JPEG 单张导出，并移除旧版官方文件与排版流程。"],
+    "zh-Hans": ["改为专注通用人像照片编辑，支持常用比例和自由裁剪。", "改进设备端处理、自然美化和 PNG/JPEG 单张导出，并移除旧版的官方文件与排版流程。"],
     "zh-Hant": ["聚焦通用人像照片編輯流程，支援常用比例與自由裁切。", "加強裝置端處理、自然美化與 PNG/JPEG 單張匯出，並移除舊版官方文件與排版流程。"],
     en: ["Focused the app on general portrait editing with common ratios and free crop.", "Improved on-device processing, natural retouching, and single-image PNG/JPEG export while removing the former official-document and print-layout flows."],
     ja: ["一般的なポートレート編集に集中し、一般的な比率と自由な切り抜きに対応しました。", "デバイス上の処理、自然な補正、PNG/JPEG の単一画像書き出しを改善し、旧来の公的書類と印刷レイアウト機能を削除しました。"],
@@ -463,14 +463,14 @@ const partyGames: AppRecord = {
   },
   copy: copy({
     "zh-Hans": {
-      eyebrow: "多人聚会小游戏",
-      summary: "为面对面聚会准备的本地多人游戏合集：短规则、快开局，让陌生人与老朋友都能迅速加入。",
+      eyebrow: "聚会时来一局",
+      summary: "几个人面对面玩的小合集。连上蓝牙或同一 Wi-Fi，选个玩法就能开始。",
       features: [
-        { title: "在同一空间快速集合", description: "让设备通过蓝牙或同一 Wi-Fi 进行本地连接，不依赖互联网就能邀请朋友进入一局。" },
-        { title: "六种玩法轮流上场", description: "反应对决、点球大战、幸运转盘、翻扑克牌、摸高挑战和手指炸弹，按当下气氛选一款开始。" },
-        { title: "用反应把气氛点燃", description: "在反应对决中等待信号、摇动手机抢先出手，把几秒钟的紧张感变成一阵笑声。" },
-        { title: "给每个人一个上场理由", description: "点球的射手与守门员、转盘的随机选择、翻牌与倒计时的悬念，让轮次自然往下走。" },
-        { title: "结果留得下，也传得开", description: "对局结束后可生成并分享结果画面；游戏数据只在参与设备之间进行本地传输。" }
+        { title: "不用上网，碰面就能玩", description: "设备通过蓝牙或同一 Wi-Fi 本地连接，邀请朋友加入一局，不需要互联网。" },
+        { title: "六种玩法，气氛不同就换着玩", description: "反应对决、点球大战、幸运转盘、翻牌、摸高挑战和手指炸弹，想玩哪种随时换。" },
+        { title: "反应快的人先来", description: "反应对决等信号出现，先摇动手机的人获胜，几秒钟就能把气氛带起来。" },
+        { title: "每个人都能轮到", description: "点球有射手和守门员，转盘会随机选人，翻牌和倒计时也各有悬念，轮次自然往下进行。" },
+        { title: "玩完就能分享结果", description: "一局结束后可以生成结果图片并分享；游戏数据只在参与游戏的设备之间传输。" }
       ]
     },
     "zh-Hant": {
@@ -519,7 +519,7 @@ const partyGames: AppRecord = {
     }
   }),
   release: release("1.0.3", {
-    "zh-Hans": ["优化六种本地多人玩法的游戏体验，调整部分玩法流程并修复已知问题。", "继续强化点球、反应、转盘、翻牌、摸高和手指炸弹的现场联机流程。"],
+    "zh-Hans": ["调整六种本地多人玩法，修复已知问题。", "继续改进点球、反应、转盘、翻牌、摸高和手指炸弹的现场联机流程。"],
     "zh-Hant": ["優化六種本機多人玩法的遊戲體驗，調整部分玩法流程並修正已知問題。", "持續強化點球、反應、轉盤、翻牌、摸高和手指炸彈的現場連線流程。"],
     en: ["Improved the experience across six local multiplayer games, adjusted selected game flows, and fixed known issues.", "Continued refining the in-room multiplayer flow for penalties, reaction, wheel, cards, high jump, and finger bomb."],
     ja: ["6種類のローカル対戦ゲームの体験を改善し、一部のゲームフローを調整して既知の問題を修正しました。", "PK、反応、ルーレット、カード、ハイジャンプ、指爆弾の対面マルチプレイを引き続き改善しました。"],
@@ -555,14 +555,14 @@ const appstoryline: AppRecord = {
   },
   copy: copy({
     "zh-Hans": {
-      eyebrow: "App Store 截图排版",
-      summary: "在设备上把截图整理成更清楚的上架图片：选择模板、编辑文字和背景，保存项目并导出 PNG 或 ZIP。",
+      eyebrow: "做 App Store 上架图",
+      summary: "在设备上把截图排成上架图：套用模板，改好文字和背景，保存项目，最后导出 PNG 或 ZIP。",
       features: [
-        { title: "模板先把尺寸准备好", description: "从内置的 iPhone 和 iPad 模板开始，先确定画布与设备框架，再专注于截图内容。" },
-        { title: "导入你自己的截图", description: "从文件或照片中选择截图，替换模板画面；应用只读取你主动选择的内容。" },
-        { title: "文字、背景和版式都能改", description: "直接调整标题、字号、颜色、字效、背景和画布上的位置，让每一张图更接近你的产品。" },
-        { title: "项目留在本地", description: "保存可继续编辑的本地项目，不需要账号、云同步或订阅，换一个版本也能重新导入。" },
-        { title: "一次导出一张或一组", description: "导出当前 PNG，或把五张截图整理成 ZIP；提交 App Store 前可以在设备上再次检查。" }
+        { title: "模板把画布搭好", description: "从内置的 iPhone 和 iPad 模板开始，先把尺寸和设备框架定下来。" },
+        { title: "截图从文件或照片导入", description: "从文件或照片中选取截图，替换模板里的画面；应用只读取你主动选择的内容。" },
+        { title: "文字、背景和位置随时调整", description: "标题、字号、颜色、字效、背景和画布位置都能改，直到版面看着合适。" },
+        { title: "项目保存在本机", description: "保存可以继续编辑的本地项目，不需要账号、云同步或订阅，之后随时打开修改。" },
+        { title: "一张一张导出，或打包带走", description: "可以导出当前 PNG，也可以把五张截图打包成 ZIP，提交 App Store 前在设备上再检查一遍。" }
       ]
     },
     "zh-Hant": {
@@ -611,7 +611,7 @@ const appstoryline: AppRecord = {
     }
   }),
   release: release("1.0.1", {
-    "zh-Hans": ["应用更名为上架图工具。", "优化文本框新增、删除、拖动和大屏编辑；同一文本框支持分别设置字号与颜色。", "预览改为按需打开，优化手机模型控制按钮，并修复文本框拖动抖动。"],
+    "zh-Hans": ["应用更名为上架图工具。", "文字框的新增、删除、拖动和大屏编辑更顺手了；同一个文字框里也能分别设置字号和颜色。", "预览改为需要时再打开，手机模型控制按钮更清楚，也修复了文字框拖动时的抖动。"],
     "zh-Hant": ["App 更名為上架圖工具。", "優化文字框新增、刪除、拖曳和大螢幕編輯；同一文字框支援分別設定字號與顏色。", "預覽改為按需開啟，優化手機模型控制按鈕，並修正文字框拖曳抖動。"],
     en: ["Renamed to App Screenshot Tools.", "Improved text box creation, deletion, dragging, and full-screen editing. Use different font sizes and colors within the same text box.", "Open previews when needed, enjoy clearer device controls, and move text more smoothly."],
     ja: ["App Screenshot Tools に名称を変更しました。", "テキストボックスの追加、削除、ドラッグ、全画面編集を改善し、同じテキストボックス内で文字サイズと色を個別に設定できるようにしました。", "プレビューを必要なときだけ開く方式にし、デバイスモデルの操作ボタンを整理して、テキスト移動時の揺れを修正しました。"],
@@ -636,14 +636,14 @@ const fuzhixingDashcam: AppRecord = {
   screenshots: ["/assets/apps/fuzhixing-dashcam/web/screen-01.webp"],
   copy: {
     "zh-Hans": {
-      eyebrow: "把旧手机变成行车记录仪",
-      summary: "让一部闲置手机回到车上：本机录像、循环分段、事件保护、回放导出，车机连接只是可选的本地传输。",
+      eyebrow: "让旧手机当行车记录仪",
+      summary: "把闲置手机放回车里，完成录像、循环分段、事件保护和回放。要不要连车机，由你决定。",
       features: [
-        { title: "一部旧手机，独立开始记录", description: "不连接车机也能完成相机预览、分段录像、录像库和回放，把闲置设备变成一台随车使用的记录工具。" },
-        { title: "循环分段，留住最近路况", description: "录像按约三分钟分段保存并自动管理存储空间，减少单个文件损坏对整段记录的影响。" },
-        { title: "疑似碰撞，及时保护当前片段", description: "检测到持续抖动、急刹或疑似碰撞时可以保护当前分段，也支持手动保护；保护不会替代你对道路和设备的观察。" },
-        { title: "暗屏、录音和定位都由你控制", description: "前台近黑暗屏可以降低光线干扰；录音和位置摘要是可选能力，拒绝可选权限仍不影响基础视频录像。" },
-        { title: "本机回放，主动导出或传到车机", description: "录像默认留在手机，只有你主动导出、保存到相册或连接已配对车机时才传输，不上传云端；480p 为基础画质，720p 和 1080p 可通过一次性购买解锁。" }
+        { title: "不接车机也能录", description: "不连接车机，也能完成相机预览、分段录像、录像库和回放。" },
+        { title: "三分钟一段，循环保存", description: "录像按约三分钟分段保存，应用会自动管理空间，单个文件出问题时不会连带整段记录。" },
+        { title: "遇到情况，先把片段保护起来", description: "检测到持续抖动、急刹或疑似碰撞时可以保护当前片段，也可以手动保护；它不能代替你观察道路和设备。" },
+        { title: "录音、定位和暗屏按需使用", description: "前台近黑暗屏可以减少光线干扰。录音和位置摘要都是可选功能，关闭相关权限不影响基础录像。" },
+        { title: "录像留在手机，需要时再导出", description: "录像默认保存在手机里，只有你主动导出、保存到相册或连接已配对车机时才会传输，不上传云端；480p 为基础画质，720p 和 1080p 可通过一次性购买解锁。" }
       ]
     }
   },
@@ -655,6 +655,36 @@ const fuzhixingDashcam: AppRecord = {
   }
 };
 
-export const apps = [perfectlist, meowtalkDiary, myBookmarks, jiajiaIdPhoto, partyGames, banzhuren, appstoryline, fuzhixingDashcam] as const satisfies readonly AppRecord[];
+const mobiElliptical: AppRecord = {
+  slug: "mobi-elliptical",
+  supportedLocales: ["zh-Hans"],
+  contactEmail: publicContactEmail,
+  icon: "/assets/apps/mobi-elliptical/web/icon.webp",
+  screenshots: ["/assets/apps/mobi-elliptical/web/screen-01.webp"],
+  copy: {
+    "zh-Hans": {
+      eyebrow: "连接椭圆机，记录每次训练",
+      summary: "用 iPhone 连上莫比椭圆机，边练边看数据，训练结束后回看记录。",
+      features: [
+        { title: "先把设备连上", description: "搜索并保存兼容的莫比椭圆机，连接状态和设备信息都在本机管理。" },
+        { title: "训练数据实时显示", description: "训练时查看踏频、速度、功率、里程、热量和训练时间；设备没有提供的指标会显示为“--”。" },
+        { title: "阻力可以直接调", description: "在支持的设备上直接调整阻力等级，手机上的操作和设备反馈保持同步。" },
+        { title: "暂停后还能接着练", description: "暂停后会保留上次的时间、里程和热量；暂停超过三十分钟，训练会自动结束并归档。" },
+        { title: "训练记录保存在本机", description: "每次训练都会保存到本机，首页可以查看近七日消耗、体重趋势和历史详情，不需要账号或云端服务。" }
+      ]
+    }
+  },
+  pricing: {
+    "zh-Hans": { value: "¥12", note: "一次性买断，无订阅" }
+  },
+  release: release("1.0.0", {
+    "zh-Hans": ["首发版本只支持莫比椭圆机。", "加入训练记录、暂停归档、阻力调节、历史分析和隐私说明。"]
+  }, "1"),
+  listings: {
+    CN: plannedWithoutStorefront("CN", "Mobi椭圆机")
+  }
+};
+
+export const apps = [mobiElliptical, perfectlist, meowtalkDiary, myBookmarks, jiajiaIdPhoto, partyGames, banzhuren, appstoryline, fuzhixingDashcam] as const satisfies readonly AppRecord[];
 
 export const appsBySlug = Object.fromEntries(apps.map((app) => [app.slug, app])) as Record<string, AppRecord>;

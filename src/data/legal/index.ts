@@ -6,6 +6,7 @@ import { myBookmarksLegal } from "./my-bookmarks";
 import { partyGamesLegal } from "./party-games";
 import { perfectlistLegal } from "./perfectlist";
 import { fuzhixingDashcamLegal } from "./fuzhixing-dashcam";
+import { mobiEllipticalLegal } from "./mobi-elliptical";
 import type { AppLegalDocuments } from "./types";
 
 export type { AppLegalDocuments, LegalDocument, LegalKind, LegalSection } from "./types";
@@ -18,5 +19,6 @@ export const legalDocumentsBySlug: Record<string, AppLegalDocuments> = {
   "party-games": partyGamesLegal,
   banzhuren: banzhurenLegal,
   appstoryline: appstorylineLegal,
-  "fuzhixing-dashcam": fuzhixingDashcamLegal
+  "fuzhixing-dashcam": fuzhixingDashcamLegal,
+  "mobi-elliptical": mobiEllipticalLegal
 };

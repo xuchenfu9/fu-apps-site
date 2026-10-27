@@ -25,15 +25,15 @@ const featuredApps = featuredSlugs
   .filter((app): app is (typeof apps)[number] => Boolean(app && appSupportsLocale(app, locale)));
 ---
 
-<SiteLayout locale={locale} title="测试小站" description={labels.galleryBody}>
+<SiteLayout locale={locale} title={labels.galleryEyebrow} description={labels.galleryBody}>
   <section class="studio-hero page-shell">
     <div class="studio-hero__copy">
       <p class="section-label">{labels.galleryEyebrow}</p>
       <h1>Small apps.<br /><em>Clearer days.</em></h1>
-      <p class="studio-hero__body">班主任小秘书已上架，现作为本站重点推荐；同时为你整理了更多实用 App。</p>
+      <p class="studio-hero__body">班主任小秘书已经上架，放在首页第一位。这里还有几款我们正在做、也希望你用得上的 App。</p>
       <div class="studio-hero__actions">
-        <a class="button-link" href="#featured">重点推荐<span aria-hidden="true"> ↓</span></a>
-        <a class="text-link" href="#apps">全部 App<span aria-hidden="true"> ↘</span></a>
+        <a class="button-link" href="#featured">看看重点推荐<span aria-hidden="true"> ↓</span></a>
+        <a class="text-link" href="#apps">查看全部 App<span aria-hidden="true"> ↘</span></a>
       </div>
     </div>
     <div class="studio-hero__art" aria-hidden="true">
@@ -47,7 +47,7 @@ const featuredApps = featuredSlugs
   <section class="featured-section page-shell" id="featured" aria-labelledby="featured-heading">
     <header class="section-heading section-heading--intro">
       <div><p class="section-label">{labels.galleryEyebrow}</p><h2 id="featured-heading">重点推荐</h2></div>
-      <p>从班务管理到时间安排和证件照制作，先看看我们最值得推荐的三款 App。</p>
+      <p>班务、时间管理和照片编辑，先从这三款开始。</p>
     </header>
     <div class="featured-grid">
       {featuredApps.map((app, index) => <FeaturedApp app={app} locale={locale} tone={index === 0 ? "coral" : index === 1 ? "blue" : "green"} image={featuredImageBySlug[app.slug]} />)}

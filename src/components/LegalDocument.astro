@@ -3,14 +3,15 @@ import type { LegalDocument as LegalDocumentData } from "../data/legal";
 
 interface Props {
   document: LegalDocumentData;
+  eyebrow: string;
 }
 
-const { document } = Astro.props;
+const { document, eyebrow } = Astro.props;
 ---
 
 <article class="legal-document">
   <header>
-    <p>测试小站</p>
+    <p>{eyebrow}</p>
     <h1>{document.title}</h1>
     <time datetime={document.updatedAt}>{document.updatedAt}</time>
   </header>

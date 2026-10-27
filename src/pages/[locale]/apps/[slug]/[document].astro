@@ -10,6 +10,7 @@ import { appSupportsLocale } from "../../../../lib/apps";
 import { storefrontDataAttributes } from "../../../../lib/storefront-dom";
 import { getListingDisplayName, resolveListing } from "../../../../lib/storefront";
 import type { AppRecord, Locale } from "../../../../lib/types";
+import { ui } from "../../../../lib/ui";
 
 export function getStaticPaths() {
   const legalKinds = ["privacy", "support", "terms", "marketing"] as const satisfies readonly LegalKind[];
@@ -29,10 +30,10 @@ const attributes = storefrontDataAttributes(app, locale);
 const suffix = `apps/${app.slug}/${documentKind}`;
 ---
 
-<SiteLayout locale={locale} title={`测试小站 | ${legalDocument.title}`} description={legalDocument.sections[0]?.paragraphs[0] ?? legalDocument.title} suffix={suffix} contactEmail={app.contactEmail} supportedLocales={app.supportedLocales}>
+<SiteLayout locale={locale} title={`${ui[locale].galleryEyebrow} | ${legalDocument.title}`} description={legalDocument.sections[0]?.paragraphs[0] ?? legalDocument.title} suffix={suffix} contactEmail={app.contactEmail} supportedLocales={app.supportedLocales}>
   <section class="legal-page page-shell">
     <a class="back-link" href={publicPath(localePath(locale, `apps/${app.slug}`))}><span aria-hidden="true">←</span> <span {...attributes} data-storefront-name>{getListingDisplayName(listing)}</span></a>
     <DocumentNav locale={locale} slug={app.slug} current={documentKind} />
-    <LegalDocument document={legalDocument} />
+    <LegalDocument document={legalDocument} eyebrow={ui[locale].galleryEyebrow} />
   </section>
 </SiteLayout>

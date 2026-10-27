@@ -10,11 +10,11 @@ describe("App Screenshot Tools launch catalog", () => {
     expect(app).toBeDefined();
     expect(app?.appStoreId).toBe("6799942231");
     expect(app?.release).toMatchObject({ version: "1.0.1", build: "8" });
-    expect(app?.release?.notes["zh-Hans"]).toEqual([
-      "应用更名为上架图工具。",
-      "优化文本框新增、删除、拖动和大屏编辑；同一文本框支持分别设置字号与颜色。",
-      "预览改为按需打开，优化手机模型控制按钮，并修复文本框拖动抖动。"
-    ]);
+      expect(app?.release?.notes["zh-Hans"]).toEqual([
+        "应用更名为上架图工具。",
+        "文字框的新增、删除、拖动和大屏编辑更顺手了；同一个文字框里也能分别设置字号和颜色。",
+        "预览改为需要时再打开，手机模型控制按钮更清楚，也修复了文字框拖动时的抖动。"
+      ]);
     expect(app?.supportedLocales).toEqual(locales);
     expect(app?.pricing?.["zh-Hans"]).toEqual({ value: "¥12", note: "一次性购买" });
     expect(app?.pricing?.en).toEqual({ value: "$3.99", note: "One-time purchase" });
@@ -38,7 +38,7 @@ describe("App Screenshot Tools launch catalog", () => {
   });
 
   it("records a version and update notes for every catalog app", () => {
-    expect(Object.keys(appsBySlug)).toHaveLength(8);
+    expect(Object.keys(appsBySlug)).toHaveLength(9);
 
     for (const app of Object.values(appsBySlug)) {
       expect(app.release?.version).toMatch(/^\d+\.\d+(\.\d+)?$/);

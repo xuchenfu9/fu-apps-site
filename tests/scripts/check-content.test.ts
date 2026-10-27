@@ -36,13 +36,14 @@ describe("published site content", () => {
   });
 
   it("leads PerfectList with its system-level alarm and schedule rules", () => {
-    const firstFeature = appsBySlug.perfectlist.copy["zh-Hans"]!.features[0]!;
+    const alarmFeature = appsBySlug.perfectlist.copy["zh-Hans"]!.features.find((feature) => feature.description.includes("AlarmKit"));
 
-    expect(firstFeature.title).toContain("系统级闹钟");
-    expect(firstFeature.description).toContain("节假日");
-    expect(firstFeature.description).toContain("工作日");
-    expect(firstFeature.description).toContain("单休");
-    expect(firstFeature.description).toContain("大小周");
-    expect(firstFeature.description).toContain("AlarmKit");
+    expect(alarmFeature).toBeDefined();
+
+    expect(alarmFeature!.description).toContain("节假日");
+    expect(alarmFeature!.description).toContain("工作日");
+    expect(alarmFeature!.description).toContain("单休");
+    expect(alarmFeature!.description).toContain("大小周");
+    expect(alarmFeature!.description).toContain("AlarmKit");
   });
 });

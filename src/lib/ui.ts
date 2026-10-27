@@ -39,8 +39,8 @@ export interface UiCopy {
 
 export const ui: Record<Locale, UiCopy> = {
   "zh-Hans": {
-    home: "首页", allApps: "全部应用", galleryEyebrow: "测试小站", galleryTitle: "为日常留一处好用的空间。", galleryBody: "一组专注于记录、整理、连接与轻松时刻的 Apple 平台应用。",
-    studioIntro: "一组专注于把日常变得更清楚、更顺手的 Apple 应用。", featuredApps: "代表作品", latestUpdates: "最近更新", exploreApps: "探索全部应用", viewDetails: "查看详情", viewApp: "查看应用", features: "功能", currentVersion: "当前版本", latestUpdate: "最近更新", version: "版本", screenshots: "应用截图", documents: "应用文档", privacy: "隐私政策", support: "用户支持", terms: "服务条款", marketing: "营销条款", appStore: "App Store", openAppStore: "前往 App Store", storefront: "App Store 地区", language: "语言", nowAvailable: "现可下载", planned: "计划发布", releasePreparing: "上架中", availableIn: (region) => `当前跳转至 ${region} App Store`, releasePlanned: (region) => `${region} 版本计划发布，届时将使用当地名称`, notFoundTitle: "页面未找到", notFoundBody: "这个链接可能已更新，或页面暂时不可用。", returnHome: "返回应用首页", footer: "为 Apple 平台设计的独立应用"
+    home: "首页", allApps: "全部 App", galleryEyebrow: "测试小站", galleryTitle: "几款帮你把日常过顺的 App。", galleryBody: "这里有一些日常会用到的 App：记事、整理、班务、照片和游戏，都尽量做得简单好用。",
+    studioIntro: "几款解决日常小问题的 Apple App。", featuredApps: "重点推荐", latestUpdates: "最近更新", exploreApps: "看看全部 App", viewDetails: "查看详情", viewApp: "查看 App", features: "功能", currentVersion: "当前版本", latestUpdate: "最近更新", version: "版本", screenshots: "应用截图", documents: "应用文档", privacy: "隐私政策", support: "用户支持", terms: "服务条款", marketing: "营销条款", appStore: "App Store", openAppStore: "在 App Store 查看", storefront: "商店地区", language: "语言", nowAvailable: "已上架", planned: "计划上架", releasePreparing: "上架中", availableIn: (region) => `打开 ${region} App Store`, releasePlanned: (region) => `${region} 版本计划上架，上架后会显示当地名称`, notFoundTitle: "页面不存在", notFoundBody: "你访问的页面可能已经改了地址，或者暂时还不能打开。", returnHome: "回到应用列表", footer: "独立开发的 Apple App"
   },
   "zh-Hant": {
     home: "首頁", allApps: "所有 App", galleryEyebrow: "测试小站", galleryTitle: "為日常留一處好用的空間。", galleryBody: "一組專注於記錄、整理、連結與輕鬆時刻的 Apple 平台 App。",
