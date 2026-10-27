@@ -90,6 +90,7 @@ PUBLIC_SITE_URL=https://www.appoffu.com PUBLIC_BASE_PATH=/ npm run build
 curl --fail --silent --show-error https://www.appoffu.com/apps.json
 curl --fail --silent --show-error https://www.appoffu.com/zh-Hans/
 curl --fail --silent --show-error https://www.appoffu.com/zh-Hans/apps/my-bookmarks/
+curl --fail --silent --show-error https://www.appoffu.com/updates/banzhuren.json
 ```
 
 GitHub Pages 使用另一套配置：
@@ -124,11 +125,12 @@ PUBLIC_SITE_URL=https://xuchenfu9.github.io PUBLIC_BASE_PATH=/fu-apps-site npm r
 ## 老版本兼容性约束
 
 1. 不删除或重命名既有官网页面、法律文档 URL、图片路径和 GitHub `recommendations.json`。
-2. `/apps.json` 是新增静态资源；老版本 App 不请求它，因此部署不会改变老版本的启动和推荐逻辑。
-3. 新客户端对目录新增字段使用可选解析；官网缺少新字段时，应继续使用缓存或降级显示标题和商店链接。
-4. 中国区目录和海外 JSON 分开缓存。官网暂时不可访问时，客户端使用最近一次有效缓存；首次没有缓存时显示空状态，不阻塞书签功能。
-5. 计划上架应用不能生成不可用的下载按钮；商店信息更新只影响目录卡片，不影响已有书签数据。
-6. 网站发布失败时保留上一次官网目录和备份，不删除旧静态文件；回滚必须恢复完整 `dist/`，避免 HTML、图片和 `/apps.json` 版本不一致。
+2. 保留既有客户端更新清单，例如 `public/updates/banzhuren.json`；完整替换静态目录前必须确认这些非页面 JSON 也在新 `dist/` 中。
+3. `/apps.json` 是新增静态资源；老版本 App 不请求它，因此部署不会改变老版本的启动和推荐逻辑。
+4. 新客户端对目录新增字段使用可选解析；官网缺少新字段时，应继续使用缓存或降级显示标题和商店链接。
+5. 中国区目录和海外 JSON 分开缓存。官网暂时不可访问时，客户端使用最近一次有效缓存；首次没有缓存时显示空状态，不阻塞书签功能。
+6. 计划上架应用不能生成不可用的下载按钮；商店信息更新只影响目录卡片，不影响已有书签数据。
+7. 网站发布失败时保留上一次官网目录和备份，不删除旧静态文件；回滚必须恢复完整 `dist/`，避免 HTML、图片和 `/apps.json` 版本不一致。
 
 ## 发布前清单
 
