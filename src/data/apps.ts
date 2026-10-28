@@ -132,7 +132,7 @@ const perfectlist: AppRecord = {
   copy: copy({
     "zh-Hans": {
       eyebrow: "把要做的事安排好",
-      summary: "把任务、习惯、番茄钟和提醒放在一起。无论是每天的待办，还是大小周、做几休几的工作节奏，都能按自己的日程来安排。",
+      summary: "把任务、习惯、番茄钟、系统闹钟、生日提醒和日历安排放进一套清晰的日程；大小周、做几休几和调休等工作节奏也能按自己的规则安排。",
       features: [
         { title: "Todo 任务，今天做什么一目了然", description: "新建任务，分好分类和优先级，记下时间、备注和重复方式；列表、分类和优先级都能按你的习惯查看。" },
         { title: "番茄钟和习惯一起用", description: "给任务安排一段专注时间，完成后及时记录；每天、每周、每月或每年要坚持的事情，也可以单独设成习惯。" },
@@ -143,7 +143,7 @@ const perfectlist: AppRecord = {
     },
     "zh-Hant": {
       eyebrow: "Todo、習慣、番茄鐘與智慧提醒",
-      summary: "一個完整的 Todo 工具：把任務、習慣、番茄鐘、系統級鬧鐘、生日提醒和日曆安排放進同一套清晰的日程。",
+      summary: "把任務、習慣、番茄鐘、系統級鬧鐘、生日提醒和日曆安排放進一套清晰的日程，也能依自己的規則安排大小週、做幾休幾與調休。",
       features: [
         { title: "完整的 Todo 任務管理", description: "建立任務、設定優先順序與分類，補充日期、時間、備註和重複規則；用清單、分類與優先順序整理每天真正要做的事。" },
         { title: "番茄鐘與習慣，保持持續行動", description: "用番茄鐘把任務拆成專注時段，記錄完成進度；建立每日、每週、每月或每年的習慣，持續打卡並回看節奏。" },
@@ -154,7 +154,7 @@ const perfectlist: AppRecord = {
     },
     en: {
       eyebrow: "Todo, habits, Pomodoro, and smart reminders",
-      summary: "A complete Todo tool for tasks, habits, Pomodoro focus, system alarms, birthday reminders, and calendar plans in one clear schedule.",
+      summary: "Plan tasks, habits, Pomodoro focus, system alarms, birthdays, and calendar events in one clear schedule, with support for alternating weeks and custom work-rest cycles.",
       features: [
         { title: "A complete Todo workspace", description: "Create tasks with priorities, categories, dates, times, notes, and repeat rules, then keep the day clear with lists and focused organization." },
         { title: "Habits and Pomodoro for steady progress", description: "Turn tasks into focused Pomodoro sessions, track completion, and build daily, weekly, monthly, or yearly habits you can keep checking in on." },
@@ -165,7 +165,7 @@ const perfectlist: AppRecord = {
     },
     ja: {
       eyebrow: "Todo、習慣、ポモドーロ、スマートリマインダー",
-      summary: "タスク、習慣、ポモドーロ、システムアラーム、誕生日通知、カレンダーを一つの見やすい予定にまとめる Todo ツールです。",
+      summary: "タスク、習慣、ポモドーロ、システムアラーム、誕生日通知、カレンダーを一つにまとめ、隔週勤務やカスタム勤務・休日サイクルにも対応する Todo ツールです。",
       features: [
         { title: "完全な Todo ワークスペース", description: "優先度、カテゴリ、日付、時刻、メモ、繰り返しを設定したタスクを作り、リストと整理機能で一日の次の行動を明確にします。" },
         { title: "習慣とポモドーロで続ける", description: "タスクをポモドーロの集中時間に変え、完了を記録。毎日、毎週、毎月、毎年の習慣を作って継続できます。" },
@@ -176,7 +176,7 @@ const perfectlist: AppRecord = {
     },
     ko: {
       eyebrow: "Todo, 습관, 포모도로, 스마트 알림",
-      summary: "할 일, 습관, 포모도로 집중, 시스템 알람, 생일 알림, 캘린더 계획을 하나의 분명한 일정으로 관리하는 Todo 도구입니다.",
+      summary: "할 일, 습관, 포모도로 집중, 시스템 알람, 생일 알림, 캘린더 계획을 한 일정으로 관리하고 격주 근무와 사용자 지정 근무·휴무 주기도 지원하는 Todo 도구입니다.",
       features: [
         { title: "완전한 Todo 작업 공간", description: "우선순위, 카테고리, 날짜, 시간, 메모, 반복 규칙이 있는 할 일을 만들고 목록과 정리 기능으로 오늘의 다음 행동을 분명하게 관리합니다." },
         { title: "습관과 포모도로로 꾸준하게", description: "할 일을 포모도로 집중 시간으로 바꾸고 완료를 기록합니다. 매일, 매주, 매월, 매년 습관을 만들어 계속 체크인할 수 있습니다." },
@@ -290,11 +290,15 @@ const myBookmarks: AppRecord = {
   appStoreId: "6758990165",
   contactEmail: publicContactEmail,
   icon: "/assets/apps/my-bookmarks/web/icon.webp",
-  screenshots: ["/assets/apps/my-bookmarks/web/screen-01.webp"],
+  screenshots: [
+    "/assets/apps/my-bookmarks/web/screen-01.webp",
+    "/assets/apps/my-bookmarks/web/screen-02.webp",
+    "/assets/apps/my-bookmarks/web/screen-03.webp"
+  ],
   copy: copy({
     "zh-Hans": {
       eyebrow: "把书签整理好",
-      summary: "工作、学习和日常会用到的链接，放进一个找得到、也愿意再打开的书签库。",
+      summary: "把工作、学习和日常链接放进一个清晰的书签库：分类、搜索、分享、Face ID 私人分组，以及 iPhone Duo 的左侧列表与右侧网页浏览都在同一套体验里。",
       features: [
         { title: "分类和顺序自己定", description: "给常用网站建好分类，想怎么排就怎么排；分类和链接都能拖动调整。" },
         { title: "收藏之后，打开要用", description: "点一下就能打开链接，资料、工具和灵感不用再埋在一长串收藏里。" },
@@ -305,7 +309,7 @@ const myBookmarks: AppRecord = {
     },
     "zh-Hant": {
       eyebrow: "極簡書籤管理",
-      summary: "把工作、學習和生活裡的連結整理成真正會再打開的私人書籤庫，而不是另一個被遺忘的收藏夾。",
+      summary: "把工作、學習和生活裡的連結整理成清晰的私人書籤庫，支援分類、搜尋、分享、Face ID 私人分組，以及 iPhone Duo 左側列表與右側網頁瀏覽。",
       features: [
         { title: "連結照你的方式歸位", description: "建立自己的分類，給常用網站明確位置；需要時可拖曳調整分類和連結順序。" },
         { title: "從收藏到再次使用", description: "點一下就能開啟連結，讓資料、工具和靈感從靜態收藏變成隨手可用的入口。" },
@@ -316,7 +320,7 @@ const myBookmarks: AppRecord = {
     },
     en: {
       eyebrow: "A minimal bookmark library",
-      summary: "Turn work, learning, and everyday links into a private library you will actually revisit, not another forgotten collection.",
+      summary: "Keep work, learning, and everyday links in a clear bookmark library with categories, search, sharing, Face ID private groups, and side-by-side browsing on iPhone Duo.",
       features: [
         { title: "Put links where they belong", description: "Create your own categories for the sites you return to, then drag categories and links into an order that makes sense to you." },
         { title: "From saved to useful again", description: "Open a link in a tap and turn saved references, tools, and ideas into a practical starting point for what you are doing." },
@@ -327,7 +331,7 @@ const myBookmarks: AppRecord = {
     },
     ja: {
       eyebrow: "ミニマルなブックマーク管理",
-      summary: "仕事、学び、日常のリンクを、忘れられたコレクションではなく本当にまた開く自分だけのライブラリに整理します。",
+      summary: "仕事、学び、日常のリンクを整理し、カテゴリ、検索、共有、Face ID のプライベートグループ、iPhone Duo の左右分割ブラウジングを一つにまとめます。",
       features: [
         { title: "リンクを使いやすい場所へ", description: "よく使うサイトのために自分だけのカテゴリを作り、カテゴリとリンクをドラッグで好みの順番に並べられます。" },
         { title: "保存しただけで終わらせない", description: "タップでリンクを開き、資料、ツール、アイデアを今していることのための入口に変えられます。" },
@@ -338,7 +342,7 @@ const myBookmarks: AppRecord = {
     },
     ko: {
       eyebrow: "미니멀 북마크 관리",
-      summary: "업무, 학습, 일상의 링크를 잊혀진 저장 목록이 아니라 실제로 다시 찾게 되는 개인 라이브러리로 정리하세요.",
+      summary: "업무, 학습, 일상의 링크를 카테고리, 검색, 공유, Face ID 비공개 그룹과 iPhone Duo 좌우 분할 브라우징을 갖춘 명확한 북마크 라이브러리로 정리하세요.",
       features: [
         { title: "링크를 제자리에", description: "자주 찾는 사이트를 위한 카테고리를 만들고 카테고리와 링크를 드래그해 나에게 맞는 순서로 정리합니다." },
         { title: "저장에서 다시 쓰기로", description: "한 번의 탭으로 링크를 열어 자료, 도구, 아이디어를 지금 하고 있는 일의 실용적인 출발점으로 바꿉니다." },
@@ -348,12 +352,12 @@ const myBookmarks: AppRecord = {
       ]
     }
   }),
-  release: release("1.0.2", {
-    "zh-Hans": ["修复 iCloud 备份问题，增加手动备份和恢复。", "图片分享更方便了，书签现在支持批量分享。"],
-    "zh-Hant": ["修正 iCloud 備份錯誤，新增手動備份與恢復。", "改進圖片分享方式，支援批次分享書籤。"],
-    en: ["Fixed an iCloud backup issue and added manual backup and restore.", "Improved image sharing and added batch bookmark sharing."],
-    ja: ["iCloud バックアップの問題を修正し、手動バックアップと復元を追加しました。", "画像共有を改善し、ブックマークの一括共有に対応しました。"],
-    ko: ["iCloud 백업 문제를 수정하고 수동 백업 및 복원을 추가했습니다.", "이미지 공유를 개선하고 북마크 일괄 공유를 지원합니다."]
+  release: release("1.0.4", {
+    "zh-Hans": ["适配 iPhone Duo 展开态，左侧书签列表与右侧网页浏览并排显示。", "优化界面和功能，修复了一些问题。"],
+    "zh-Hant": ["適配 iPhone Duo 展開模式，左側書籤列表與右側網頁瀏覽並排顯示。", "優化介面與功能，修正部分問題。"],
+    en: ["Added iPhone Duo expanded mode with bookmarks on the left and web browsing on the right.", "Polished the UI and features and fixed several issues."],
+    ja: ["iPhone Duo の展開モードに対応し、左側にブックマーク、右側に Web ページを表示します。", "UI と機能を改善し、いくつかの問題を修正しました。"],
+    ko: ["iPhone Duo 확장 모드에서 왼쪽에 북마크, 오른쪽에 웹 페이지를 표시합니다.", "UI와 기능을 개선하고 여러 문제를 수정했습니다."]
   }),
   listings: {
     CN: liveListing("CN", "6758990165", "我的书签 - 极简书签管理器 & 二维码分享"),
