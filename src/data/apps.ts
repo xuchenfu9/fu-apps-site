@@ -289,7 +289,7 @@ const myBookmarks: AppRecord = {
   slug: "my-bookmarks",
   appStoreId: "6758990165",
   contactEmail: publicContactEmail,
-  icon: "/assets/apps/my-bookmarks/web/icon.webp",
+  icon: "/assets/apps/my-bookmarks/web/icon-198d7aaa3001.webp",
   screenshots: [
     "/assets/apps/my-bookmarks/web/screen-01.webp",
     "/assets/apps/my-bookmarks/web/screen-02.webp",
